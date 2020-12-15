@@ -1168,5 +1168,29 @@ Vectors are represented using line segments with arrows to denote their directio
 	$$\implies x^2 - (1-i + 1+i)x + (1-i)(1+i)=0$$
 	$$\implies x^2-2x+2 = 0\qed$$
 	\end{center}
+\chapter{Applications of Calculus}
+\section{Integrals}
+\subsection{Volume of Revolution}
 
+	If part	of a curve and the area underneath is rotated about a straight line, the solid formed is called a solid of revolution.\\
+
+Consider the graph $y=f(x)$ and suppose we  rotate the part of the curve from $x=a$ to $x=b$ about the x-axis. If the shaded area of $f(x)$ is notated about the $x$-axis the following shape is formed:
+\begin{center}
+	\begin{multicols}{2}
+		\includegraphics[scale=0.5]{app_of_calc_integ_1}
+		\includegraphics[scale=0.5]{app_of_calc_integ_2}
+	\end{multicols}
+\end{center}
+
+Suppose that the solid formed is cut into sections as shown. Let $PQRS$ be a typical section. If the cuts are reasonably close to each other, $PQRS$ approximates a cylinder with height $\delta x$ and radius $y$ as shown below:
+\begin{center}
+	\includegraphics[scale=1]{app_of_calc_integ_3}
+\end{center}
+The volume, $\delta v$, of $PQRS$ is given by:
+$$\delta V \simeq \pi y^2 \delta x$$
+Thus, the volume $V$ of solid $PQRS$ is given by:
+$$V\simeq \sum_{x=a}^{b} \pi y^2 \delta x$$
+This summation approaches $V$ as $\delta x \to 0$
+$$V = \lim\limits_{\delta x \to 0}   \sum_{x=a}^{b} \pi y^2 \delta x$$
+$$\quad\boxed{V = \int_{a}^{b} \pi y^2 \, dx}$$
 	\end{document}
