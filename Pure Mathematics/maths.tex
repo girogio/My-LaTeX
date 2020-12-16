@@ -1213,28 +1213,40 @@ $$\quad\boxed{V = \int_{a}^{b} \pi y^2 \, dx}$$
 \begin{example}
 	Find the volume generated when the area defined by the inequalities $y\leq x^2$ and $y\geq x$ is rotated about the $x$-axis.
 \end{example}
+\begin{multicols}{2}
 	\begin{tikzpicture}
-	\begin{axis}[
-		width=8cm,
-		height=6cm,
-		axis line style={-},
-		xmin=0,
-		xmax=2,
-		ymin=0,
-		ymax=2,
-		xtick={}, % remove all ticks from x-axis
-		ytick={}, % ditto for y-axis
-		xlabel=$x$, 
-		ylabel=$y$,
-		axis lines=center, % default is to make a box around the axis
-		samples=100]
-		\addplot [name path=A,samples=501, domain=0:2, black] {sqrt(x)};
-		\addplot [name path=B,samples=501, domain=0:2, green]  {x};
-		\draw[pattern=north east lines,
-		intersection segments={
-			of=A and B,
-			sequence={L2--R2[reverse]}
-		}];
-	\end{axis}
-\end{tikzpicture}
+		\begin{axis}[
+			width=8cm,
+			height=6cm,
+			axis line style={-},
+			xmin=0,
+			xmax=2,
+			ymin=0,
+			ymax=2,
+			xtick={}, % remove all ticks from x-axis
+			ytick={}, % ditto for y-axis
+			xlabel=$x$, 
+			ylabel=$y$,
+			axis lines=center, % default is to make a box around the axis
+			samples=100]
+			\addplot [name path=A,samples=501, domain=0:2, black] {sqrt(x)};
+			\addplot [name path=B,samples=501, domain=0:2, green]  {x};
+			\draw[pattern=north east lines,
+			intersection segments={
+				of=A and B,
+				sequence={L2--R2[reverse]}
+			}];
+		\end{axis}
+	\end{tikzpicture}
+\begin{center}
+	
+\end{center}
+\begin{alignat*}{2}
+&&	V_{e-c} &= V_e - V_c\\
+&&&= \pi \int_{0}^{1} \sqrt{x}^2 \, dx - \pi \int_{0}^{1} x^2 \, dx\\
+
+	
+\end{alignat*}
+\end{multicols}
+	
 	\end{document}
