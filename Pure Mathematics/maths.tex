@@ -1270,7 +1270,7 @@ $$\quad\boxed{V = \int_{a}^{b} \pi y^2 \, dx}$$
 		axis lines=center, % default is to make a box around the axis
 		samples=100]
 		\addplot [name path=A,samples=501, domain=0:2, black] {2};
-		\addplot [name path=B,samples=501, domain=0:2, black]  {x^2 + 1};
+		\addplot [name path=B, domain=0:2, black]  {x^2 + 1};
 		\draw[pattern=north east lines,
 		intersection segments={
 			of=A and B,
