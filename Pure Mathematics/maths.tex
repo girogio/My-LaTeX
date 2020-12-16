@@ -1252,6 +1252,30 @@ $$\quad\boxed{V = \int_{a}^{b} \pi y^2 \, dx}$$
 \end{example}
 \begin{example}
 	
-	Find the volume when the region defined by  $y\geq x^+1, x\geq0$ and $y\leq2$ is rotated about the $y$-axis.
+	Find the volume when the region defined by  $y\geq x^+1,\quad x\geq0$ and $y\leq2$ is rotated about the $y$-axis.
 \end{example}
+	\begin{tikzpicture}
+	\begin{axis}[
+		width=8cm,
+		height=6cm,
+		axis line style={-},
+		xmin=0,
+		xmax=2.5,
+		ymin=0,
+		ymax=2.5,
+		xtick={}, % remove all ticks from x-axis
+		ytick={}, % ditto for y-axis
+		xlabel=$x$, 
+		ylabel=$y$,
+		axis lines=center, % default is to make a box around the axis
+		samples=100]
+		\addplot [name path=A,samples=501, domain=0:2, black] {y=2};
+		\addplot [name path=B,samples=501, domain=0:2, black]  {x^2 + 1};
+		\draw[pattern=north east lines,
+		intersection segments={
+			of=A and B,
+			sequence={L2--R2[reverse]}
+		}];
+	\end{axis}
+\end{tikzpicture}
 	\end{document}
