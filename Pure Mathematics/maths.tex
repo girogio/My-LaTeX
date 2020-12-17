@@ -1274,13 +1274,13 @@ Find the volume when the region defined by  $y\geq x^+1,\quad x\geq0$ and $y\leq
 	\addplot [name path=B, domain=0:2, black]  {x^2 + 1};
 	\draw[pattern=north east lines,
 	intersection segments={
-		of=axis and B,
+		of=A and B,
 		sequence={L2--R	2[reverse]}
 	}];
-	\draw[pattern=north east lines,
-	intersection segments={
-		of=axis and B,
-	}];
+%	\draw[pattern=north east lines,
+%	intersection segments={
+%		of=axis and B,
+%	}];
 \end{axis}
 \end{tikzpicture}
 
