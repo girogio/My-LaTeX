@@ -1,4 +1,4 @@
-\documentclass[12pt, a4paper]{report}
+Paste Latex Here\documentclass[12pt, a4paper]{report}
 \usepackage[
 top    = 2.50cm,% presumably you don't want it to be 0pt as well?
 bottom = 2.50cm,
@@ -623,39 +623,39 @@ marginparwidth=0pt,
 	\chapter{Vectors}
 	\section{Definition}
 	\quad A vector quantity is one which has magnitude and direction. For example, length is defined only by size and therefore is a \textit{scalar quantity}. However, acceleration due to gravity, while having a known magnitude, it is also acting in a particular direction. Hence, acceleration is a vector quantity.
-		
-\begin{wrapfigure}{r}{0.25\textwidth}
-	\includegraphics[width=1.3\linewidth]{vect_1} 
-\end{wrapfigure}
-
-Vectors are represented using line segments with arrows to denote their direction. Hence, we may consider vector $\overrightarrow{AB}$.
-
-\begin{itemize}
-	\item{Two vectors are s.t.b equal iff they have the same magnitude and act in the same direction.}
-	\item{The modulus refers to the size of a vector $\underline{a}$ and is denoted by $\abs{a}$.}
-	\item{Two vectors $\underline{a}$ and  $-\underline{a}$  are equal in magnitude but opposite in direction. Hence the negative sign indicates opposing direction.}
-	\item{When a vector is multiplied by a scalar, its magnitude changes. thus $\lambda  \underline{a}$ is a vector in the same direction as  $\underline{a}$ but has magnitude $\lambda\abs{\underline{a}}$}
-\end{itemize}
+	
+	\begin{wrapfigure}{r}{0.25\textwidth}
+		\includegraphics[width=1.3\linewidth]{vect_1} 
+	\end{wrapfigure}
+	
+	Vectors are represented using line segments with arrows to denote their direction. Hence, we may consider vector $\overrightarrow{AB}$.
+	
+	\begin{itemize}
+		\item{Two vectors are s.t.b equal iff they have the same magnitude and act in the same direction.}
+		\item{The modulus refers to the size of a vector $\underline{a}$ and is denoted by $\abs{a}$.}
+		\item{Two vectors $\underline{a}$ and  $-\underline{a}$  are equal in magnitude but opposite in direction. Hence the negative sign indicates opposing direction.}
+		\item{When a vector is multiplied by a scalar, its magnitude changes. thus $\lambda  \underline{a}$ is a vector in the same direction as  $\underline{a}$ but has magnitude $\lambda\abs{\underline{a}}$}
+	\end{itemize}
 	\section{Position Vectors and Free Vectors}
 	\quad When we refer to a vector  $\underline{a}$ we refer to a vector which is not confined to a specific position on the plane or in space.  $\underline{a}$, as such, is a \textit{free vector}.\\
 	
-	 When we refer to the position vector  $\underline{b}$, we refer to a vector which is initially set to start from a specific location, usually, the origin.\\
+	When we refer to the position vector  $\underline{b}$, we refer to a vector which is initially set to start from a specific location, usually, the origin.\\
 	\setlength{\columnseprule}{0pt} 
-\begin{multicols}{2}
-	\begin{center}
-				\includegraphics[scale=0.16]{vect_2} 
-	\end{center}
-\begin{center}
-	~\\~\\~\\
-	Suppose that  $\underline{a}$ and  $\underline{b}$ are non-parallel free vectors, and that the origin is a fixed point. There exists only one plane which contains the point $(0,0)$,  $\underline{a}$ and  $\underline{b}$.
-\end{center}
+	\begin{multicols}{2}
+		\begin{center}
+			\includegraphics[scale=0.16]{vect_2} 
+		\end{center}
+		\begin{center}
+			~\\~\\~\\
+			Suppose that  $\underline{a}$ and  $\underline{b}$ are non-parallel free vectors, and that the origin is a fixed point. There exists only one plane which contains the point $(0,0)$,  $\underline{a}$ and  $\underline{b}$.
+		\end{center}
+		
+	\end{multicols}
 	
-\end{multicols}
-	 
-	 
-
 	
-
+	
+	
+	
 	\newpage
 	\chapter{Inequalities}
 	\section{Quadratic Inequalities}
@@ -1136,7 +1136,7 @@ Vectors are represented using line segments with arrows to denote their directio
 	\end{align*}
 	$$\therefore \quad y = x-2 \qed$$
 	$$\text{Point } z \text{ lies on the straight line } y = x-2$$
-
+	
 	\begin{example}
 		Shade on an Argand diagram the area represented by $\abs{z+i} < 4$.
 	\end{example}~\\
@@ -1156,72 +1156,112 @@ Vectors are represented using line segments with arrows to denote their directio
 		\end{center}
 	\end{multicols}
 	~\\~\\
-\textbf{Finding $\boldsymbol{z_0= (a,b) = a+bi\colon}$}
+	\textbf{Finding $\boldsymbol{z_0= (a,b) = a+bi\colon}$}
 	\reqnomode
-
-			\begin{alignat*}{2}
-			&               & z_0           & = a+bi       \\
-			&\implies	&\abs{z_0}& = \sqrt{a^2+b^2}\\
-			\intertext{Given:  $\abs{z_0}= \sqrt{2}$}
-			& \implies\quad & \sqrt{a^+b^2} & = \sqrt{2}   \\
-			& \implies\quad & a^2+b^2       & = 2\tag{1}   \\
-			\intertext{We also know $z_0$ is on the line $y=x-2$}
-	\therefore    b  = a-2\tag{2}	
-			\intertext{Substituting 2 in 1: }
-			&&a^2 + (a-2)^2 & = 2\\
-			&\implies\quad&2a^2 - 4a+4 &= 2\\
-		&\implies\quad &a^2-2a+1 &=0\\
-		\end{alignat*}
-		$$	\therefore\quad z_0 = 1-i \qed$$\\
-\textbf{Finding quadratic equation with roots: $\boldsymbol{z_0, \bar{z_0}}$}
+	
+	\begin{alignat*}{2}
+		&               & z_0           & = a+bi           \\
+		& \implies      & \abs{z_0}     & = \sqrt{a^2+b^2} \\
+		\intertext{Given:  $\abs{z_0}= \sqrt{2}$}
+		& \implies\quad & \sqrt{a^+b^2} & = \sqrt{2}       \\
+		& \implies\quad & a^2+b^2       & = 2\tag{1}       \\
+		\intertext{We also know $z_0$ is on the line $y=x-2$}
+		\therefore    b  = a-2\tag{2}	
+		\intertext{Substituting 2 in 1: }
+		&               & a^2 + (a-2)^2 & = 2              \\
+		& \implies\quad & 2a^2 - 4a+4   & = 2              \\
+		& \implies\quad & a^2-2a+1      & =0               \\
+	\end{alignat*}
+	$$	\therefore\quad z_0 = 1-i \qed$$\\
+	\textbf{Finding quadratic equation with roots: $\boldsymbol{z_0, \bar{z_0}}$}
 	\begin{center}
-	$$x^2 - (\text{sum of roots})x + (\text{product of roots}) = 0$$
-	$$\implies x^2 - (1-i + 1+i)x + (1-i)(1+i)=0$$
-	$$\implies x^2-2x+2 = 0\qed$$
+		$$x^2 - (\text{sum of roots})x + (\text{product of roots}) = 0$$
+		$$\implies x^2 - (1-i + 1+i)x + (1-i)(1+i)=0$$
+		$$\implies x^2-2x+2 = 0\qed$$
 	\end{center}
-\chapter{Applications of Calculus}
-\section{Integrals}
-\subsection{Volume of Revolution}
-
+	\chapter{Applications of Calculus}
+	\section{Integrals}
+	\subsection{Volume of Revolution}
+	
 	If part	of a curve and the area underneath is rotated about a straight line, the solid formed is called a solid of revolution.\\
-
-Consider the graph $y=f(x)$ and suppose we  rotate the part of the curve from $x=a$ to $x=b$ about the x-axis. If the shaded area of $f(x)$ is notated about the $x$-axis the following shape is formed:
-
+	
+	Consider the graph $y=f(x)$ and suppose we  rotate the part of the curve from $x=a$ to $x=b$ about the x-axis. If the shaded area of $f(x)$ is notated about the $x$-axis the following shape is formed:
+	
 	\begin{multicols}{2}
 		\begin{center}
-		\includegraphics[scale=0.5]{app_of_calc_integ_1}
+			\includegraphics[scale=0.5]{app_of_calc_integ_1}
 		\end{center}
-	\begin{center}
-		~\\
-		\includegraphics[scale=0.5]{app_of_calc_integ_2}
-	\end{center}
+		\begin{center}
+			~\\
+			\includegraphics[scale=0.5]{app_of_calc_integ_2}
+		\end{center}
 	\end{multicols}
-
-
-Suppose that the solid formed is cut into sections as shown. Let $PQRS$ be a typical section. If the cuts are reasonably close to each other, $PQRS$ approximates a cylinder with height $\delta x$ and radius $y$ as shown below:
-\begin{center}
-\qquad \qquad \includegraphics[scale=1]{app_of_calc_integ_3}
-\end{center}
-The volume, $\delta v$, of $PQRS$ is given by:
-$$\delta V \simeq \pi y^2 \delta x$$
-Thus, the volume $V$ of solid $PQRS$ is given by:
-$$V\simeq \sum_{x=a}^{b} \pi y^2 \delta x$$
-This summation approaches $V$ as $\delta x \to 0$
-$$V = \lim\limits_{\delta x \to 0}   \sum_{x=a}^{b} \pi y^2 \delta x$$
-$$\quad\boxed{V = \int_{a}^{b} \pi y^2 \, dx}$$
-\hrulefill
-\begin{example}
-	Find the volume generated when the area  between $y=e^x$, the x-axis
-\end{example}
-
-\begin{alignat*}{2}
-	&&V&=\int_{0}^{1} \pi y \, dx\\
-\end{alignat*}
-
-\begin{example}
-	Find the volume generated when the area defined by the inequalities $y\leq x^2$ and $y\geq x$ is rotated about the $x$-axis.
-\end{example}
-\begin{multicols}{2}
+	
+	
+	Suppose that the solid formed is cut into sections as shown. Let $PQRS$ be a typical section. If the cuts are reasonably close to each other, $PQRS$ approximates a cylinder with height $\delta x$ and radius $y$ as shown below:
+	\begin{center}
+		\qquad \qquad \includegraphics[scale=1]{app_of_calc_integ_3}
+	\end{center}
+	The volume, $\delta v$, of $PQRS$ is given by:
+	$$\delta V \simeq \pi y^2 \delta x$$
+	Thus, the volume $V$ of solid $PQRS$ is given by:
+	$$V\simeq \sum_{x=a}^{b} \pi y^2 \delta x$$
+	This summation approaches $V$ as $\delta x \to 0$
+	$$V = \lim\limits_{\delta x \to 0}   \sum_{x=a}^{b} \pi y^2 \delta x$$
+	$$\quad\boxed{V = \int_{a}^{b} \pi y^2 \, dx}$$
+	\hrulefill
+	\begin{example}
+		Find the volume generated when the area  between $y=e^x$, the x-axis
+	\end{example}
+	
+	\begin{alignat*}{2}
+		&   & V & =\int_{0}^{1} \pi y \, dx \\
+	\end{alignat*}
+	
+	\begin{example}
+		Find the volume generated when the area defined by the inequalities $y\leq x^2$ and $y\geq x$ is rotated about the $x$-axis.
+	\end{example}
+	\begin{multicols}{2}
+		\begin{tikzpicture}
+			\begin{axis}[
+				width=8cm,
+				height=6cm,
+				axis line style={-},
+				xmin=0,
+				xmax=2.5,
+				ymin=0,
+				ymax=2.5,
+				xtick={}, % remove all ticks from x-axis
+				ytick={}, % ditto for y-axis
+				xlabel=$x$, 
+				ylabel=$y$,
+				axis lines=center, % default is to make a box around the axis
+				samples=100]
+				\addplot [name path=A,samples=501, domain=0:2, black] {sqrt(x)};
+				\addplot [name path=B,samples=501, domain=0:2, green]  {x};
+				\draw[pattern=north east lines,
+				intersection segments={
+					of=A and B,
+					sequence={L2--R2[reverse]}
+				}];
+			\end{axis}
+		\end{tikzpicture}
+		\begin{center}
+			
+		\end{center}
+		
+	\end{multicols}
+	\begin{alignat*}{2}
+		&   & V_{e-c} & = V_e - V_c                                                      \\
+		&   &         & = \pi \int_{0}^{1} \sqrt{x}^2 \, dx - \pi \int_{0}^{1} x^2 \, dx \\
+	\end{alignat*}
+	\begin{example}
+		Find the volume generated when the area in the first quadrant bounded by the circle $x=4\cos\theta, y=4\sin\theta$ rotates completely about the $x$-axis.
+	\end{example}
+	\begin{example}
+		
+		Find the volume when the region defined by  $y\geq x^2+1,\quad x\geq0$ and $y\leq2$ is rotated about the $y$-axis.
+	\end{example}
 	\begin{tikzpicture}
 		\begin{axis}[
 			width=8cm,
@@ -1237,63 +1277,23 @@ $$\quad\boxed{V = \int_{a}^{b} \pi y^2 \, dx}$$
 			ylabel=$y$,
 			axis lines=center, % default is to make a box around the axis
 			samples=100]
-			\addplot [name path=A,samples=501, domain=0:2, black] {sqrt(x)};
-			\addplot [name path=B,samples=501, domain=0:2, green]  {x};
+			\path[name path=axis] (axis cs:0,0) -- (axis cs:0,2);
+			\addplot [name path=A, domain=0:2, black] {2};	
+			\addplot [name path=B, domain=0:2, black]  {x^2 + 1};
 			\draw[pattern=north east lines,
+			%TODO fix this
 			intersection segments={
-				of=A and B,
-				sequence={L2--R2[reverse]}
+				of=B and A,
+				of=axis and B,
+				of=A and axis,
+				sequence={L2--R	2[reverse]}
 			}];
+			%	\draw[pattern=north east lines,
+			%	intersection segments={
+			%		of=axis and B,
+			%	}];
 		\end{axis}
 	\end{tikzpicture}
-\begin{center}
 	
-\end{center}
-
-\end{multicols}
-\begin{alignat*}{2}
-&&	V_{e-c} &= V_e - V_c\\
-&&&= \pi \int_{0}^{1} \sqrt{x}^2 \, dx - \pi \int_{0}^{1} x^2 \, dx\\
-\end{alignat*}
-\begin{example}
-Find the volume generated when the area in the first quadrant bounded by the circle $x=4\cos\theta, y=4\sin\theta$ rotates completely about the $x$-axis.
-\end{example}
-\begin{example}
-
-Find the volume when the region defined by  $y\geq x^2+1,\quad x\geq0$ and $y\leq2$ is rotated about the $y$-axis.
-\end{example}
-\begin{tikzpicture}
-\begin{axis}[
-	width=8cm,
-	height=6cm,
-	axis line style={-},
-	xmin=0,
-	xmax=2.5,
-	ymin=0,
-	ymax=2.5,
-	xtick={}, % remove all ticks from x-axis
-	ytick={}, % ditto for y-axis
-	xlabel=$x$, 
-	ylabel=$y$,
-	axis lines=center, % default is to make a box around the axis
-	samples=100]
-	\path[name path=axis] (axis cs:0,0) -- (axis cs:0,2);
-	\addplot [name path=A, domain=0:2, black] {2};	
-	\addplot [name path=B, domain=0:2, black]  {x^2 + 1};
-	\draw[pattern=north east lines,
-	%TODO fix this
-	intersection segments={
-		of=B and A,
-		of=axis and B,
-		of=A and axis,
-		sequence={L2--R	2[reverse]}
-	}];
-%	\draw[pattern=north east lines,
-%	intersection segments={
-%		of=axis and B,
-%	}];
-\end{axis}
-\end{tikzpicture}
-
-
-	\end{document}
+	
+\end{document}
