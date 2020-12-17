@@ -1252,7 +1252,7 @@ Find the volume generated when the area in the first quadrant bounded by the cir
 \end{example}
 \begin{example}
 
-Find the volume when the region defined by  $y\geq x^+1,\quad x\geq0$ and $y\leq2$ is rotated about the $y$-axis.
+Find the volume when the region defined by  $y\geq x^2+1,\quad x\geq0$ and $y\leq2$ is rotated about the $y$-axis.
 \end{example}
 \begin{tikzpicture}
 \begin{axis}[
@@ -1273,6 +1273,7 @@ Find the volume when the region defined by  $y\geq x^+1,\quad x\geq0$ and $y\leq
 	\addplot [name path=A, domain=0:2, black] {2};	
 	\addplot [name path=B, domain=0:2, black]  {x^2 + 1};
 	\draw[pattern=north east lines,
+	%TODO fix this
 	intersection segments={
 		of=B and A,
 		of=axis and B,
