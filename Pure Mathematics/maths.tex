@@ -1238,51 +1238,6 @@ $$\quad\boxed{V = \int_{a}^{b} \pi y^2 \, dx}$$
 			}];
 		\end{axis}
 	\end{tikzpicture}
-\begin{center}
-	
-\end{center}
-
-\end{multicols}
-	\begin{alignat*}{2}
-		&&	V_{e-c} &= V_e - V_c\\
-		&&&= \pi \int_{0}^{1} \sqrt{x}^2 \, dx - \pi \int_{0}^{1} x^2 \, dx\\
-	\end{alignat*}
-\begin{example}
-	Find the volume generated when the area in the first quadrant bounded by the circle $x=4\cos\theta, y=4\sin\theta$ rotates completely about the $x$-axis.
-\end{example}
-\begin{example}
-	
-	Find the volume when the region defined by  $y\geq x^+1,\quad x\geq0$ and $y\leq2$ is rotated about the $y$-axis.
-\end{example}
-	\begin{tikzpicture}
-	\begin{axis}[
-		width=8cm,
-		height=6cm,
-		axis line style={-},
-		xmin=0,
-		xmax=2.5,
-		ymin=0,
-		ymax=2.5,
-		xtick={}, % remove all ticks from x-axis
-		ytick={}, % ditto for y-axis
-		xlabel=$x$, 
-		ylabel=$y$,
-		axis lines=center, % default is to make a box around the axis
-		samples=100]
-		\path[name path=axis] (axis cs:0,0) -- (axis cs:0,2);
-		\addplot [name path=A, domain=0:2, black] {2};	
-		\addplot [name path=B, domain=0:2, black]  {x^2 + 1};
-		\draw[pattern=north east lines,
-		intersection segments={
-			of=axis and B,
-			sequence={L2--R	2[reverse]}
-		}];
-		\draw[pattern=north east lines,
-		intersection segments={
-			of=axis and A,
-		}];
-	\end{axis}
-\end{tikzpicture}
-
+asda
 
 	\end{document}
