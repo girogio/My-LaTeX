@@ -1359,6 +1359,74 @@ Also, given two points $A(x_1,y_1,z_1)$ and $B(x_2,y_2,z_2)$, the vector $\overr
 			%	}];
 		\end{axis}
 	\end{tikzpicture}
+	\subsection{Length of an arc of a curve}
+	To find the length of an arc of a curve we use the method of summing small elements of one length.\\
+	Suppose that arc $PQ$, of length $\delta s$, is such an element. Then, the length $S$ of the curve $AB$ is given by:
+\begin{multicols}{2}
+	\begin{center}
+$\sum_{x=x_1}^{x_2} \delta S$
+	\end{center}
+\begin{center}
+\includegraphics[width=0.7\linewidth]{app_of_integ_4}
+\end{center}
+\end{multicols}
 	
+
+As $\delta s$ is very small, it can be approximated to the hypothenuse of the $\triangle PQR$. Thus:
+\begin{alignat*}{2}
+	&&(\delta x)^2 + (\delta y)^2 &\simeq (\delta s)^2\\
+	&\implies&1 + \left( \frac{\delta y}{\delta x}\right) ^2 &\simeq \left( \frac{\delta S}{\delta x}\right) ^2\\
+	&\implies &\delta S &\simeq \sqrt{1+\left( \frac{\delta y}{\delta x}\right)^2 } \delta x\\
+	&\therefore &S &\simeq \sum_{x=x_1}^{x_2} \sqrt{1 + \left(\frac{\delta y}{\delta x}\right)}\delta x	
+\end{alignat*}
+~\\
+~\\
+As $\delta x \leftarrow 0, (\frac{\delta y}{\delta x}) \leftarrow \frac{dy}{dx} \quad $and$ \quad s = \lim_{\delta x \to 0} \sum_{x=x_1}^{x_2} \sqrt{1+\left( \frac{\delta y}{\delta x}\right)^2}  \delta x$
+~\\
+~\\
+~\\
+
+\begin{center}
+	\begin{tcolorbox}[center title,hbox,    
+		lifted shadow={1mm}{-2mm}{3mm}{0.1mm}%
+		{black!50!white}]
+		\begin{varwidth}{\textwidth}
+			\begin{center}
+				$\therefore \quad S = \int_{x_1}^{x_2} \sqrt{1 + \left(\frac{dy}{dx}\right)^2}\, dx$
+			\end{center}
+		\end{varwidth}
+	\end{tcolorbox} 
+\end{center}
+
+
+Knowing the Cartesian equation of the curve, the necessary integration can be carried out.\\
+
+Let us now consider a curve $S$ parametrically in terms of $t$.
+
+We can use again :
+ \begin{alignat*}{2}
+&&(\delta s )^2 &\simeq (\delta x)^2 + (\delta y)^2\\
+&\implies&\left(\frac{\delta s}{\delta t}\right)^2 &\simeq \left(\frac{\delta x}{\delta t}\right)^2 + \left(\frac{\delta y}{\delta t}\right)^2\\
+&\implies&\delta s &\simeq \sqrt{\left(\frac{\delta x}{\delta t}\right)^2 + \left(\frac{\delta y}{\delta t}\right)^2} \delta t
+ \end{alignat*}
+
+~\\
+as $\delta t \to 0\quad ; \quad \frac{\delta x}{\delta t} \to \frac{dx}{dt} \quad \text{and} \quad \left(\frac{\delta y}{\delta t}\right) \to \frac{dy}{dt}$\\
+~\\
+
+$$\therefore S = \lim_{\delta t \to 0} \sum_{t=t_1}^{t_2} \sqrt{\left(\frac{\delta x}{\delta t}\right)^2 + \left(\frac{\delta y}{\delta t}\right)^2} \delta t$$
+
+\begin{center}
+	\begin{tcolorbox}[center title,hbox,    %%<<---- here
+		lifted shadow={1mm}{-2mm}{3mm}{0.1mm}%
+		{black!50!white}]
+		\begin{varwidth}{\textwidth}
+			\begin{center}
+				$S = \int_{t_1}^{t_2} \sqrt{\left(\frac{dx}{dt}\right)^2 + \left(\frac{dy}{dt}\right)^2}\, dt$
+			\end{center}
+		\end{varwidth}
+	\end{tcolorbox} 
+\end{center}
+
 	
 \end{document}
