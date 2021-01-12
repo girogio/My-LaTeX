@@ -218,8 +218,7 @@
 \predate{}
 \postdate{}
 \date{} % clear date
-
-
+\usepackage{draftwatermark}
 \setlength{\jot}{13pt}
 \counterwithin*{example}{section}
 \counterwithin*{example}{subsection}
@@ -289,6 +288,8 @@
 	\end{titlepage}
 	\tableofcontents
 	\newpage
+	\SetWatermarkText{Giorgio G.}
+	\SetWatermarkScale{5}
 	\part{Computer Arithmetic and Logic}
 	\chapter{Computer Arithmetic}
 	\section{Binary numbers}
