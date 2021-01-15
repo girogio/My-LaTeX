@@ -656,16 +656,16 @@ marginparwidth=0pt,
 	\end{multicols}
 	
 	Consider another point $p$ on this plane.
-		\begin{multicols}{2}
+	\begin{multicols}{2}
 		\begin{center}
 			\includegraphics[scale=0.16]{vect_2} 
 		\end{center}
 		\begin{itemize}
 			\item{$\vec{OP}$ is the PV \footnote{Position Vector} of P}
 			
-		\item{	$\overrightarrow{OC}$ is $\parallel$ to $\textbf{b}$, thus $\overrightarrow{OC} = \lambda \textbf{b}$}
-		\item{$\overrightarrow{CP}$ is $\parallel$ to \textbf{a}, thus $\overrightarrow{CP} = \gamma \textbf{a}$}
-		\item{$\overrightarrow{OP} = \overrightarrow{OC} + \overrightarrow{PC}	 =\gamma \textbf{a} + \lambda \textbf{b}$}
+			\item{	$\overrightarrow{OC}$ is $\parallel$ to $\textbf{b}$, thus $\overrightarrow{OC} = \lambda \textbf{b}$}
+			\item{$\overrightarrow{CP}$ is $\parallel$ to \textbf{a}, thus $\overrightarrow{CP} = \gamma \textbf{a}$}
+			\item{$\overrightarrow{OP} = \overrightarrow{OC} + \overrightarrow{PC}	 =\gamma \textbf{a} + \lambda \textbf{b}$}
 		\end{itemize}
 		
 	\end{multicols}
@@ -677,54 +677,124 @@ marginparwidth=0pt,
 	This basis spans the usual $x$ and $y$ plane. The base vectors are \textbf{i} and \textbf{j} respectively denoting the unit base vector in the positive $x$ direction and similarly in the positive $y$ direction.\\
 	
 	In general, given the points $A(x_1,y_1)$ and $B(x_2,y_2)$, the vector $\overrightarrow{AB}$ is given by:	
-
-
-\begin{center}
-	\begin{tcolorbox}[center title,hbox,    %%<<---- here
-		lifted shadow={1mm}{-2mm}{3mm}{0.1mm}%
-		{black!50!white}]
-		\begin{varwidth}{\textwidth}
-			\begin{center}
-			$$\overrightarrow{AB} = (x_2 -x_1)\textbf{i} - (y_2 -y_1)\textbf{j}$$
-						
-		$$	\abs{\overrightarrow{AB}} = \sqrt{(x_2 -x_1)^2 + (y_2 -y_1)^2}$$
-			\end{center}
-		\end{varwidth}
-	\end{tcolorbox} 
-\end{center}
-\newpage
-\section{Vectors in 3D space}
-
-The ideas developed in the previous section can be extended to the 3-dimensional space. Thus any point $A(x_1,y_1,z_1)$ in the 3D space has position vector $\overrightarrow{OA}$.
-\begin{center}
-	\begin{tcolorbox}[center title,hbox,    %%<<---- here
-		lifted shadow={1mm}{-2mm}{3mm}{0.1mm}%
-		{black!50!white}]
-		\begin{varwidth}{\textwidth}
-			\begin{center}
-			$$\overrightarrow{OA} = x\textbf{i} + y\textbf{j} +z\textbf{k}$$
-			$$\abs{\overrightarrow{OA} = \sqrt{x^2 + y^2 + z^2}}$$
-			\end{center}
-		\end{varwidth}
-	\end{tcolorbox} 
-\end{center}
-
-Also, given two points $A(x_1,y_1,z_1)$ and $B(x_2,y_2,z_2)$, the vector $\overrightarrow{AB}$ is given by:
-\begin{center}
-	\begin{tcolorbox}[center title,hbox,    %%<<---- here
-		lifted shadow={1mm}{-2mm}{3mm}{0.1mm}%
-		{black!50!white}]
-		\begin{varwidth}{\textwidth}
-			\begin{center}
-				$$\overrightarrow{AB} = (x_2 -x_1)\textbf{i} - (y_2 -y_1)\textbf{j} + (z_2 - z_1)\textbf{k}$$
-				
-				$$	\abs{\overrightarrow{AB}} = \sqrt{(x_2 -x_1)^2 + (y_2 -y_1)^2 + (z_2 - z_1)^2}$$
-			\end{center}
-		\end{varwidth}
-	\end{tcolorbox} 
-\end{center}
- 
+	
+	
+	\begin{center}
+		\begin{tcolorbox}[center title,hbox,    %%<<---- here
+			lifted shadow={1mm}{-2mm}{3mm}{0.1mm}%
+			{black!50!white}]
+			\begin{varwidth}{\textwidth}
+				\begin{center}
+					$$\overrightarrow{AB} = (x_2 -x_1)\textbf{i} - (y_2 -y_1)\textbf{j}$$
+					
+					$$	\abs{\overrightarrow{AB}} = \sqrt{(x_2 -x_1)^2 + (y_2 -y_1)^2}$$
+				\end{center}
+			\end{varwidth}
+		\end{tcolorbox} 
+	\end{center}
 	\newpage
+	\section{Unit vectors}
+	
+	
+	
+	A unit vector is a vector with magnitude 1. Consider vector $\textbf{v}$ \& let $\abs{\textbf{v}}$ be its magnitude. A unit vector in the direction of $\textbf{v}$, denoted by $\hat{\textbf{v}}$ can be obtained by dividing $\textbf{v}$ by its magnitude.
+	
+	$$\hat{\textbf{v}} = \frac{\textbf{v}}{\abs{\textbf{v}}}$$
+	
+	
+	\section{Vectors in 3D space}
+	
+	The ideas developed in the previous section can be extended to the 3-dimensional space. Thus any point $A(x_1,y_1,z_1)$ in the 3D space has position vector $\overrightarrow{OA}$.
+	\begin{center}
+		\begin{tcolorbox}[center title,hbox,    %%<<---- here
+			lifted shadow={1mm}{-2mm}{3mm}{0.1mm}%
+			{black!50!white}]
+			\begin{varwidth}{\textwidth}
+				\begin{center}
+					$$\overrightarrow{OA} = x\textbf{i} + y\textbf{j} +z\textbf{k}$$
+					$$\abs{\overrightarrow{OA} = \sqrt{x^2 + y^2 + z^2}}$$
+				\end{center}
+			\end{varwidth}
+		\end{tcolorbox} 
+	\end{center}
+	
+	Also, given two points $A(x_1,y_1,z_1)$ and $B(x_2,y_2,z_2)$, the vector $\overrightarrow{AB}$ is given by:
+	\begin{center}
+		\begin{tcolorbox}[center title,hbox,    %%<<---- here
+			lifted shadow={1mm}{-2mm}{3mm}{0.1mm}%
+			{black!50!white}]
+			\begin{varwidth}{\textwidth}
+				\begin{center}
+					$$\overrightarrow{AB} = (x_2 -x_1)\textbf{i} - (y_2 -y_1)\textbf{j} + (z_2 - z_1)\textbf{k}$$
+					
+					$$	\abs{\overrightarrow{AB}} = \sqrt{(x_2 -x_1)^2 + (y_2 -y_1)^2 + (z_2 - z_1)^2}$$
+				\end{center}
+			\end{varwidth}
+		\end{tcolorbox} 
+	\end{center}
+	
+	\subsection{Direction ratios of a Vector}
+	
+	Given the vector $a\textbf{i}+b\textbf{j}+c\textbf{k}$, the ratios $a\colon b\colon c$ are called the direction ratios of the vector.\\
+	
+	Since the numbers $a$, $b$ and $c$ define the inclination of the vector in space, it follows that parallel vectors have equivalent direction vectors.\\
+	
+	In vectors, parallelism can be of two types:\\
+	\begin{itemize}
+		\item{Like parallel}
+		\subitem{Two like parallel vectors both travel in the same direction.}
+		\item{Unlike parallel}
+		\subitem{Two unlike parallel vectors are still positionally parallel but act in the opposite direction.}
+	\end{itemize}
+	~\\
+	In both cases, the direction ratios, however, are the same. For instance, consider the two vectors:
+	
+	\begin{alignat*}{2}
+		&   & \textbf{a} & = 3\textbf{i} + 5\textbf{j} + 6\textbf{k}  \\
+		&   & \textbf{b} & = -3\textbf{i} -5\textbf{j}  - 6\textbf{k} 
+	\end{alignat*}
+	Both of them will simplify to an equivalent ratio when multiplied by $-1$.
+	
+	\subsection{3-Dimensional Lines}
+	
+	Lines in 3D are better explained through vector geometry. Coordinate geometry is sufficient for the analysis of lines in 2D, however, when adding the third dimension, this becomes inefficient.
+	
+	\subsubsection{Equation of a straight line}
+	
+	The previous notion of the definition of a straight line, $y=mx+c$ or more particularly $y_2-y_1 = m(x_2-x_1)$ becomes insufficient to define a line on 3 planes of space.\\
+	
+	A line in 3D space is defined by a point through which it passes, and a direction to which it is parallel. Consider the following diagram:
+		
+		
+			\begin{center}
+						\includegraphics[scale=0.15]{vect_3}
+			\end{center}
+
+	
+			Let $A$ be a fixed point on the line $l$ with position vector $\textbf{a}$ \& let $P$ represent a general point on the line. Let the position vector of $P$ be $\textbf{r}$. Consider also a vector $\textbf{m}$ parallel to the line $l$.\\
+			
+			We need to find the equation of line $l$, specifically, a rule defining the line $l$ which governs all points $P$ on this line. To generate the line $l$ as described above, the point $P$ must be such that $\overrightarrow{AP}$ is parallel to $\textbf{m}$.
+
+\begin{multicols}{3}
+	$$	 \textbf{r}  = \textbf{a} + \lambda \textbf{m}$$
+
+	\begin{alignat*}{2}
+	&&x&= x_1 + \lambda a\\
+	&&y&= y_1 + \lambda b\\
+	&&z&= z_1 + \lambda c
+\end{alignat*}
+\begin{alignat*}{2}
+	&&x&= x_1 + \lambda a\\
+	&&y&= y_1 + \lambda b\\
+	&&z&= z_1 + \lambda c
+\end{alignat*}
+\begin{center}
+	~\\
+	~\\
+	$\frac{x-x_1}{a} = \frac{y-y_1}{b} = \frac{z-z_1}{c}$
+\end{center}
+\end{multicols}
+	
 	\chapter{Inequalities}
 	\section{Quadratic Inequalities}
 	\begin{example}
@@ -1365,71 +1435,71 @@ Also, given two points $A(x_1,y_1,z_1)$ and $B(x_2,y_2,z_2)$, the vector $\overr
 	\subsection{Length of an arc of a curve}
 	To find the length of an arc of a curve we use the method of summing small elements of one length.\\
 	Suppose that arc $PQ$, of length $\delta s$, is such an element. Then, the length $S$ of the curve $AB$ is given by:
-\begin{multicols}{2}
-	\begin{center}
-$\sum_{x=x_1}^{x_2} \delta S$
-	\end{center}
-\begin{center}
-\includegraphics[width=0.7\linewidth]{app_of_integ_4}
-\end{center}
-\end{multicols}
+	\begin{multicols}{2}
+		\begin{center}
+			$\sum_{x=x_1}^{x_2} \delta S$
+		\end{center}
+		\begin{center}
+			\includegraphics[width=0.7\linewidth]{app_of_integ_4}
+		\end{center}
+	\end{multicols}
 	
-
-As $\delta s$ is very small, it can be approximated to the hypothenuse of the $\triangle PQR$. Thus:
-\begin{alignat*}{2}
-	&&(\delta x)^2 + (\delta y)^2 &\simeq (\delta s)^2\\
-	&\implies&1 + \left( \frac{\delta y}{\delta x}\right) ^2 &\simeq \left( \frac{\delta S}{\delta x}\right) ^2\\
-	&\implies &\delta S &\simeq \sqrt{1+\left( \frac{\delta y}{\delta x}\right)^2 } \delta x\\
-	&\therefore &S &\simeq \sum_{x=x_1}^{x_2} \sqrt{1 + \left(\frac{\delta y}{\delta x}\right)}\delta x	
-\end{alignat*}
-~\\
-~\\
-As $\delta x \leftarrow 0, (\frac{\delta y}{\delta x}) \leftarrow \frac{dy}{dx} \quad $and$ \quad s = \lim_{\delta x \to 0} \sum_{x=x_1}^{x_2} \sqrt{1+\left( \frac{\delta y}{\delta x}\right)^2}  \delta x$
-~\\
-~\\
-~\\
-
-\begin{center}
-	\begin{tcolorbox}[center title,hbox,    
-		lifted shadow={1mm}{-2mm}{3mm}{0.1mm}%
-		{black!50!white}]
-		\begin{varwidth}{\textwidth}
-			\begin{center}
-				$\therefore \quad S = \int_{x_1}^{x_2} \sqrt{1 + \left(\frac{dy}{dx}\right)^2}\, dx$
-			\end{center}
-		\end{varwidth}
-	\end{tcolorbox} 
-\end{center}
-
-
-Knowing the Cartesian equation of the curve, the necessary integration can be carried out.\\
-
-Let us now consider a curve $S$ parametrically in terms of $t$.
-
-We can use again :
- \begin{alignat*}{2}
-&&(\delta s )^2 &\simeq (\delta x)^2 + (\delta y)^2\\
-&\implies&\left(\frac{\delta s}{\delta t}\right)^2 &\simeq \left(\frac{\delta x}{\delta t}\right)^2 + \left(\frac{\delta y}{\delta t}\right)^2\\
-&\implies&\delta s &\simeq \sqrt{\left(\frac{\delta x}{\delta t}\right)^2 + \left(\frac{\delta y}{\delta t}\right)^2} \delta t
- \end{alignat*}
-
-~\\
-as $\delta t \to 0\quad ; \quad \frac{\delta x}{\delta t} \to \frac{dx}{dt} \quad \text{and} \quad \left(\frac{\delta y}{\delta t}\right) \to \frac{dy}{dt}$\\
-~\\
-
-$$\therefore S = \lim_{\delta t \to 0} \sum_{t=t_1}^{t_2} \sqrt{\left(\frac{\delta x}{\delta t}\right)^2 + \left(\frac{\delta y}{\delta t}\right)^2} \delta t$$
-
-\begin{center}
-	\begin{tcolorbox}[center title,hbox,    %%<<---- here
-		lifted shadow={1mm}{-2mm}{3mm}{0.1mm}%
-		{black!50!white}]
-		\begin{varwidth}{\textwidth}
-			\begin{center}
-				$S = \int_{t_1}^{t_2} \sqrt{\left(\frac{dx}{dt}\right)^2 + \left(\frac{dy}{dt}\right)^2}\, dt$
-			\end{center}
-		\end{varwidth}
-	\end{tcolorbox} 
-\end{center}
-
+	
+	As $\delta s$ is very small, it can be approximated to the hypothenuse of the $\triangle PQR$. Thus:
+	\begin{alignat*}{2}
+		&            & (\delta x)^2 + (\delta y)^2                    & \simeq (\delta s)^2                                                                 \\
+		& \implies   & 1 + \left( \frac{\delta y}{\delta x}\right) ^2 & \simeq \left( \frac{\delta S}{\delta x}\right) ^2                                   \\
+		& \implies   & \delta S                                       & \simeq \sqrt{1+\left( \frac{\delta y}{\delta x}\right)^2 } \delta x                 \\
+		& \therefore & S                                              & \simeq \sum_{x=x_1}^{x_2} \sqrt{1 + \left(\frac{\delta y}{\delta x}\right)}\delta x 
+	\end{alignat*}
+	~\\
+	~\\
+	As $\delta x \leftarrow 0, (\frac{\delta y}{\delta x}) \leftarrow \frac{dy}{dx} \quad $and$ \quad s = \lim_{\delta x \to 0} \sum_{x=x_1}^{x_2} \sqrt{1+\left( \frac{\delta y}{\delta x}\right)^2}  \delta x$
+	~\\
+	~\\
+	~\\
+	
+	\begin{center}
+		\begin{tcolorbox}[center title,hbox,    
+			lifted shadow={1mm}{-2mm}{3mm}{0.1mm}%
+			{black!50!white}]
+			\begin{varwidth}{\textwidth}
+				\begin{center}
+					$\therefore \quad S = \int_{x_1}^{x_2} \sqrt{1 + \left(\frac{dy}{dx}\right)^2}\, dx$
+				\end{center}
+			\end{varwidth}
+		\end{tcolorbox} 
+	\end{center}
+	
+	
+	Knowing the Cartesian equation of the curve, the necessary integration can be carried out.\\
+	
+	Let us now consider a curve $S$ parametrically in terms of $t$.
+	
+	We can use again :
+	\begin{alignat*}{2}
+		&          & (\delta s )^2                            & \simeq (\delta x)^2 + (\delta y)^2                                                                         \\
+		& \implies & \left(\frac{\delta s}{\delta t}\right)^2 & \simeq \left(\frac{\delta x}{\delta t}\right)^2 + \left(\frac{\delta y}{\delta t}\right)^2                 \\
+		& \implies & \delta s                                 & \simeq \sqrt{\left(\frac{\delta x}{\delta t}\right)^2 + \left(\frac{\delta y}{\delta t}\right)^2} \delta t 
+	\end{alignat*}
+	
+	~\\
+	as $\delta t \to 0\quad ; \quad \frac{\delta x}{\delta t} \to \frac{dx}{dt} \quad \text{and} \quad \left(\frac{\delta y}{\delta t}\right) \to \frac{dy}{dt}$\\
+	~\\
+	
+	$$\therefore S = \lim_{\delta t \to 0} \sum_{t=t_1}^{t_2} \sqrt{\left(\frac{\delta x}{\delta t}\right)^2 + \left(\frac{\delta y}{\delta t}\right)^2} \delta t$$
+	
+	\begin{center}
+		\begin{tcolorbox}[center title,hbox,    %%<<---- here
+			lifted shadow={1mm}{-2mm}{3mm}{0.1mm}%
+			{black!50!white}]
+			\begin{varwidth}{\textwidth}
+				\begin{center}
+					$S = \int_{t_1}^{t_2} \sqrt{\left(\frac{dx}{dt}\right)^2 + \left(\frac{dy}{dt}\right)^2}\, dt$
+				\end{center}
+			\end{varwidth}
+		\end{tcolorbox} 
+	\end{center}
+	
 	
 \end{document}
