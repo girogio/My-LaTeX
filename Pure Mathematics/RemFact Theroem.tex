@@ -1,0 +1,42 @@
+\documentclass{standalone}
+\begin{document}
+	\chapter{The Remainder and Factor Theorems}
+	\section{The Remainder Theorem}
+	Consider the polynomial $f(x)$. Suppose that this polynomial is to be divided by the linear expression $x-a$. This gives:
+	\begin{alignat*}{3}
+		&&\frac{f(x)}{x-a}A&\equiv Q(x) + \frac{R}{x-a}\\
+		&\implies&f(x) &\equiv Q(x) \cdot (x-a) + R\\
+		\text{Let $x-a=0$}&\implies &x &= a\\
+		& \therefore & f(a) & = R;\quad & \text{Where R is the remainder of $\frac{f(x)}{x-a}$} \\
+		&            &      &           & \text{and Q is the quotient of $\frac{f(x)}{x-a}$}    \\
+	\end{alignat*} \\
+	\begin{example}
+		Find the remainder when the cubic polynomial $f(x) = 2x^3-3x-5$ is divided by $x-2$
+	\end{example}
+	
+	
+	If $f(x)$ is to be divided by $x-2$, then $f(2)$ is equal to the remainder of $\frac{2x^3-3x-5}{x-2}$
+	\begin{alignat*}{2}
+		&        & 2x^3 -3x-5       \\
+		& =\quad & 2(2)^3 - 3(2) -5 \\
+		&\boxed{\therefore\quad R\quad=\quad5}
+	\end{alignat*}
+	\section{The Factor theorem}
+	
+	The factor theorem states that:
+	\begin{itemize}
+		\item{If the polynomial $f(x)$ is divided by $x-a$, then $f(a) = 0$ (i.e $R=0$}), therefore it can also be concluded that $x-a$ is a factor of $f(x)$
+	\end{itemize}
+	\begin{example}
+		Determine whether $2x+3$ is a factor of $2x^3+x^2-5x+6$ 
+	\end{example}
+	
+	\begin{flalign*}
+		&  & \text{Let } f(x) &= 2x^3+x^2-5x+6& \\
+		& \rlap{If $2x+3$ is a factor of $f(x)\colon$} &0 &=f\left(\frac{-3}{2}\right)\\
+		&\rlap{However,} &0 &\neq 2\left(\frac{-3}{2}\right)^3 + \left(\frac{-3}{2}\right)^2 -5\left(\frac{-3}{2}\right) + 6 \\
+		&&&\neq -3\\
+		&&&\boxed{\therefore \quad \text{$2x+3$ is \textbf{not} a factor of $f(x)$}}
+	\end{flalign*}
+	\newpage
+	\end{document}

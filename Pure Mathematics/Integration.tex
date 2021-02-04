@@ -1,0 +1,65 @@
+	\documentclass{standalone}
+\begin{document}
+	\chapter{Integration}
+	\section{Reduction Formul\ae}
+	
+	\begin{example}
+		If $I_n = \int \cos^n x \, dx$ show that $I_n = \frac{1}{n} \sin\cos^{n-1}x + \frac{n-1}{n}\cdot I_{n-2}$. Hence find $\int \cos^5x\, dx$.
+	\end{example}
+	
+	\begin{align*}
+							I_n  & = \int \cos^n x \, dx\\
+								 & = \int \cos x \cdot \cos^{n-1}x\, dx\\
+								 \text{Integrating by parts: }\\
+			\therefore \quad I_n & = \cos^{n-1}x\sin x + (n-1)\int\cos^{n-2}x\sin^2x\,dx\\
+								 & = \cos^{n-1}x\sin x + (n-1)\int\cos^{n-2}x(1-\cos^2x)\,dx\\
+								 & = \cos^{n-1}x\sin x + (n-1)\int\cos^{n-2}x(1-\cos^2x)\,dx\\
+	\end{align*}
+	\begin{align*}
+			\int \cos^5 x \, dx  & = I_5\\
+							  	 & I_5 = \frac{1}{5} \cos^4x\sin x + \frac{4}{5}I_3\\
+		& I_3 = \frac{1}{5} \cos^4x\sin x + \frac{4}{5}I_3\\
+		& I_1 = \int \cos x \, dx = \sin x + k\\
+		\therefore \int \cos^5 x & = \frac{1}{5}\cos^4x \sin x + \frac{4}{5}\left(\frac{1}{3}\cos^2x\sin x + \frac{2}{3}\left(\sin x + k\right)\right)\\
+		& =\frac{1}{5}\cos^2x\cdot\sin x + \frac{4}{15} \cos^2 x \cdot \sin x + \frac{8}{15}\sin x + c                        
+	\end{align*}	  						
+	
+	\begin{example}
+		If $I_n = \int \tan^n\theta \, d\theta$
+	\end{example}
+	
+	\begin{example}
+		Establish a reduction formula that could be used to find $\int x^ne^x \, dx$ and use it to find $\int x^4e^4$.
+	\end{example}
+	
+	\begin{align*}
+		\text{Let } I_n & = \int x^ne^x \, dx \\
+		\text{Let } u & = x^n      & \od{v}{x} = e^x \\
+		\od{u}{x}     & = nx^{n-1} & v = e^x         \\
+		\therefore I &= x^ne^x - n \int x^{n-1}e^x \, dx\\
+		&= x^ne^x - nI_{n_{1}}
+	\end{align*}
+	
+	\begin{example}
+		Establish a reduction formula which can be used to evaluate $\int x^n \sin x \, dx$.
+	\end{example}
+	
+	\begin{align*}
+		\text{Let } I_n &= \int x^n \cdot \sin x\\
+		\text{Let } u & = x^n      & \od{v}{x} = \sin x \\
+		\od{u}{x}     & = nx^{n-1} & v= -\cos x         
+	\end{align*}
+	
+	\begin{example}
+		Establish a reduction formula to find $\int \csc^nx \, dx$. Hence find $\int csc^5x \, dx$
+	\end{example}
+	\begin{align*}
+		\text{Let } I_n &= \int \csc^nx \, dx\\
+		&= \int \csc^2x \cdot \csc^{n-2}x \, dx\\
+		\text{Let } u & = \csc^{x-2} x              & \od{v}{x} = \csc^2x \, dx \\
+		\od{u}{x}     & = -(n-2)\csc^{n-2}\cot x  v & = -\cot x                 \\
+		\therefore \int \csc^nx \, dx &= -\cot x \cdot \csc^{n-2}x  - (n-2)\int \csc^{n-2}x\cot^2x \, dx\\
+		I_n &= 	-\cot x \cdot \csc^{n-2}x - (n-2)\int \csc^{n-2}x\left(\csc^2x - 1\right) \, dx\\
+		&= 		-\cot x \cdot \csc^{n-2}x - (n-2)\int \csc^{n-2}x\left(\csc^2x - 1\right) \, dx\\
+	\end{align*}
+\end{document}
