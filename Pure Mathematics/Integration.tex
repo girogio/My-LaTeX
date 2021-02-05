@@ -100,7 +100,7 @@
 		\text{Let } u & = x^n      & \od{v}{x} = \sin x \\
 		\od{u}{x}     & = nx^{n-1} & v= -\cos x         
 	\end{align*}
-	\hrulefill
+	\hrulefill\newpage
 	\begin{example}
 		Establish a reduction formula to find $\int \csc^nx \, dx$. Hence find $\int csc^5x \, dx$
 	\end{example}
@@ -124,11 +124,9 @@
 		Show that if $I_n - \int_0^\pi x^n\sin x\,dx$, then $I_n = \pi^n - n(n-1)\,I_n-1$. Hence evaluate $\int_0^\pi\sin x\,dx$
 	\end{example}
 	\begin{align*}
-		\text{Let } u & = x^n      & \od{v}{x} & = \sin x  \\
-		\od{u}{x}     & = nx^{n-1} & v         & = -\cos x \\
-		\therefore \quad I_n &=\left[-x^n\cos x\right]_0^\pi + n\int_0^\pi x^{n-1} \cos x \, dx\\
+		I_n &=\left[-x^n\cos x\right]_0^\pi + n\int_0^\pi x^{n-1} \cos x \, dx\\
 		&=\pi^n + n\int_0^\pi x^{n-1} \cos x \, dx\\
-		&\quad \text{Consider: } \int_0^\pi x^{n-1} \, dx \\
+		&= \pi^n \int_0^\pi \\
 		\text {Let } u &=
 	\end{align*}
 	\begin{example}
@@ -138,8 +136,6 @@
 	\begin{align*}
 		I_n &= \int_0^1 x^n e^{x^3} \, dx\\
 		&= \int_0^1 x^{n-2}x^2e^{x^3} \, dx\\
-		\text{Let } u & = x^{n-2}       & \od{v}{x} = \frac{1}3\left(3x\cdot e^{x^3}\right) \\
-		\od{u}x       & = (n-2) x^{n-3} & v=\frac{1}3e^{x^3}                                \\
 		\therefore \quad I_n &= \left[\frac{x^{n-2}e^{x^3}}3\right]_0^1 - \frac{n-2}3 \int_0^1 x^{n-3}{e^{x^3}} \, dx\\
 		&= \frac{e}3 - \frac{n-2}3 \cdot I_{n-3}
 	\end{align*}
@@ -156,11 +152,14 @@
 		& = \frac{32}{25} - \frac{n-5}{25}\int_0^1x^{n-5}(1+x^5)^4\, dx - \frac{n-4}{25}\int_0^1x^n(1+x^5)^4\, dx \\
 		& = \frac{32}{25} - \left(\frac{n-4}{25}\right)I_{n-5} - \left(\frac{n-4}{25}\right)I_n                   \\
 		25I_n               & = 32 - (n-4)I_{n-5} - \left(\frac{n-4}{25}\right)\,I_n                                                  \\
-		25I_n + nI_n - 4I_n & = 32 -(n-4)\,I_{n-5}                                                                                    
+		25I_n + nI_n - 4I_n & = 32-(n-4)\,I_{n-5}\\
+		(n+21)I_n &= 32-(n-4)I_{n-5}\\
+		I_n &= \frac{1}{n+21}\left(32-(n-4)I_{n-5}\right)
 	\end{align*}
-	
+	\hrulefill
+	\newpage
 	\begin{example}
-		Given $I_n = \int_0^1 (1+x^2)^{-n}\,dx$, show that $2n\,I_{n+1} = 2^{-n} + (2n-1)\,I_n$.
+		Given $I_n = \int_0^1 (1+x^2)^{-n}\,dx$, show that $2n\,I_{n+1} = 2^{-n} + (2n-1)\,I_n$
 	\end{example}
 	\begin{align*}
 		I_n                   & = \int_0^1 (1+x^2)^{-n}\,dx                                             \\
