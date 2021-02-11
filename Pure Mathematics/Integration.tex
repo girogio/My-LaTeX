@@ -36,7 +36,7 @@
 		\therefore \quad \int \cos^5 x & = \frac{1}{5}\cos^4x \sin x + \frac{4}{5}\left(\frac{1}{3}\cos^2x\sin x + \frac{2}{3}\left(\sin x + k\right)\right) \\
 		& =\frac{1}{5}\cos^2x\cdot\sin x + \frac4{15} \cos^2 x \cdot \sin x + \frac{8}{15}\sin x + c   \qed                   
 	\end{align*}	  						
-	
+		\hrulefill
 	\begin{example}
 		If $I_n = \int \tan^n\theta \, d\theta$, find a reduction formula for $I_n$ and use it to evaluate $\int_0^{\frac\pi4} \tan^6\theta\,d\theta$.
 	\end{example}
@@ -63,7 +63,7 @@
 		& = \frac15 - \frac13 + 1 - \frac{\pi}{4}                                                  \\
 		& = \frac{13}{15} - \frac{\pi}{4}   \qed                                                   
 	\end{align*}
-	
+		\hrulefill\newpage
 	
 	\begin{example}
 		Establish a reduction formula that could be used to find $\int x^ne^x \, dx$ and use it to find $\int x^4e^4$.
@@ -90,17 +90,22 @@
 		\therefore \quad I_4 & = x^4e^x -4(x^3e^x - 3(x^2e^x - 2(xe^x - e^x + k))) \\
 		& = x^4e^x -4x^3e^x + 12x^2e^x - 24xe^x + 24e^x + c   \qed
 	\end{align*}
-	
+		\hrulefill
 	\begin{example}
 		Establish a reduction formula which can be used to evaluate $\int x^n \sin x \, dx$.
 	\end{example}
 	
 	\begin{align*}
 		\text{Let } I_n &= \int x^n \cdot \sin x\\
-		\text{Let } u & = x^n      & \od{v}{x} = \sin x \\
-		\od{u}{x}     & = nx^{n-1} & v= -\cos x         
+						&= -x^n\cos x + \int nx^{n-1}\cos x\,dx\\
+						&= -x^n\cos x + n\left(x^{n-1}\sin x - \int (n-1)x^{n-2}\sin x\,dx\right)\\
+						&= -x^n\cos x + n\left(x^{n-1}\sin x - (n-1) \int x^{-2} \cdot x^n\sin x\,dx\right)\\
+						&= -x^n\cos x + n\left(x^{n-1}\sin x - (n-1) \underbrace{x^{n-2}\sin x\,dx}\right)\\
+						\therefore \quad I_n &= -x^n\cos x + n\left(x^{n-1}\sin x - (n-1)I_{n-2}\right)\\
+						&= -x^n\cos x + nx^{n-1}\sin x - n(n-1)I_{n-2} \qed
 	\end{align*}
 	\hrulefill\newpage
+	
 	\begin{example}
 		Establish a reduction formula to find $\int \csc^nx \, dx$. Hence find $\int csc^5x \, dx$
 	\end{example}
@@ -121,7 +126,7 @@
 		&= \left(1-\frac{1}{n-1}\right)I_{n-2}-\frac{\cot x\csc^{n-2}x}{n-1}\qed
 	\end{align*}
 	\begin{example}
-		Show that if $I_n - \int_0^\pi x^n\sin x\,dx$, then $I_n = \pi^n - n(n-1)\,I_n-1$. Hence evaluate $\int_0^\pi\sin x\,dx$
+		Show that if $I_n = \int_0^\pi x^n\sin x\,dx$, then $I_n = \pi^n - n(n-1)\,I_n-1$. Hence evaluate $\int_0^\pi\sin x\,dx$
 	\end{example}
 	\begin{align*}
 		I_n &=\left[-x^n\cos x\right]_0^\pi + n\int_0^\pi x^{n-1} \cos x \, dx\\
@@ -130,7 +135,7 @@
 		\text {Let } u &=
 	\end{align*}
 	\begin{example}
-		Show that, if $I_n = \int_0^1 x^n e^{x^3} \, dx$, then $I_n =\frac{e}{3} - \frac{n-2}{3} \cdot I_{n-3}$
+		Show that, if $I_n = \int_0^1 x^n e^{x^3} \, dx$, then $I_n = \frac{e}{3} - \frac{n-2}{3} \cdot I_{n-3}$
 	\end{example}
 	
 	\begin{align*}
@@ -141,7 +146,7 @@
 	\end{align*}
 	
 	\begin{example}
-		Show that, if $I_n= \int_0^1 x^n(1+x^5)^4 \, dx$, then $I_n = \frac1{n+21} \left[32-(n-4)\cdot I_{n-5}\right]$
+		Show that, if $I_n = \int_0^1 x^n(1+x^5)^4 \, dx$, then $I_n = \frac1{n+21} \left[32-(n-4)\cdot I_{n-5}\right]$
 	\end{example}
 	
 	\begin{align*}
