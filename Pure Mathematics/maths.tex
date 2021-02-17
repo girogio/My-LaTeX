@@ -9,6 +9,9 @@ marginparwidth=0pt,
 ]{geometry}
 \usepackage[T1]{fontenc}       % Postscript encoding
 
+
+
+
 \usepackage{lmodern}           % Latin modern for main font
 
 \usepackage{tgadventor}            % Helvetica for headings
@@ -56,6 +59,16 @@ marginparwidth=0pt,
 \newcommand{\reqnomode}{\tagsleft@false\let\veqno\@@eqno}
 \makeatother
 \usepackage{amsmath}
+
+\tikzset{
+	mycross/.pic={
+		\draw[pic actions] 
+		(-3pt,0) -- (3pt,0)
+		(0,-3pt) -- (0,3pt);
+	},
+}
+
+
 \usepackage{amsthm}
 \usepackage[nobottomtitles*]{titlesec}  % For section titles
 
