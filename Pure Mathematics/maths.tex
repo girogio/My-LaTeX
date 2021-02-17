@@ -1,8 +1,4 @@
-\documentclass[
-12pt,
-%draft,
-a4paper
-]{report}
+\documentclass[11pt]{report}
 \usepackage[
 top    = 2.50cm,% presumably you don't want it to be 0pt as well?
 bottom = 2.50cm,
@@ -11,68 +7,34 @@ right  = 2cm,
 marginparsep = 0pt,
 marginparwidth=0pt,
 ]{geometry}
-\usepackage{textcomp}
-\usepackage{standalone}
-\usepackage{pgfplots}
-\usepackage{draftwatermark}
-\usepgfplotslibrary{fillbetween}
+\usepackage[T1]{fontenc}       % Postscript encoding
+
+\usepackage{lmodern}           % Latin modern for main font
+
+\usepackage{tgadventor}            % Helvetica for headings
+
+\usepackage[scaled=1.03]{inconsolata}   % For ttfamily
+
+%\usepackage{textcomp}
+\usepackage{standalone}		
+\usepackage{fancyhdr}		 %For enabling modular tex file splitting
+%\usepackage{indentfirst}			 %Uniform paragraph indentation
+\usepackage{pgfplots}                %Tikz and GeoGebra integration
+%\usepackage{draftwatermark}         %For diagonal watermark
+% \usepgfplotslibrary{fillbetween}
 \usetikzlibrary{patterns}
 \usepackage{commath}
-%\usepackage[export]{adjustbox}
 \usepackage{graphicx}
 \graphicspath{{pictures/}}
 \usepackage{multicol}
-\usepackage[siunitx, RPvoltages]{circuitikz}
+\usepackage[siunitx]{circuitikz}
 \usepackage[most]{tcolorbox}
 \usepackage{varwidth}   %% provides varwidth environmen
 \usepackage{amsmath,empheq}
+
+
 \tcbuselibrary{skins}
-\usepackage{cancel}
-\newtcolorbox{mybox}[1][]{before=\centering, drop fuzzy shadow, enhanced, colback=white, sharp corners, colframe=red, fonttitle=\bfseries, title=#1, center title}
-\setlength{\columnseprule}{1pt}
-\usepackage{polynom}
-\everymath{\displaystyle}
-\makeatletter
-\def\pld@CF@loop#1+{%
-	\ifx\relax#1\else
-	\begingroup
-	\pld@AccuSetX11%
-	\def\pld@frac{{}{}}\let\pld@symbols\@empty\let\pld@vars\@empty
-	\pld@false
-	#1%
-	\let\pld@temp\@empty
-	\pld@AccuIfOne{}{\pld@AccuGet\pld@temp
-		\edef\pld@temp{\noexpand\pld@R\pld@temp}}%
-	\pld@if \pld@Extend\pld@temp{\expandafter\pld@F\pld@frac}\fi
-	\expandafter\pld@CF@loop@\pld@symbols\relax\@empty
-	\expandafter\pld@CF@loop@\pld@vars\relax\@empty
-	\ifx\@empty\pld@temp
-	\def\pld@temp{\pld@R11}%
-	\fi
-	\global\let\@gtempa\pld@temp
-	\endgroup
-	\ifx\@empty\@gtempa\else
-	\pld@ExtendPoly\pld@tempoly\@gtempa
-	\fi
-	\expandafter\pld@CF@loop
-	\fi}
-\def\pld@CMAddToTempoly{%
-	\pld@AccuGet\pld@temp\edef\pld@temp{\noexpand\pld@R\pld@temp}%
-	\pld@CondenseMonomials\pld@false\pld@symbols
-	\ifx\pld@symbols\@empty \else
-	\pld@ExtendPoly\pld@temp\pld@symbols
-	\fi
-	\ifx\pld@temp\@empty \else
-	\pld@if
-	\expandafter\pld@IfSum\expandafter{\pld@temp}%
-	{\expandafter\def\expandafter\pld@temp\expandafter
-		{\expandafter\pld@F\expandafter{\pld@temp}{}}}%
-	{}%
-	\fi
-	\pld@ExtendPoly\pld@tempoly\pld@temp
-	\pld@Extend\pld@tempoly{\pld@monom}%
-	\fi}
-\makeatother
+\usepackage{cancel} %For neat Series Canceling Method
 \usepackage{wrapfig}
 \usepackage{gensymb}
 \makeatletter
@@ -84,19 +46,51 @@ marginparwidth=0pt,
 \tikzset{set border color=black,set fill color=white}
 \newcommand*{\qe}{$x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}$}
 \usepackage[linewidth=1pt]{mdframed}
-\usepackage{fancyhdr}
 \usepackage{array}
 \usepackage[utf8]{inputenc}
 \usepackage{chngcntr}
 \usepackage[english]{babel}
+%To shift equation tags left and right
 \makeatletter
 \newcommand{\leqnomode}{\tagsleft@true\let\veqno\@@leqno}
 \newcommand{\reqnomode}{\tagsleft@false\let\veqno\@@eqno}
 \makeatother
 \usepackage{amsmath}
 \usepackage{amsthm}
+\usepackage[nobottomtitles*]{titlesec}  % For section titles
 
+% Header Setup
+\pagestyle{fancy}
 
+\renewcommand{\sectionmark}[1]{\markright{\S\thesection~$|$~#1}}
+\renewcommand{\subsectionmark}[1]{\markright{\S\thesubsection~$|$~#1}}
+\lhead{\nouppercase\rightmark}
+\rhead{\nouppercase\leftmark}
+\usepackage{soulutf8} 
+
+\renewcommand{\chaptermark}[1]{%
+\markboth{#1}{}}
+
+\cfoot{\thepage}
+\rfoot{\footnotesize\scshape Work in Progress}	
+	
+	\newtcolorbox{mybox}[1][]{before=\centering, drop fuzzy shadow, enhanced, colback=white, sharp corners, colframe=red, fonttitle=\bfseries, title=#1, center title}
+	\setlength{\columnseprule}{1pt}
+	
+	% Title Formats
+	\definecolor{gray75}{gray}{0.75}
+	\newcommand{\hsp}{\hspace{20pt}}
+	\titleformat{\chapter}[hang]{\Huge\bfseries\sffamily}{\thechapter\hsp\textcolor{gray75}{|}\hsp}{0pt}{\Huge\bfseries}
+	\titleformat{\section}[hang]{\normalfont\sffamily\LARGE\bfseries}{}{0em}{}
+	\titleformat{\subsection}[hang]{\normalfont\sffamily\large\bfseries}{}{1em}{}
+	\titleformat{\subsubsection}[hang]{\normalfont\sffamily\bfseries}{}{1em}{}
+
+	% Title spacings
+	\titlespacing*{\chapter} {0pt}{1ex plus 1ex minus .2ex}{30pt}
+	\titlespacing*{\section} {0pt}{3.5ex plus 1ex minus .2ex}{25pt}
+	\titlespacing*{\subsection} {0pt}{3.25ex plus 1ex minus .2ex}{3pt}
+	\titlespacing*{\subsubsection} {0pt}{2ex plus 1ex minus .2ex}{2pt}
+	
 %Adding derivative fraction
 \renewcommand\od[2]{\frac{d#1}{d#2}}
 
@@ -105,6 +99,11 @@ marginparwidth=0pt,
 \counterwithin*{example}{section}
 \counterwithin*{example}{subsection}
 
+
+% Allow display breaks
+\allowdisplaybreaks
+% To avoid `\headhight is too small' warning
+\setlength{\headheight}{15pt}
 
 % Swap the definition of \abs* and \norm*, so that \abs
 % and \norm resizes the size of the brackets, and the 
@@ -116,13 +115,8 @@ marginparwidth=0pt,
 \let\oldnorm\norm
 \def\norm{\@ifstar{\oldnorm}{\oldnorm*}}
 \makeatother
-\usepackage{titling}
-\predate{}
-\postdate{}
-\date{} % clear date
-\pagestyle{fancy}
-\rfoot{\thepage}
-\cfoot{}
+
+
 
 \setlength{\jot}{13pt}
 
@@ -133,20 +127,21 @@ marginparwidth=0pt,
 		\newpage
 	
 	
-		\SetWatermarkText{Giorgio G.}
-		\SetWatermarkScale{5}
+	%	\SetWatermarkText{Giorgio G.}
+	%	\SetWatermarkScale{5}
 	
-		\input{Class of Numbers}
-		\input{Surds}
-		\input{Partial Fractions}
-		\input{Pascal tri}
-		\input{RemFact Theroem}
-		\input{Quadratic Equations}
-		\input{Logarithms}
-		\input{Vectors}
-		\input{Inequalities}
-		\input{Series}
-		\input{Complex Numbers}
-		\input{Integration}
-		\input{Applications of Calculus}
+		%\input{Class_of_Numbers}
+		%\input{Surds}
+		%\input{Partial_Fractions}
+		%\input{Pascal_tri}
+		%\input{RemFact_Theroem}
+		%\input{Quadratic_Equations}
+		%\input{Logarithms}
+		%\input{Vectors}
+		%\input{Inequalities}
+		%\input{Series}
+		%\input{Complex_Numbers}
+		%\input{Integration}
+		%\input{App_of_Calc}
+		\input{Polar_Curves}
 \end{document}
