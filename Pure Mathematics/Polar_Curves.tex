@@ -241,7 +241,7 @@
 	\end{center}
 
 \section{Area partly bounded by a polar curve}
-Consider the folling diagram showing the graph of $r=f(\theta)$.
+Consider the following diagram showing the graph of $r=f(\theta)$.
 
 \includegraphics[scale=0.5]{pictures/Polar_Curves/Area_representation}
 
@@ -263,7 +263,7 @@ Consider the folling diagram showing the graph of $r=f(\theta)$.
 	\begin{tikzpicture}
 	\draw[thick,->,>=latex] (-4,0)--(4,0) node[above] {$x$};			%Axis
 	\draw[thick,->,>=latex] (0,-4)--(0,4) node[left] {$y$};				%Axis
-	\draw[domain=0:180,scale=1,samples=1000] plot (\x:{2*(1-cos(\x)*sqrt(sin(\x))}); %Curve
+	\draw[domain=0:180,scale=1,samples=500 ] plot (\x:{2*(1-cos(\x))*(sqrt(sin(\x))) }); %Curve 
 	%	\clip (-7,-2) rectangle (6,10);
 	
 	\end{tikzpicture}
