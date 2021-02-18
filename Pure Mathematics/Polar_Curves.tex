@@ -4,7 +4,7 @@
 
 
 
-
+\graphicspath{pictures/Polar_Curves}
 \begin{document}
 	\chapter{Polar Curves}
 	\section{Introduction}
@@ -217,10 +217,11 @@
 			\draw[red, dashed, thick, domain=-7:7, samples=500] plot(\x, {tan( deg(\i)) * \x});
 			\pic[line width=1pt,green] at ({deg(\i)}:{3+(7*sin(deg(\i)))}) {mycross};}
 		
+		\draw[red, dashed, thick, domain=-7:12, samples=500] plot(0,\x);
 		%Tangential Asymptotes
 		\pic[line width=1pt,green] at ({deg(pi/2)}:10) {mycross};
 		\pic[line width=1pt,green] at ({deg(-pi/2)}:-4) {mycross};
-		\draw[red, dashed, thick, domain=-7:12, samples=500] plot(0,\x);
+		
 		\end{tikzpicture}
 	\end{center}
 	
@@ -231,11 +232,40 @@
 	\end{example}
 	\begin{center}
 		\begin{tikzpicture}
-		\draw[thick,->,>=latex] (-7,0)--(7,0) node[above] {$x$};
-		\draw[thick,->,>=latex] (0,-9)--(0,9) node[left] {$y$};
+		\draw[thick,->,>=latex] (-7,0)--(7,0) node[above] {$x$};			%Axis
+		\draw[thick,->,>=latex] (0,-9)--(0,9) node[left] {$y$};				%Axis
 		\draw[domain=0:540,scale=1,samples=1000] plot (\x:{8*(sin(\x)^2)}); %Curve
 	%	\clip (-7,-2) rectangle (6,10);
 
 		\end{tikzpicture}
 	\end{center}
+
+\section{Area partly bounded by a polar curve}
+Consider the folling diagram showing the graph of $r=f(\theta)$.
+
+\includegraphics[scale=0.5]{pictures/Polar_Curves/Area_representation}
+
+
+\begin{tikzpicture}
+\draw[thick,->,>=latex] (-3,0)--(3,0) node[above] {$x$};			%Axis
+\draw[thick,->,>=latex] (0,-3)--(0,3) node[left] {$y$};				%Axis
+\draw [cyan, xshift=4cm] plot [smooth, tension=2] coordinates {(0,0) (2,2) (1,1)};
+\end{tikzpicture}
+
+\begin{center}
+\begin{tabular}{c|c|c|c|c|c|c|c|c|c|c|c|c|c}
+	$\theta$ & 0                     & $\frac{\pi}{12}$      & $\frac{\pi}6$         & $\frac{\pi}4$         & $\frac{\pi}3$         & $\frac{5\pi}{12}$     & $\frac\pi2$           & $\frac{7\pi}{12}$     & $\frac{2\pi}3$        & $\frac{3\pi}4$        & $\frac{5\pi}6$        & $\frac{11\pi}{12}$    & $\pi$                \\ \hline
+	$r$      & $0$                   & $0.03$                & $0.2$                   & $0.5$                   & $0.9$                   & $1.5$                   & $2$                   & $2.5$                 & $2.8$                 & $2.9$                 & $2.6$                 & $2$                     & $0$                   \\ \hline
+	$3r$     &0&0.1&0.6&1.5&2.7&4.5&6&7.5&8.4&8.7&7.8&6&0
+\end{tabular}
+\end{center}
+	\begin{center}
+	\begin{tikzpicture}
+	\draw[thick,->,>=latex] (-4,0)--(4,0) node[above] {$x$};			%Axis
+	\draw[thick,->,>=latex] (0,-4)--(0,4) node[left] {$y$};				%Axis
+	\draw[domain=0:180,scale=1,samples=1000] plot (\x:{2*(1-cos(\x)*sqrt(sin(\x))}); %Curve
+	%	\clip (-7,-2) rectangle (6,10);
+	
+	\end{tikzpicture}
+\end{center}
 \end{document}
