@@ -1,7 +1,9 @@
 %!TEX root = maths.tex
 \usetikzlibrary{patterns,intersections,arrows,backgrounds}
-\newcommand{\degre}{\ensuremath{^\circ}}
 
+\newcommand{\degre}{\ensuremath{^\circ}}
+\pgfplotsset{compat=1.15}
+\usetikzlibrary{arrows}
 
 
 \graphicspath{pictures/Polar_Curves}
@@ -228,34 +230,80 @@
 	
 	\newpage
 	\begin{example}
-		Sketch the polar curve $r=8\sin^2\theta$ and the line $r=\csc\theta$.Find the polar coordinates of their points of intersection.
+		Sketch the polar curve $r=8\sin^2\theta$ and the line $r=\csc\theta$. Find the polar coordinates of their points of intersection.
 	\end{example}
 	\begin{center}
 		\begin{tikzpicture}
-		\draw[thick,->,>=latex] (-7,0)--(7,0) node[above] {$x$};			%Axis
-		\draw[thick,->,>=latex] (0,-9)--(0,9) node[left] {$y$};				%Axis
-		\draw[domain=0:540,scale=1,samples=1000] plot (\x:{8*(sin(\x)^2)}); %Curve
+			\begin{axis}[
+			x=1cm,y=1cm,
+			axis lines=middle,
+			ymajorgrids=true,
+			xmajorgrids=true,
+			xmin=-4,
+			xmax=4,
+			ymin=-9,
+			ymax=9,
+			xtick={-4,-3,...,4},
+			ytick={-9,-8,...,9},]
+		\draw[domain=0:540,scale=1,samples=1000] plot (\x:{8*(sin(\x)^2)}) node[above] {$r=8\sin^2\theta$}; %Curve
+		\draw[domain=-5:5,scale=1,samples=1000] plot (\x, 1) node[above] {$r=\csc\theta$}; %Curve
 	%	\clip (-7,-2) rectangle (6,10);
-
+\end{axis}
 		\end{tikzpicture}
 	\end{center}
 
 \section{Area partly bounded by a polar curve}
 Consider the following diagram showing the graph of $r=f(\theta)$.
 
-\includegraphics[scale=0.5]{pictures/Polar_Curves/Area_representation}
+\begin{center}
+	\resizebox{300pt}{!}{%
+	\definecolor{ccffww}{rgb}{0.8,1,0.4}
+	\definecolor{qqttcc}{rgb}{0,0.2,0.8}
+	\definecolor{uuuuuu}{rgb}{0.26666666666666666,0.26666666666666666,0.26666666666666666}
+	\definecolor{xdxdff}{rgb}{0.49019607843137253,0.49019607843137253,1}
+	\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1cm,y=1cm]
+		\begin{axis}[
+			x=1cm,y=1cm,
+			axis lines=middle,
+			ymajorgrids=true,
+			xmajorgrids=true,
+			xmin=-4.087350135407929,
+			xmax=12.075704876608706,
+			ymin=-1.9400069331551724,
+			ymax=8.089791136292845,
+			xtick={-4,-3,...,12},
+			ytick={-1,0,...,8},]
+			\clip(-4.087350135407929,-1.9400069331551724) rectangle (12.075704876608706,8.089791136292845);
+			\draw [shift={(0,0)},line width=2.4pt,color=qqttcc,fill=qqttcc,fill opacity=0.1] (0,0) -- (27.797567846322046:0.9614841741650471) arc (27.797567846322046:72.69166717480417:0.9614841741650471) -- cycle;
+			\fill[line width=0.8pt,color=ccffww,fill=ccffww,fill opacity=0.55] (1.6469997622170334,5.285200045490499) -- (1.8018963690587861,5.303857839349265) -- (2.057802642713001,5.344452622890168) -- (2.2425420008780867,5.375610046949744) -- (2.4085986469696503,5.401170598203379) -- (2.6317350137162325,5.427157717856224) -- (2.826543364850297,5.438046959825773) -- (2.9930508460166525,5.436092904437624) -- (3.1583701235903847,5.422111858769122) -- (3.394065928081652,5.378740328890088) -- (3.5780745473050493,5.323957494370168) -- (3.7684491850962933,5.246759511526517) -- (3.909043353636018,5.175946821869229) -- (4.096867913840399,5.062840104074621) -- (4.339673854011711,4.885528774754539) -- (4.70860996427174,4.552297629385634) -- (5.130951567039364,4.088855310480258) -- (5.420878217861827,3.7324711921147538) -- (5.752127039672099,3.3035617372125) -- (5.8996282307282275,3.1102010591021587) -- (0,0) -- cycle;
+			\draw [line width=2pt,dash pattern=on 1pt off 1pt,domain=-4.087350135407929:12.075704876608706] plot(\x,{(-0--4.099788120747726*\x)/1.2775959286106953});
+			\draw [line width=2pt,dash pattern=on 1pt off 1pt,domain=-4.087350135407929:12.075704876608706] plot(\x,{(-0--4.87618*\x)/9.24945});
+			\draw[line width=2pt,color=xdxdff,smooth,samples=100,domain=-4.087350135407929:12.075704876608706] plot(\x,{0.014635180803888441*(\x)^(4)-0.23126329831793696*(\x)^(3)+1.0699408938350827*(\x)^(2)-1.8059409257011467*(\x)+6.282771603030379});
+			\draw (2.6126764256158723,7.846889871240623) node[anchor=north west] {$\large \theta = \alpha$};
+			\draw (7.440339068528793,5.195217727753861) node[anchor=north west] {$\large \theta = \beta$};
+			\draw [color=xdxdff](-2.5287336846561685,8.960187336063308) node[anchor=north west] {$\large r=f({\theta})$};
+			\begin{scriptsize}
+				\draw [fill=uuuuuu] (1.6469997622170334,5.285200045490499) circle (2pt);
+%				\draw[color=uuuuuu] (1.74734066886733,5.524146524178746) node {$G$};
+				\draw [fill=uuuuuu] (0,0) circle (2pt);
+				\draw [fill=uuuuuu] (5.8996282307282275,3.1102010591021587) circle (2pt);
+				\draw[color=uuuuuu] (6.038596351456593,3.3937000119498784) node {$D_1$};
+				\draw[color=qqttcc] (1.0743017469517973,0.5143079324766583) node {$\Large\omega$};
+			\end{scriptsize}
+		\end{axis}
+	\end{tikzpicture}
+}
+\end{center}
+It can be shown that the area bounded by the curve $r=f(\theta)$, from $\theta = \alpha$ to $\theta = \beta$ is given by \[A = \frac12\int_\alpha^\beta r^2\,d\theta\]
 
-
-\begin{tikzpicture}
-\draw[thick,->,>=latex] (-3,0)--(3,0) node[above] {$x$};			%Axis
-\draw[thick,->,>=latex] (0,-3)--(0,3) node[left] {$y$};				%Axis
-\draw [cyan, xshift=4cm] plot [smooth, tension=2] coordinates {(0,0) (2,2) (1,1)};
-\end{tikzpicture}
-
+%\includegraphics[scale=0.5]{pictures/Polar_Curves/Area_representation}
+\begin{example}
+	Sketch the curve with polar equation $r=2(1-\cos\theta)(\sqrt{\sin\theta})$ for $0 \leq \theta\leq \pi$ and find the are it encloses.
+\end{example}
 \begin{center}
 \begin{tabular}{c|c|c|c|c|c|c|c|c|c|c|c|c|c}
 	$\theta$ & 0                     & $\frac{\pi}{12}$      & $\frac{\pi}6$         & $\frac{\pi}4$         & $\frac{\pi}3$         & $\frac{5\pi}{12}$     & $\frac\pi2$           & $\frac{7\pi}{12}$     & $\frac{2\pi}3$        & $\frac{3\pi}4$        & $\frac{5\pi}6$        & $\frac{11\pi}{12}$    & $\pi$                \\ \hline
-	$r$      & $0$                   & $0.03$                & $0.2$                   & $0.5$                   & $0.9$                   & $1.5$                   & $2$                   & $2.5$                 & $2.8$                 & $2.9$                 & $2.6$                 & $2$                     & $0$                   \\ \hline
+	$r$      & $0$                   & $0.03$                & $0.2$                   & $0.5$                   & $0.9$                   & $1.5$                   & $2$                   & $2.5$                 & $11$                 & $2.9$                 & $2.6$                 & $2$                     & $0$                   \\ \hline
 	$3r$     &0&0.1&0.6&1.5&2.7&4.5&6&7.5&8.4&8.7&7.8&6&0
 \end{tabular}
 \end{center}
