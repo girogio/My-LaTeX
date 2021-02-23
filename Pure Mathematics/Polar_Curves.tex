@@ -297,8 +297,9 @@ Consider the following diagram showing the graph of $r=f(\theta)$.
 \end{center}
 It can be shown that the area bounded by the curve $r=f(\theta)$, from $\theta = \alpha$ to $\theta = \beta$ is given by \[A = \frac12\int_\alpha^\beta r^2\,d\theta\]
 \hrulefill
+\newpage
 \begin{example}
-	Sketch the curve with polar equation $r=2(1-\cos\theta)(\sqrt{\sin\theta})$ for $0 \leq \theta\leq \pi$ and find the area it encloses.
+	Sketch the curve with polar equation $r=2(1-\cos\theta)\sqrt{\sin\theta}$ for $0 \leq \theta\leq \pi$ and find the area it encloses.
 \end{example}
 \begin{center}
 \begin{tabular}{c|c|c|c|c|c|c|c|c|c|c|c|c|c}
@@ -316,6 +317,7 @@ xmajorgrids=true,
 xmin=-4,
 xmax=4,
 ymin=-4,
+scale=1.5,
 ymax=4,
 xtick={-4,-3,...,4},
 ytick={-4,-3,...,4},]
@@ -323,14 +325,14 @@ ytick={-4,-3,...,4},]
 \end{axis}
 \begin{scope}[shift={(origin)}]
 		\clip (-4,-4) rectangle (4,4);
-\draw[domain=0:180,scale=1,samples=500 ] plot (\x:{2*(1-cos(\x))*(sqrt(sin(\x))) }); %Curve 
+\draw[domain=0:180,scale=1.5,samples=500 ] plot (\x:{2*(1-cos(\x))*(sqrt(sin(\x))) }); %Curve 
 
 	\foreach \i in {0,15,...,75,105,120,...,180}{
 	\draw[red, dashed, thick, domain=-5:5, samples=500] plot(\x, {tan(\i) * \x});
 	\pic[line width=1pt,green] at ({\i}:{2*(1-cos(\i))*(sqrt(sin(\i))) }) {mycross};
 }
-		\draw[red, dashed, thick, domain=-5:5, samples=500] plot(0,\x);
-	\pic[line width=1pt,green] at (0,2) {mycross};	
+	\draw[scale=1.5,red, dashed, thick, domain=-5:5, samples=500] plot(0,\x);
+	\pic[scale=1.5,line width=1pt,green] at (0,2) {mycross};	
 \end{scope}
 	
 		
