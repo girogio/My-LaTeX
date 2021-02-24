@@ -1,4 +1,4 @@
-Paste Latex Here%!TEX root = maths.tex
+%!TEX root = maths.tex
 \usetikzlibrary{patterns,intersections,arrows,backgrounds}
 
 \newcommand{\degre}{\ensuremath{^\circ}}
@@ -343,6 +343,13 @@ Paste Latex Here%!TEX root = maths.tex
 	&= 2\int_0^\pi \sin\theta - 2\sin\theta\cos\theta+\sin\theta\cos^2\theta\,d\theta\\
 	&= 2\left(\left.-\cos\theta + \cos^2\theta - \frac{\cos^3\theta}{3}\right|_0^\pi\right)
 	\end{align*}
+\newpage
+\begin{example}
+	Sketch the curve with polar equation $r=3-4\cos\theta$ and find the area enclosed by the inner loop.
+\end{example}
+
+\fullPlot{-5}{5}{-5}{5}{4}
+
 	\newpage
 	\begin{example}
 		Sketch the curve  $r=5\sin3\theta$ and the circle $r=5$. Find the area of the region which lies inside the circle but outside the curve.
