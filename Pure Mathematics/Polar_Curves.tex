@@ -1,4 +1,4 @@
-%!TEX root = maths.tex
+Paste Latex Here%!TEX root = maths.tex
 \usetikzlibrary{patterns,intersections,arrows,backgrounds}
 
 \newcommand{\degre}{\ensuremath{^\circ}}
@@ -234,35 +234,35 @@
 	\end{example}
 	\begin{center}
 		\begin{tikzpicture}
-			\begin{axis}[
-			x=1cm,y=1cm,
-			axis lines=middle,
-			ymajorgrids=true,
-			xmajorgrids=true,
-			xmin=-4,
-			xmax=4,
-			ymin=-9,
-			ymax=9,
-			xtick={-4,-3,...,4},
-			ytick={-9,-8,...,9},]
+		\begin{axis}[
+		x=1cm,y=1cm,
+		axis lines=middle,
+		ymajorgrids=true,
+		xmajorgrids=true,
+		xmin=-4,
+		xmax=4,
+		ymin=-9,
+		ymax=9,
+		xtick={-4,-3,...,4},
+		ytick={-9,-8,...,9},]
 		\draw[domain=0:540,scale=1,samples=1000] plot (\x:{8*(sin(\x)^2)}) node[above] {$r=8\sin^2\theta$}; %Curve
 		\draw[domain=-5:5,scale=1,samples=1000] plot (\x, 1) node[above] {$r=\csc\theta$}; %Curve
-	%	\clip (-7,-2) rectangle (6,10);
-\end{axis}
+		%	\clip (-7,-2) rectangle (6,10);
+		\end{axis}
 		\end{tikzpicture}
 	\end{center}
-
-\section{Area partly bounded by a polar curve}
-Consider the following diagram showing the graph of $r=f(\theta)$.
-
-\begin{center}
-	\resizebox{300pt}{!}{%
-	\definecolor{ccffww}{rgb}{0.8,1,0.4}
-	\definecolor{qqttcc}{rgb}{0,0.2,0.8}
-	\definecolor{uuuuuu}{rgb}{0.26666666666666666,0.26666666666666666,0.26666666666666666}
-	\definecolor{xdxdff}{rgb}{0.49019607843137253,0.49019607843137253,1}
-	\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1cm,y=1cm]
-		\begin{axis}[
+	
+	\section{Area partly bounded by a polar curve}
+	Consider the following diagram showing the graph of $r=f(\theta)$.
+	
+	\begin{center}
+		\resizebox{300pt}{!}{%
+			\definecolor{ccffww}{rgb}{0.8,1,0.4}
+			\definecolor{qqttcc}{rgb}{0,0.2,0.8}
+			\definecolor{uuuuuu}{rgb}{0.26666666666666666,0.26666666666666666,0.26666666666666666}
+			\definecolor{xdxdff}{rgb}{0.49019607843137253,0.49019607843137253,1}
+			\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1cm,y=1cm]
+			\begin{axis}[
 			x=1cm,y=1cm,
 			axis lines=middle,
 			ymajorgrids=true,
@@ -279,64 +279,195 @@ Consider the following diagram showing the graph of $r=f(\theta)$.
 			\draw [line width=2pt,dash pattern=on 1pt off 1pt,domain=-4.087350135407929:12.075704876608706] plot(\x,{(-0--4.099788120747726*\x)/1.2775959286106953});
 			\draw [line width=2pt,dash pattern=on 1pt off 1pt,domain=-4.087350135407929:12.075704876608706] plot(\x,{(-0--4.87618*\x)/9.24945});
 			\draw[line width=2pt,color=xdxdff,smooth,samples=100,domain=-4.087350135407929:12.075704876608706] plot(\x,{0.014635180803888441*(\x)^(4)-0.23126329831793696*(\x)^(3)+1.0699408938350827*(\x)^(2)-1.8059409257011467*(\x)+6.282771603030379});
-			\draw (2.6126764256158723,7.846889871240623) node[anchor=north west] {$\large \theta = \alpha$};
-			\draw (7.440339068528793,5.195217727753861) node[anchor=north west] {$\large \theta = \beta$};
+			\draw (2.6126764256158723,7.846889871240623) node[anchor=north west] {$\theta = \alpha$};
+			\draw (7.440339068528793,5.195217727753861) node[anchor=north west] {$\theta = \beta$};
 			\draw [line width=2.4pt,color=qqttcc,fill=qqttcc,fill opacity=0.1] (0,0) -- (27.797567846322046:0.9614841741650471) arc (27.797567846322046:72.69166717480417:0.9614841741650471) -- cycle;
-			\draw [color=xdxdff](-2.5287336846561685,8.960187336063308) node[anchor=north west] {$\large r=f({\theta})$};
+			\draw [color=xdxdff](-2.5287336846561685,8.960187336063308) node[anchor=north west] {$ r=f({\theta})$};
 			\begin{scriptsize}
-				\draw [fill=uuuuuu] (1.6469997622170334,5.285200045490499) circle (2pt);
-%				\draw[color=uuuuuu] (1.74734066886733,5.524146524178746) node {$G$};
-				\draw [fill=uuuuuu] (0,0) circle (2pt);
-				\draw [fill=uuuuuu] (5.8996282307282275,3.1102010591021587) circle (2pt);
-				\draw[color=uuuuuu] (6.038596351456593,3.3937000119498784) node {$D_1$};
-				\draw[color=qqttcc] (1.0743017469517973,0.5143079324766583) node {$\Large\omega$};
+			\draw [fill=uuuuuu] (1.6469997622170334,5.285200045490499) circle (2pt);
+			%				\draw[color=uuuuuu] (1.74734066886733,5.524146524178746) node {$G$};
+			\draw [fill=uuuuuu] (0,0) circle (2pt);
+			\draw [fill=uuuuuu] (5.8996282307282275,3.1102010591021587) circle (2pt);
+			\draw[color=uuuuuu] (6.038596351456593,3.3937000119498784) node {$D_1$};
+			\draw[color=qqttcc] (1.0743017469517973,0.5143079324766583) node {$\omega$};
 			\end{scriptsize}
-		\end{axis}
-	\end{tikzpicture}
-}
-\end{center}
-It can be shown that the area bounded by the curve $r=f(\theta)$, from $\theta = \alpha$ to $\theta = \beta$ is given by \[A = \frac12\int_\alpha^\beta r^2\,d\theta\]
-\hrulefill
-\newpage
-\begin{example}
-	Sketch the curve with polar equation $r=2(1-\cos\theta)\sqrt{\sin\theta}$ for $0 \leq \theta\leq \pi$ and find the area it encloses.
-\end{example}
-\begin{center}
-\begin{tabular}{c|c|c|c|c|c|c|c|c|c|c|c|c|c}
-	$\theta$ & 0                     & $\frac{\pi}{12}$      & $\frac{\pi}6$         & $\frac{\pi}4$         & $\frac{\pi}3$         & $\frac{5\pi}{12}$     & $\frac\pi2$           & $\frac{7\pi}{12}$     & $\frac{2\pi}3$        & $\frac{3\pi}4$        & $\frac{5\pi}6$        & $\frac{11\pi}{12}$    & $\pi$                \\ \hline
-	$r$      & $0$                   & $0.03$                & $0.2$                   & $0.5$                   & $0.9$                   & $1.5$                   & $2$                   & $2.5$                 & $11$                 & $2.9$                 & $2.6$                 & $2$                     & $0$
-\end{tabular}
-\end{center}
+			\end{axis}
+			\end{tikzpicture}
+		}
+	\end{center}
+	It can be shown that the area bounded by the curve $r=f(\theta)$, from $\theta = \alpha$ to $\theta = \beta$ is given by \[A = \frac12\int_\alpha^\beta r^2\,d\theta\]
+	\hrulefill
+	\newpage
+	\begin{example}
+		Sketch the curve with polar equation $r=2(1-\cos\theta)\sqrt{\sin\theta}$ for $0 \leq \theta\leq \pi$ and find the area it encloses.
+	\end{example}
 	\begin{center}
-	\begin{tikzpicture}
-\begin{axis}[
-x=1cm,y=1cm,
-axis lines=middle,
-ymajorgrids=true,
-xmajorgrids=true,
-xmin=-4,
-xmax=4,
-ymin=-4,
-scale=1.5,
-ymax=4,
-xtick={-4,-3,...,4},
-ytick={-4,-3,...,4},]
-\coordinate (origin) at (0,0);
-\end{axis}  
-\begin{scope}[shift={(origin)}]
-		\clip (-4,-4) rectangle (4,4);
-\draw[domain=0:180,scale=1.5,samples=500 ] plot (\x:{2*(1-cos(\x))*(sqrt(sin(\x))) }); %Curve 
-
-	\foreach \i in {0,15,...,75,105,120,...,180}{
-	\draw[red, dashed, thick, domain=-5:5, samples=500] plot(\x, {tan(\i) * \x});
-	\pic[line width=1pt,green] at ({\i}:{3 *(1-cos(\i))*(sqrt(sin(\i))) }) {mycross};
-}
-	\draw[scale=1.5,red, dashed, thick, domain=-5:5, samples=500] plot(0,\x);
-	\pic[scale=1,line width=1pt,green] at (0,3) {mycross};	
-\end{scope}
-	
+		\begin{tabular}{c|c|c|c|c|c|c|c|c|c|c|c|c|c}
+			$\theta$ & 0   & $\frac{\pi}{12}$ & $\frac{\pi}6$ & $\frac{\pi}4$ & $\frac{\pi}3$ & $\frac{5\pi}{12}$ & $\frac\pi2$ & $\frac{7\pi}{12}$ & $\frac{2\pi}3$ & $\frac{3\pi}4$ & $\frac{5\pi}6$ & $\frac{11\pi}{12}$ & $\pi$ \\ \hline
+			$r$      & $0$ & $0.03$           & $0.2$         & $0.5$         & $0.9$         & $1.5$             & $2$         & $2.5$             & $11$           & $2.9$          & $2.6$          & $2$                & $0$   
+		\end{tabular}
+	\end{center}
+	\begin{center}
+		\begin{tikzpicture}
+		\begin{axis}[
+		x=1cm,y=1cm,
+		axis lines=middle,
+		ymajorgrids=true,
+		xmajorgrids=true,
+		xmin=-4,
+		xmax=4,
+		ymin=-4,
+		scale=1.5,
+		ymax=4,
+		xtick={-4,-3,...,4},
+		ytick={-4,-3,...,4},]
+		\coordinate (origin) at (0,0);
+		\end{axis}  
+		\begin{scope}[shift={(origin)}]
+		\clip (-5,-5) rectangle (5,5);
+		\draw[domain=0:180,scale=1.5,samples=500 ] plot (\x:{2*(1-cos(\x))*(sqrt(sin(\x))) }); %Curve 
 		
+		\foreach \i in {0,15,...,75,105,120,...,180}{
+			\draw[red, dashed, thick, domain=-5:5, samples=500] plot(\x, {tan(\i) * \x});
+			\pic[line width=1pt,green] at ({\i}:{3 *(1-cos(\i))*(sqrt(sin(\i))) }) {mycross};
+		}
+		\draw[scale=1.5,red, dashed, thick, domain=-5:5, samples=500] plot(0,\x);
+		\pic[scale=1,line width=1pt,green] at (0,3) {mycross};	
+		\end{scope}
+		\end{tikzpicture} 
+	\end{center}
+	\begin{align*}
+	A & =\frac12\int_0^\pi \left(2(1-\cos\theta)\sqrt{\sin\theta}\right)^2\,d\theta             \\
+	& = \frac12\int_0^\pi 4(1-\cos\theta)^2\sin(\theta)\,d\theta                                \\
+	& = 2\int_0^\pi \sin(\theta)(1-2\cos(\theta)+\cos^2\theta)\,d\theta\\
+	&= 2\int_0^\pi \sin\theta - 2\sin\theta\cos\theta+\sin\theta\cos^2\theta\,d\theta\\
+	&= 2\left(\left.-\cos\theta + \cos^2\theta - \frac{\cos^3\theta}{3}\right|_0^\pi\right)
+	\end{align*}
+	\newpage
+	\begin{example}
+		Sketch the curve  $r=5\sin3\theta$ and the circle $r=5$. Find the area of the region which lies inside the circle but outside the curve.
+	\end{example}
+	\begin{center}
+		\begin{tikzpicture}
+		\begin{axis}[
+		x=1cm,y=1cm,
+		axis lines=middle,
+		ymajorgrids=true,
+		xmajorgrids=true,
+		xmin=-6,
+		xmax=6,
+		ymin=-6,
+		scale=1,
+		ymax=6,
+		xtick={-6,-5,...,6},
+		ytick={-6,-5,...,6},]
+		\coordinate (origin) at (0,0);
+		\end{axis}  
+		\begin{scope}[shift={(origin)}]
+		\clip (-6,-6) rectangle (6,6);
+		\draw[domain=0:360,scale=1,samples=500 ] plot (\x:{5*sin(3*\x)}); %Curve 
+		\draw[domain=0:360,scale=1,samples=500 ] plot (\x:5); %Curve 
+		\foreach \i in {0,15,...,75,105,120,...,180}{
+			\draw[red, dashed, thick, domain=-5:5, samples=500] plot(\x, {tan(\i) * \x});
+			\pic[line width=1pt,green] at ({\i}:{5*sin(3*\i)}) {mycross};
+		}
+		\draw[red, dashed, thick, domain=-5:5, samples=500] plot(0, \x);
+		\pic[line width=1pt,green] at (0,5) {mycross};
+		\pic[line width=1pt,green] at (0,-5) {mycross};
+		\end{scope}
+		\end{tikzpicture}
+	\end{center}
+	
+	
+	\begin{multicols}{2}
+		\noindent
+			\begin{align*}
+			A & = \frac12 \int_0^\frac\pi3 (5\sin(3\theta))^2\,d\theta                        \\
+			& = \frac{25}{2} \int_0^\frac\pi3 \sin^2(3\theta)\,d\theta                      \\
+			& = \frac{25}{2} \int_0^\frac\pi3 \frac{1-\cos(6\theta)}{2}                     \\
+			& = \frac{25}{4} \left.\quad\theta - \frac{\cos(6\theta)}{6}\right|_0^\frac\pi3 \\
+			& = \frac{25}{24} \left.\quad 6\theta - \cos6\theta\right|_\alpha^\beta          
+			\end{align*}
+		
+		\begin{align*}
+		A & = \pi r^2 \\
+		& = 25\pi   \\~\\~\\~\\~\\
+		\end{align*}
+	\end{multicols}
 
+\newpage
+	\begin{example}
+		Sketch the curve $r=3(1+\sqrt{2}\cos\theta)$ and the line $r=3\sqrt{2}\sec\theta$. Find the polar coordinates of their points of intersection. Find the area of the region which lies inside the circle but outside of the cardioid.
+	\end{example}
+
+
+\begin{center}
+	\begin{tikzpicture}
+	\begin{axis}[
+	x=1cm,y=1cm,
+	axis lines=middle,
+	ymajorgrids=true,
+	xmajorgrids=true,
+	xmin=-2,
+	xmax=8,
+	ymin=-6,
+	scale=1,
+	ymax=6,
+	xtick={-2,-1,...,8},
+	ytick={-6,-5,...,6},]
+	\coordinate (origin) at (0,0);
+	\end{axis}  
+	\begin{scope}[shift={(origin)}]
+	\clip (-2,-6) rectangle (8,6);
+	\draw[domain=0:360,scale=1,samples=500 ] plot (\x:{3*(1+(sqrt(2)*cos(\x))}); %Curve 
+	\draw[range=0:180,scale=1,samples=500 ] plot (\x:{3*sqrt(2)*sec(\x)}); %Curve 
+	\foreach \i in {0,15,...,75,105,120,...,180}{
+		\draw[red, dashed, thick, domain=-5:8, samples=500] plot(\x, {tan(\i) * \x});
+		\pic[line width=1pt,green] at ({\i}:{3*(1+(sqrt(2)*cos(\i))}) {mycross};
+	}
+%	\draw[red, dashed, thick, domain=-5:5, samples=500] plot(0, \x);
+%	\pic[line width=1pt,green] at (0,5) {mycross};
+%	\pic[line width=1pt,green] at (0,-5) {mycross};
+	\end{scope}
 	\end{tikzpicture}
 \end{center}
+\newpage
+
+\begin{example}
+	Sketch the curve $r=5+\sin\theta$ and the line $r\sin\theta = 8$.
+\end{example}
+
+
+\begin{center}
+	\begin{tikzpicture}
+	\begin{axis}[
+	x=1cm,y=1cm,
+	axis lines=middle,
+	ymajorgrids=true,
+	xmajorgrids=true,
+	xmin=-7,
+	xmax=7,
+	ymin=-3,
+	scale=1,
+	ymax=9,
+	xtick={-7,-6,...,7},
+	ytick={-3,-2,...,9},]
+	\coordinate (origin) at (0,0);
+	\end{axis}  
+	\begin{scope}[shift={(origin)}]
+	\clip (-7,-3) rectangle (7,9);
+	\draw[domain=0:360,scale=1,samples=500 ] plot (\x:{5+(3*sin(\x))}); %Curve 
+	\draw[domain=-7:7,scale=1,samples=500 ] plot (\x,8); %LIne y=8 
+	\foreach \i in {0,15,...,75,105,120,...,180}{
+		\draw[red, domain=-7:7,dashed, thick, samples=500] plot(\x, {tan(\i) * \x});
+		\pic[line width=1pt,green] at ({\i}:{5+(3*sin(\i))}) {mycross};
+	}
+	%	\draw[red, dashed, thick, domain=-5:5, samples=500] plot(0, \x);
+	%	\pic[line width=1pt,green] at (0,5) {mycross};
+	%	\pic[line width=1pt,green] at (0,-5) {mycross};
+	\end{scope}
+	\end{tikzpicture}
+\end{center}
+
+
 \end{document}
