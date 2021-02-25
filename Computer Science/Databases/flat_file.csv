@@ -1,0 +1,6 @@
+Order, AccountNumber, Name, Address, OrderDate, ItemName, ItemQty, ItemPrice, OrderTotal
+12, 3, Peppi, B'kara, 10/2/2021, Pizza, 7, 4.20, 29.40
+12, 3, Peppi, B'kara, 10/2/2021, Pasta, 1, 6.90, 6.90 
+13, 4, Cikku, B'bugia, 11/3/2021, Pomodoro, 3, 1.00, 3.00
+
+

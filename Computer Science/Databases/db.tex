@@ -1,0 +1,133 @@
+\documentclass{article}
+\setlength{\parindent}{0pt} 
+\usepackage[
+top    = 2.50cm,% presumably you don't want it to be 0pt as well?
+bottom = 2.50cm,
+left   = 2cm,
+right  = 2cm,
+marginparsep = 0pt,
+marginparwidth=0pt,
+]{geometry}
+\usepackage[T1]{fontenc}       % Postscript encoding
+
+\usepackage{titlesec}
+
+
+\usepackage[official]{eurosym}
+
+\usepackage{fancyvrb,newverbs,xcolor}
+
+\definecolor{cverbbg}{gray}{0.93}
+
+\newenvironment{cverbatim}
+{\SaveVerbatim{cverb}}
+{\endSaveVerbatim
+	\flushleft\fboxrule=0pt\fboxsep=.5em
+	\colorbox{cverbbg}{\BUseVerbatim{cverb}}%
+	\endflushleft
+}
+\newenvironment{lcverbatim}
+{\SaveVerbatim{cverb}}
+{\endSaveVerbatim
+	\flushleft\fboxrule=0pt\fboxsep=.5em
+	\colorbox{cverbbg}{%
+		\makebox[\dimexpr\linewidth-2\fboxsep][l]{\BUseVerbatim{cverb}}%
+	}
+	\endflushleft
+}
+
+\newcommand{\ctexttt}[1]{\colorbox{cverbbg}{\texttt{#1}}}
+\newverbcommand{\cverb}
+{\setbox\verbbox\hbox\bgroup}
+  {\egroup\colorbox{cverbbg}{\box\verbbox}}
+
+\usepackage{csvsimple}
+
+\usepackage{xcolor}
+
+\usepackage{graphicx} %
+
+\usepackage{lmodern}           % Latin modern for main font
+
+\usepackage{tgadventor}            % Helvetica for headings
+
+	% Title Formats
+\definecolor{gray75}{gray}{0.75}
+\newcommand{\hsp}{\hspace{20pt}}
+\titleformat{\section}[hang]{\normalfont\sffamily\LARGE\bfseries\flushright}{\thesection\hsp\textcolor{gray75}{|}\hsp}{0em}{}
+\titleformat{\subsection}[hang]{\normalfont\sffamily\Large\bfseries}{}{0em}{}
+\titleformat{\subsubsection}[hang]{\normalfont\sffamily\bfseries}{}{0em}{}
+
+% Title spacings
+\titlespacing*{\section} {0pt}{3.5ex plus 1ex minus .2ex}{25pt}
+\titlespacing*{\subsection} {0pt}{3.25ex plus 1ex minus .2ex}{10pt}
+\titlespacing*{\subsubsection} {0pt}{2ex plus 1ex minus .2ex}{2pt}
+
+
+\usepackage{fancyhdr}
+
+\cfoot{\thepage}
+\rfoot{\footnotesize\scshape Work in Progress}	
+
+\usepackage{titlesec}
+
+\begin{document}
+	\section{Introduction to Databases}
+	\subsection{Database Nomenclature}
+	\begin{center}
+			\begin{tabular}{|c|c|}
+				\hline&\\
+			\textbf{Files}     & \textbf{Databases}\\&\\ \hline&\\
+				File       & Table            \\&\\
+				Records    & Tuples / Records \\&\\
+				Fields     & Attributes       \\&\\
+				Data Items & Values           \\&\\
+				Key Field  & Primary Key      \\&\\ \hline
+			\end{tabular}
+	\end{center}
+
+	
+	\subsection{Filing systems}
+		Consider the existence of two files:
+		\begin{itemize}
+			\item{\textbf{Employee File}}
+				\subitem{This would contain items such as ID number, name, surname, address, email and date of birth.}
+			\item\textbf{{Salary File}}
+				\subitem{This would contain items such as hours worked, rates of pay, overtime done, sick leave periods and vacation hours.}
+		\end{itemize}
+	
+		To obtain a link between these two files (\textit{i.e binding a salary file to an employee file}) one must repeat all the data manually creating redundancies, duplications, inconsistencies, losses of data integrity, decentralization and, loss of security.
+		
+	\section{Database systems}
+		To completely omit filing systems, database systems are used instead. These avoid data duplication, redundancy, inconsistency, loss of integrity, insecurity and decentralization.\\
+		
+		The \textit{IDE} of databases are called \textbf{DBMS}\footnote{Data base management system}.The various types of databases are: 
+		\begin{itemize}
+			\item{Flat File}
+			\item{Relational}
+			\item{Hierarchical}
+			\item{Network}
+			\item{Object Oriented}
+		\end{itemize}
+	\subsection{Flat File Database}
+	Below you can find the \cverb|CSV| version of a flat file database and its visual representation.
+\begin{lcverbatim}
+Order, AccountNumber, Name, Address, OrderDate, ItemName, ItemQty, ItemPrice, OrderTotal
+12, 3, Peppi, B'kara, 10/2/2021, Pizza, 7, 4.20, 29.40
+12, 3, Peppi, B'kara, 10/2/2021, Pasta, 1, 6.90, 6.90 
+13, 4, Cikku, B'bugia, 11/3/2021, Pomodoro, 3, 1.00, 3.00
+\end{lcverbatim}
+\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|c|c|c|}%
+		\hline
+		\bfseries Order & \bfseries A/C no. & \bfseries Name &\bfseries City &\bfseries Date & \bfseries Item &\bfseries Quantity &\bfseries Price E.A &\bfseries Total 
+		\csvreader[head to column names]{flat_file.csv}{}% use head of csv as column names
+		{\\\hline\Order & \AccountNumber &  \Name & \Address & \OrderDate & \ItemName & \ItemQty & \euro\ItemPrice & \euro\OrderTotal}
+		\\\hline
+	\end{tabular}
+\end{center}
+	
+	\subsection{Relational Database}
+		Codd invented a set of related tables using normalization rules
+
+\end{document}
