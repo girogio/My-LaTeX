@@ -1,0 +1,27 @@
+%!TEX root = maths.tex
+
+\begin{document}
+\chapter{Matrices II}
+\section{Determinant of a 3x3 Matrix}
+The determinant of a 3x3 matrix is calculated by extracting a row of 2x2 determinants from the given 3x3 matrix. These 2x2 determinants are referred to as minors.
+
+\begin{example}
+	Find the determinant of the matrix $\mathbf A = \begin{pmatrix*}[r]
+	2 &-1 &4\\
+	3 &0 &-3\\
+	4 &5 &6
+	\end{pmatrix*}$
+\end{example}
+\section{[Parentheses about vector product]}
+Consider the vectors $\mathbf{a} = x_1\mathbf{i} + y_1\mathbf{j} + z_1\mathbf{k}$ and b $\mathbf{b} = x_2\mathbf{i} + y_2\mathbf{j} + z_2\mathbf{k}$.\\
+
+Since vector product is distributive across addition:\\
+
+\begin{align*}
+	\mathbf{a} \times \mathbf{b} & = \left(  x_1\mathbf{i} + y_1\mathbf{j} + z_1\mathbf{k} \right) \times \left( x_2\mathbf{i} + y_2\mathbf{j} + z_2\mathbf{k} \right)\\
+	&+\cancel{x_1x_2(\mathbf i \times \mathbf i)} + x_1y_2(\mathbf i \times \mathbf j) + x_1z_2(\mathbf i \times \mathbf k)\\
+	&+ y_1x_2(\mathbf j \times \mathbf i) + \cancel{y_1y_2(\mathbf j \times \mathbf j)} + y_1z_2(\mathbf j \times \mathbf k)\\
+	&+z_1x_2(\mathbf k \times \mathbf i) + z_1y_2(\mathbf k \times \mathbf j) + \cancel{z_1z_2(\mathbf k \times \mathbf k)}
+\end{align*}
+
+\end{document}

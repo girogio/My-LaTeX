@@ -373,7 +373,6 @@
 	\end{example}
 	
 	\fullPlot{-5}{5}{-5}{5}{2+2*(cos(\x))}{180}
-	
 	\newpage
 	\begin{example}
 		Sketch the curve  $r=5\sin3\theta$ and the circle $r=5$. Find the area of the region which lies inside the circle but outside the curve.
@@ -485,7 +484,8 @@
 		ytick={-3,-2,...,9},]
 		\coordinate (origin) at (0,0);
 		\end{axis}  
-		\begin{scope}[shift={(origin)}]
+		\begin{scope}[
+		shift={(origin)}]
 		\clip (-7,-3) rectangle (7,9);
 		\draw[domain=0:360,scale=1,samples=500 ] plot (\x:{5+(3*sin(\x))}); %Curve 
 		\draw[domain=-7:7,scale=1,samples=500 ] plot (\x,8); %LIne y=8 

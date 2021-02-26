@@ -12,6 +12,7 @@ marginparwidth=0pt,
 
 \usepackage{titlesec}
 
+\usepackage{multicol}
 
 \usepackage[official]{eurosym}
 
@@ -56,12 +57,12 @@ marginparwidth=0pt,
 \newcommand{\hsp}{\hspace{20pt}}
 \titleformat{\section}[hang]{\normalfont\sffamily\LARGE\bfseries\flushright}{\thesection\hsp\textcolor{gray75}{|}\hsp}{0em}{}
 \titleformat{\subsection}[hang]{\normalfont\sffamily\Large\bfseries}{}{0em}{}
-\titleformat{\subsubsection}[hang]{\normalfont\sffamily\bfseries}{}{0em}{}
+\titleformat{\subsubsection}[hang]{\normalfont\sffamily\large\bfseries\flushright}{}{0em}{}
 
 % Title spacings
 \titlespacing*{\section} {0pt}{3.5ex plus 1ex minus .2ex}{25pt}
 \titlespacing*{\subsection} {0pt}{3.25ex plus 1ex minus .2ex}{10pt}
-\titlespacing*{\subsubsection} {0pt}{2ex plus 1ex minus .2ex}{2pt}
+\titlespacing*{\subsubsection} {10pt}{2ex plus 1ex minus .2ex}{10pt}
 
 
 \usepackage{fancyhdr}
@@ -126,6 +127,22 @@ Order, AccountNumber, Name, Address, OrderDate, ItemName, ItemQty, ItemPrice, Or
 		\\\hline
 	\end{tabular}
 \end{center}
+\subsubsection{First normal form}
+In this form, the multi-variable categories should be exported in another, separate table.
+\begin{multicols}{2}
+\begin{center}
+	\begin{tabular}{|c|c|c|c|c|c|c|c|c|}%
+		\hline
+		\bfseries Order & \bfseries A/C no. & \bfseries Name &\bfseries City &\bfseries Date & \bfseries Item &\bfseries Quantity &\bfseries Price E.A &\bfseries Total 
+		\csvreader[head to column names]{flat_file.csv}{}% use head of csv as column names
+		{\\\hline\Order & \AccountNumber &  \Name & \Address & \OrderDate & \ItemName & \ItemQty & \euro\ItemPrice & \euro\OrderTotal}
+		\\\hline
+	\end{tabular}
+\end{center}
+\end{multicols}
+\subsubsection{Second normal form}
+All the attributes in the table should be \textbf{functionally dependent} on the \emph{primary key}.
+
 	
 	\subsection{Relational Database}
 		Codd invented a set of related tables using normalization rules
