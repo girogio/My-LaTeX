@@ -1,16 +1,17 @@
 %!TEX root = maths.tex
-
+\newcommand{\adj}{\text{adj}\,}
+\newcommand{\identitymatrix}{\begin{bmatrix*}[c]1&0&0\\0&1&0\\0&0&1\end{bmatrix*}}
 \begin{document}
 \chapter{Matrices II}
 \section{Determinant of a 3x3 Matrix}
 The determinant of a 3x3 matrix is calculated by extracting a row of 2x2 determinants from the given 3x3 matrix. These 2x2 determinants are referred to as minors.
 
 \begin{example}
-	Find the determinant of the matrix $\mathbf A = \begin{pmatrix*}[r]
+	Find the determinant of the matrix $\mathbf A = \left(\begin{smallmatrix*}[r]
 	2 &-1 &4\\
 	3 &0 &-3\\
 	4 &5 &6
-	\end{pmatrix*}$
+	\end{smallmatrix*}\right)$
 \end{example}
 \section{[Parentheses about vector product]}
 Consider the vectors $\mathbf{a} = x_1\mathbf{i} + y_1\mathbf{j} + z_1\mathbf{k}$ and b $\mathbf{b} = x_2\mathbf{i} + y_2\mathbf{j} + z_2\mathbf{k}$.\\
@@ -21,7 +22,131 @@ Since vector product is distributive across addition:\\
 	\mathbf{a} \times \mathbf{b} & = \left(  x_1\mathbf{i} + y_1\mathbf{j} + z_1\mathbf{k} \right) \times \left( x_2\mathbf{i} + y_2\mathbf{j} + z_2\mathbf{k} \right)\\
 	&+\cancel{x_1x_2(\mathbf i \times \mathbf i)} + x_1y_2(\mathbf i \times \mathbf j) + x_1z_2(\mathbf i \times \mathbf k)\\
 	&+ y_1x_2(\mathbf j \times \mathbf i) + \cancel{y_1y_2(\mathbf j \times \mathbf j)} + y_1z_2(\mathbf j \times \mathbf k)\\
-	&+z_1x_2(\mathbf k \times \mathbf i) + z_1y_2(\mathbf k \times \mathbf j) + \cancel{z_1z_2(\mathbf k \times \mathbf k)}
+	&+z_1x_2(\mathbf k \times \mathbf i) + z_1y_2(\mathbf k \times \mathbf j) + \cancel{z_1z_2(\mathbf k \times \mathbf k)}\\
+	&=x_1y_2\mathbf k - x_1z_2\mathbf j - y_1x_2 \mathbf k + y_1z_2\mathbf i +z_1x_2\mathbf j -z_1y_2\mathbf i\\
+	&=(y_1z_2-z_1y_2)\mathbf i - (x_1z_2 - z_1 x_2)\mathbf j + (x_1y_2-y_1x_2)\mathbf k
 \end{align*}
 
+\section{Some properties of determinant}
+The value of the determinant is unaltered if all the rows and columns of a given matrix are interchanged. If the above happens, the resulting determinant will be of opposite sign.\\
+ If one row/column of a determinant $D$ is multiplied by $\lambda$, the resulting determinant is equal to $\lambda D$
+
+\section{The Inverse of a 3x3 matrix}
+
+
+\subsection{Matrix of cofactors}
+Consider the matrix $\mathbf A = \begin{bmatrix}a&b&c\\d&e&f\\g&h&i\end{bmatrix}$\\
+
+\noindent For each element of any given matrix $\mathbf A$:
+	\begin{itemize}
+\item{Ignore the values of the current row and column.}
+\item{Calculate the determinant of the remaining values.}
+\item{Apply alternating signs starting from $+$.}
+\item{Input this determinant into a new matrix}
+	\end{itemize}1
+The result would be the below matrix referred to as \emph{the matrix of co-factors}.
+
+\[
+\mathbf C=
+\begin{bmatrix*}[r]
+	\begin{vmatrix}e&f\\h&i\end{vmatrix}&&-\begin{vmatrix}d&g\\f&i\end{vmatrix}&&\begin{vmatrix}d&e\\g&h\end{vmatrix}\phantom{-}\\\\
+	-\begin{vmatrix}e&f\\h&i\end{vmatrix}&&\begin{vmatrix}d&g\\f&i\end{vmatrix}&&-\begin{vmatrix}d&e\\g&h\end{vmatrix}\phantom{-}\\\\
+	\begin{vmatrix}e&f\\h&i\end{vmatrix}&&-\begin{vmatrix}d&g\\f&i\end{vmatrix}&&\begin{vmatrix}d&e\\g&h\end{vmatrix}\phantom{-}
+\end{bmatrix*}
+\]
+\subsection{Adjugate matrix}
+The next step of finding the inverse matrix of $\mathbf A$ is finding the \emph{adjugate} matrix of $\mathbf A$. This is done by obtaining the \emph{transpose} of the matrix of cofactors, in our case, $\mathbf C$.
+\[
+\adj A =
+\begin{bmatrix*}[r]
+\begin{vmatrix}e&f\\h&i\end{vmatrix}&&-\begin{vmatrix}e&f\\h&i\end{vmatrix}&&\begin{vmatrix}e&f\\h&i\end{vmatrix}\phantom{-}\\\\
+-\begin{vmatrix}d&g\\f&i\end{vmatrix}&&\begin{vmatrix}d&g\\f&i\end{vmatrix}&&-\begin{vmatrix}d&g\\f&i\end{vmatrix}\phantom{-}\\\\
+\begin{vmatrix}d&e\\g&h\end{vmatrix}&&-\begin{vmatrix}d&e\\g&h\end{vmatrix}&&\begin{vmatrix}d&e\\g&h\end{vmatrix}\phantom{-}
+\end{bmatrix*}
+\]
+\subsection{Inverse matrix}
+Let the inverse of a matrix $A$ be $A^{-1}$. It is defined as a matrix of the same size of $A$ such that \[AA^{-1} = A^{-1}A = I\]
+This same matrix $A^{-1}$ is defined more particularly as \[A^{-1} = \frac{1}{\det A}\quad\text{adj }A\]
+\begin{example}
+	Find the inverse of the matrix $A = \begin{pmatrix*}
+										2&3&1\\
+										1&1&1\\
+										5&-1&0
+										\end{pmatrix*}$
+	\end{example}
+\begin{example}
+Solve using the inverse matrix method the system of equations:\\
+$x+y+z=7$\\
+$x-y+2z=9$\\
+$2x+y-z=1$
+\end{example}
+\newpage
+\section{Transformation Matrices in 3D}
+\subsection{Reflections along the xy plane}
+
+\begin{center}
+\begin{tikzpicture}[x=0.5cm,y=0.5cm,z=0.3cm,>=stealth]
+% The axes
+\draw[->] (xyz cs:x=-5) -- (xyz cs:x=5) node[above] {$x$};
+\draw[->] (xyz cs:y=-5) -- (xyz cs:y=5) node[right] {$y$};
+\draw[->] (xyz cs:z=-5) -- (xyz cs:z=5) node[above] {$z$};
+
+
+\foreach \coo in {-4,-3,...,4}
+{
+	\draw (\coo,-1.5pt) -- (\coo,1.5pt);
+	\draw (-1.5pt,\coo) -- (1.5pt,\coo);
+	\draw (xyz cs:y=-0.15pt,z=\coo) -- (xyz cs:y=0.15pt,z=\coo);
+}
+%\draw (xyz cs:y=3,z=2);
+\end{tikzpicture}
+\end{center}
+
+
+\begin{align*}
+\begin{bmatrix*}[c]1&0&0\\0&1&0\\0&0&1\end{bmatrix*} \rightarrow \begin{bmatrix*}[c]1&0&0\\0&1&0\\0&0&-1\end{bmatrix*}
+\end{align*}
+
+\subsection{Rotation along the y-axis}
+
+\begin{align*}
+\begin{bmatrix*}[c]1&0&0\\0&1&0\\0&0&1\end{bmatrix*} \rightarrow \begin{bmatrix*}[c]\cos\theta&0&-\sin\theta\\0&1&0\\\sin\theta&0&\cos\theta\end{bmatrix*}
+\end{align*}
+\subsection{Rotation along the z-axis}
+
+\begin{align*}
+\begin{bmatrix*}[c]1&0&0\\0&1&0\\0&0&1\end{bmatrix*} \rightarrow \begin{bmatrix*}[c]\cos\theta&-\sin\theta&0\\\sin\theta&\cos\theta&0\\0&0&1\end{bmatrix*}
+\end{align*}
+\subsection{Rotation along the z-axis}
+
+\begin{align*}
+\begin{bmatrix*}[c]1&0&0\\0&1&0\\0&0&1\end{bmatrix*} \rightarrow \begin{bmatrix*}[c]1&0&0\\0&\cos\theta&-\sin\theta\\0&\sin\theta&\cos\theta\end{bmatrix*}
+\end{align*}
+\subsection{Enlargement}
+When we enlarge (or conversely, reduce) by scale factor $n$, the unit base vector is multiplied by $n$.\\
+Thus the matrix representing an enlargement by scale factor n is given by:
+\begin{align*}
+n\identitymatrix = \begin{bmatrix*}[c]n&0&0\\0&n&0\\0&0&n\end{bmatrix*}
+\end{align*}
+\section{Geometric Interpretation of the Determinant}
+Consider an object with volume $V$ transformed by the matrix $\mathbf A$ with determinant $|\mathbf A|$. 
+The volume of the image is given by $|\mathbf A|V$. Thus, the determinant of the transformation matrix denotes the number of times by which th volume of the object increases or decreases.
+\begin{example}
+	Describe the effect on volume in $3$D space of the transformation given by $\mathbf{A} = \begin{bmatrix*}[r]1&2&3\\5&0&-1\\2&4&-3\end{bmatrix*}$
+\end{example}
+
+\begin{example}
+	Find the images of $P(4,5,1)$, $Q(3,-1,-2)$, $R(6,-2,0)$ under the transformation given by \\$\mathbf A = \left(\begin{smallmatrix*}[r]4&3&2\\-1&5&0\\6&2&-3\end{smallmatrix*}\right)$
+\end{example}
+\begin{example}
+	Find the equation of the line which is the image of the line $\mathbf r = 3\mathbf i +\mathbf j +\mathbf k + \lambda(2\mathbf i + \mathbf j - 5\mathbf k)$ under the transformation given by $\mathbf A =\begin{bmatrix}2&3&1\\-1&2&4\\0&6&1\end{bmatrix}$
+\end{example}
+Find two points on the line.
+Find images of points.
+Find equation of the image line
+
+\begin{example}
+	Find the image of the plane $x+2y-7z=2$ under the transformation defined by $\mathbf A = \begin{smallmatrix}-1&2&1\\-3&1&4\\0&1&2\end{smallmatrix}$
+\end{example}
 \end{document}
+
