@@ -4,6 +4,7 @@
 
 \begin{document}
 	\chapter{Permutations and Combinations}
+	\section{Permutations}
 	Consider $n$ objects from which $r$ are to be arranged in a particular order, where $r \leq n$. The number of \textit{permutations} of which $r$ objects from a total of $n$ refers to the number of ways in which these $r$ objects can be arranged, where the order of arrangement matters.\\
 	
 	
@@ -41,13 +42,7 @@
 		\quad\textbf{(d)} How many even numbers can be formed?
 	\end{example} 
 	
-	\begin{align*}
-	{\textbf{a.}} \quad & 5\times5\times4 & = 100 \\
-	{\textbf{b.}} \quad & 5\times4\times1 & = 20  \\
-	{\textbf{c.}} \quad & 5\times5\times4 & = 100 \\
-	{\textbf{d.}} \quad & 5\times5\times4 & = 100 
-	\end{align*}
-	\section{Permutations with Identical Objects}
+	\subsection{Permutations with Identical Objects}
 	The above method, however, does not suffice in the case that we have identical objects. Suppose we have the set $\set{S,E_1,E_2}$. For every time $t$ the repeated element is present in the given set, we have to divide the total we have to divide by $t!$
 	\begin{example}
 		In how many ways can the letters of the word `MALTA' be arranged?
@@ -56,20 +51,86 @@
 	\begin{example}
 		In how many ways can the letters of the word `ILLUSTRATIONS' be arranged?
 	\end{example}
-Since the letters $\set{I,L,S,T}$ are repeated twice, the total possibilities have to be divided by the factorial of the number of each recurring letter. (\textit{i.e., divide by $2!$ for the two `I's, by $2!$ for the two `L's ...})
-
-	\section{Circular Permutations}
+	Since the letters $\set{I,L,S,T}$ are repeated twice, the total possibilities have to be divided by the factorial of the number of each recurring letter. (\textit{i.e., divide by $2!$ for the two `I's, by $2!$ for the two `L's ...})
+	
+	\subsection{Circular Permutations}
 	In a particular field of mathematics referred to as group theory, a cyclic permutation is a permutation of the elements of some set $X$ which maps the elements of some subset $S$ of $X$ to each other in a cyclic fashion, while fixing all other elements of $X$. In other words, this is the number of ways in which a set can be permuted whilst omitting identical cycles.
 	\begin{example}
 		In how many ways can 6 people be seated at a round table?
 	\end{example}
+	
+	\begin{example}
+		In how many ways can 4 couples be arranged around a table?
+		
+		\quad\textbf{(a)} In  how many of these arrangements are all the males separated? (\textit{i.e., no male sits next to another})
+	\end{example}
+	\begin{example}
+		In how many ways can 4 couples be seated such that every one person sits next to their partner?
+	\end{example}
+	
+	\section{Combinations}
+ A combination is defined as one of the selections of $r$ objects from a total of $n$, where order does not matter. The number of total combinations is denoted by $\permcomb{C}{n}{r}$, where \[\permcomb{C}{n}{r} = \frac{n!}{(n-r)!\,r!}\]
+	\begin{example}
+		In how many ways can a committe of 8 people be chosen from a group of 17 candidates?
+	\end{example}
+	\[\permcomb{C}{17}{8} = 24310 \text{ selections}\]
+	
+	\begin{example}
+		In how many ways can a team of 5 players be chosen from a group of 15 students?
+		
+		\quad\textbf{b)} In how many ways can the selection if the eldest student is to be selected?
+		
+		\quad\textbf{c)} In how many ways can the selection if the twins in the group must not be seperated?
+	\end{example}
+	
+	\begin{example}
+		In how many ways can 16 people be divided into 2 groups of 
+		
+		\quad\textbf{a)} 9 people and 7 people respectively?
+		
+		\quad\textbf{b)} 8 people each?
+	\end{example}
+	
+	\begin{example}
+		In how many ways can 18 people be divided into 3 groups of 6 people each.
+	\end{example}
+	
+	\section{Further Permutations and Combinations}
+	
+	\begin{example}
+	Find the number of permutations of the word `ACQUAPANNA'. How many of these arrangements
+		
+		\quad\textbf{a)}	haveo the letters `\textbf{A}' appear adjacent?
+		
+		\quad\textbf{b)}	have the letters `\textbf{A}' appear seperated? 
+		
+		\quad\textbf{c)}	have the letters `\textbf{CQ}' appear adjacent?
+		
+		\quad\textbf{d)}	have the letters `\textbf{CQ}' appear seperated? 
+	\end{example}
+	\begin{example}
+							Find the number of permutations of the word `ELECTRICITY`. How many of these arrangements
+		
+		\quad\textbf{a)}	have adjacent `\textbf{E}'s?
+		
+		\quad\textbf{b)}	\textbf{start} and \textbf{finish} with the same letter?
+		
+		\quad\textbf{c)}	have the word `\textbf{CITY}' appear in them?
+		
+		\quad\textbf{d)}	have the letters `\textbf{CITY}' together?
+\end{example}
+
+\section{Distribution of Objects}
 
 \begin{example}
-	In how many ways can 4 couples be arranged around a table?
-	
-	\quad\textbf{(a)} In  how many of these arrangements are all the males separated? (\textit{i.e., no male sits next to another})
-	\end{example}
+		Grandma has 10 identical 1 euro coins to distribute among her 3 grandchildren. In how many eays can she distribute the coins?
+		
+		\quad \textbf{a)} In how many of these possibilities is the oldest grandchild the only one to end up with no coin at all?
+\end{example}
+
+This problem can be simplified to the number of ways these 12 symbols (€ or |) to 1
+
 \begin{example}
-	In how many ways can 4 couples be seated such that every one person sits next to their partner?
+Twelve identical sweets are to be distributed to 4 children such that all children recieve at least one sweet. In how many ways can this be done? 	
 \end{example}
 \end{document}
