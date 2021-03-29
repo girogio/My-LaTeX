@@ -10,9 +10,10 @@ marginparwidth=0pt,
 
 \usepackage{amssymb}
 \usepackage{fancyhdr}
-\usepackage[siunitx]{circuitikz}
+\usepackage[siunitx]{circuitikz}[european resistors	]
 \usepackage{siunitx}
 \usepackage{caption}
+\ctikzset{resistor = european}
 \usepackage{tikz}
 \usepackage{pgfplots}                %Tikz and GeoGebra integration
 \usepackage{multicol}
@@ -32,13 +33,13 @@ marginparwidth=0pt,
 	
 	\begin{center}
 		\begin{circuitikz}
-			\draw (2,0) to [C,l_=$C_1$,*-*] (2,2);
+			\draw (2,0) to [C,l_=$C_1$,*-*] (4,0);
 		\end{circuitikz}
 	\end{center}
 	
 	\section{Capacitance equation: }
 	\[Q = CV\]
-	Where $C$ is capacitance (\si{\farad}), $Q$ is the charge(\si{\coulomb}) stored in the and V is the potential difference (\si{\volt}) between the plates.
+	Where $C$ is capacitance (\si{\farad}), $Q$ is the charge (\si{\coulomb}) stored in the and V is the potential difference (\si{\volt}) between the plates.
 	
 	\section{Capacitance equation (given area and distance of plates): }
 	\[C = \varepsilon\frac{A}{d}\]
@@ -71,11 +72,17 @@ marginparwidth=0pt,
 		
 	\end{multicols}
 	\section{Charge of capacitor at any given second: }
-	\[Q=It\]
+	\begin{equation}
+		Q=It\tag{\si{\coulomb}}
+	\end{equation}
+	
+	\section{Dis/charging time formula: }
+\begin{equation}
+		\tau = RC\tag{\si{\second}} 
+\end{equation}
 	
 	\section{Charging graphs: }
-	
-	
+		
 	\begin{multicols}{3}
 		\begin{tikzpicture}[scale=0.7]
 			\begin{axis}[
@@ -218,14 +225,13 @@ marginparwidth=0pt,
 	\section{Dis/charging capacitor circuit: }
 	\begin{center}
 		{\begin{circuitikz} 
-				\draw (0,0) to [short, *-] (0,-2)   to (8,-2)  to (8,-1)  to [short, *-, l^=B] (8,-1); 
-				\draw (0,0) to (0,2) to [battery] (8,2) to (8,1) to [short, *-, l^=A] (8,1);
-				\draw (0,0) to [capacitor] (4,0) to [vR] (7 ,0) to [short, *-] (8,0);
+				\draw (0,0) to [short, *-] (0,-2) -- (8,-2)  -- (8,-1)  to [short, *-, l^=B] (8,-1); 
+				\draw (0,0) -- (0,2) to [battery] (8,2) -- (8,1) to [short, *-, l^=A] (8,1);
+				\draw (0,0) to  [capacitor] (4,0) to [vR] (7 ,0) to [short, *-] (8,0);
+				\draw (0,0) to (1,0) to  (1,-1.5) [voltmeter] (1,-1.5) to (3,-1.5) -- (3,0);
 			\end{circuitikz}
-			\captionof*{figure}{{\small A: Charging at 63\% every $\tau$.\\B: Discharging at 37\% every $\tau$}}}
+			\captionof*{figure}{{\small A: Charging at 63\% every $\tau$.
+								\\B: Discharging at 37\% every $\tau$}.}}
 	\end{center}
 
-	\section{Dis/charging time formula: }
-	\[\tau = RC\]
-	$$\text{The convention is that after $5\tau$ seconds the capacitor discharges.} $$
 \end{document}     
