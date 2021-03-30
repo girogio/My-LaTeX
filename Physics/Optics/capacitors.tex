@@ -225,7 +225,7 @@ marginparwidth=0pt,
 	\section{Dis/charging capacitor circuit: }
 	\begin{center}
 		{\begin{circuitikz} 
-				\draw (0,0) to [short, *-] (0,-2) -- (8,-2)  -- (8,-1)  to [short, *-, l^=B] (8,-1); 
+				\draw (0,0) to  (0,-2) -- (8,-2)  -- (8,-1)  to [short, *-, l^=B] (8,-1); 
 				\draw (0,0) -- (0,2) to [battery] (8,2) -- (8,1) to [short, *-, l^=A] (8,1);
 				\draw (0,0) to  [capacitor] (4,0) to [vR] (7 ,0) to [short, *-] (8,0);
 				\draw (0,0) to (1,0) to  (1,-1.5) [voltmeter] (1,-1.5) to (3,-1.5) -- (3,0);
