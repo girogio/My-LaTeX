@@ -1,0 +1,63 @@
+\documentclass[11pt]{article}
+\usepackage[
+top    = 2.50cm,% presumably you don't want it to be 0pt as well?
+bottom = 2.50cm,
+left   = 2cm,
+right  = 2cm,
+marginparsep = 0pt,
+marginparwidth=0pt,
+]{geometry}
+
+\usepackage{amssymb}
+\usepackage{fancyhdr}
+\usepackage{siunitx}
+\usepackage{caption}
+\usepackage{graphics}
+\usepackage{tikz}
+\usepackage{pgfplots}                
+\usetikzlibrary{intersections}
+\usetikzlibrary{calc}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{shapes.misc}
+\usepackage{multicol}
+\usepackage{amsmath}
+\pagestyle{fancy}
+\fancyhead[l]{Atomic Physics - Abridged edition}
+\fancyhead[r]{Giorgio G.}
+\fancyfoot[c]{ }
+\fancyfoot[r]{\thepage}
+\tikzset{
+	crossp/.style={
+		thick,
+		draw=gray,
+		cross out,
+		inner sep=0pt,
+		outer sep=0pt,
+		minimum size=2*(#1-\pgflinewidth),
+	},
+}
+\pgfplotsset{compat=newest}
+
+\begin{document}
+	\section{Electron-volt to Joule conversion: }
+	\begin{equation}
+		1\si{\electronvolt} = 1.6\times10^{-19}\si{\joule}\notag
+	\end{equation}
+\section{Energy level equation: }
+\begin{equation}
+	\Delta E = hf\quad;\quad f=\frac{c}{\lambda}\tag{\si{\joule} ; \si{\hertz}}
+\end{equation}
+\begin{center}
+	Where $\Delta E$ is the difference between two energy levels (\si{\joule}), $h$ is Planck's constant ($6.63\times10^{-34}\,\si{\meter\squared\kilogram\per\second}$), $c$ is the speed of light ($3\times10^8\,\si{\meter\per\second}$) and $\lambda$ is the wavelength (\si{\meter}) of the particle.
+\end{center}
+
+\section{Nomenclature: }
+\begin{center}
+		\begin{tabular}{|c|c|}
+			\hline
+			&	\\Term       & Description                                                       \\&\\ \hline
+			&	\\Excited  & When the atom goes $\uparrow$ it is less stable\\&\\ \hline
+			&	\\Grounded   & The state in which the atom is most relaxed, located $\downarrow$\\&\\ \hline
+		\end{tabular}
+\end{center}
+\end{document}     

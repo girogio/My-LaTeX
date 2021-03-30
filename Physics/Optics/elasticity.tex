@@ -1,0 +1,211 @@
+\documentclass[11pt]{article}
+\usepackage[
+top    = 2.50cm,% presumably you don't want it to be 0pt as well?
+bottom = 2.50cm,
+left   = 2cm,
+right  = 2cm,
+marginparsep = 0pt,
+marginparwidth=0pt,
+]{geometry}
+
+\usepackage{amssymb}
+\usepackage{fancyhdr}
+\usepackage{siunitx}
+\usepackage{caption}
+\usepackage{graphics}
+\usepackage{tikz}
+\usepackage{pgfplots}                
+\usetikzlibrary{intersections}
+\usetikzlibrary{calc}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{shapes.misc}
+\usepackage{multicol}
+\usepackage{amsmath}
+\pagestyle{fancy}
+\fancyhead[l]{Elasticity - Abridged edition}
+\fancyhead[r]{Giorgio G.}
+\fancyfoot[c]{ }
+\fancyfoot[r]{\thepage}
+\tikzset{
+	crossp/.style={
+		thick,
+		draw=gray,
+		cross out,
+		inner sep=0pt,
+		outer sep=0pt,
+		minimum size=2*(#1-\pgflinewidth),
+	},
+}
+\pgfplotsset{compat=newest}
+
+\begin{document}
+	\makeatletter
+	\newcommand\transformxdimension[1]{
+		\pgfmathparse{((#1/\pgfplots@x@veclength)+\pgfplots@data@scale@trafo@SHIFT@x)/10^\pgfplots@data@scale@trafo@EXPONENT@x}
+	}
+	
+	\newcommand\transformydimension[1]{
+		\pgfmathparse{((#1/\pgfplots@y@veclength)+\pgfplots@data@scale@trafo@SHIFT@y)/10^\pgfplots@data@scale@trafo@EXPONENT@y}
+	}
+	\makeatother
+	
+	\newcommand*{\ShowIntersection}{%
+		\fill
+		[
+		name intersections={of=Hardening and Hooke, name=i, total=\t},
+		fill=red
+		]
+		\foreach \s in {1,...,\t}{(i-\s) circle (2pt)
+			node [above left] {\s} (i-\s) node [below right] {%
+				\pgfgetlastxy{\macrox}{\macroy}
+				\transformxdimension{\macrox}
+				\pgfmathprintnumber{\pgfmathresult},
+				\transformydimension{\macroy}
+				\pgfmathprintnumber{\pgfmathresult}}};}
+	
+	\section{Hooke's Law: } 
+	
+	\begin{equation}
+		F = k \Delta L\tag{\si{\newton}}
+	\end{equation}
+	
+	\begin{center}
+		Where k is the \textbf{stiffness constant} ($\si{\newton\per\metre}$). Valid until the elastic limit.
+	\end{center}
+	
+	\section{Stress: }
+	\begin{equation}
+		\sigma = \frac{F}{A}\tag{\si{\pascal}}
+	\end{equation}
+	\begin{center}
+		Where $F$ is the force exerted and $A$ is the area on which the force has been exerted.
+	\end{center}
+	
+	\section{Strain: }
+	\begin{equation}
+		\varepsilon = \frac{\Delta l}{l}\tag{Dimension-less}
+	\end{equation}
+	\begin{center}
+		Where $\Delta l$ is the change in length, and $l$ is the original length.
+	\end{center}
+	
+	\section{Young's Modulus:}
+	\begin{equation}
+		Y = \frac{\sigma}{\varepsilon}\tag{Dimension-less}
+	\end{equation}
+	\begin{center}
+		We can define Young's modulus to be the measure of stiffness of a given material\footnote{It has to be considered seperately for objects made of different materials.}. 
+	\end{center}
+	\section{Stress vs Strain graph: }
+	\begin{center}
+		\begin{tikzpicture}[scale=0.7]
+			\begin{axis}[
+				x={(2cm,0)},
+				y={(0,0.02cm)},
+				axis y line=left,
+				axis x line=left,
+				axis line style=
+				{-{Stealth[inset=1pt, angle=30:15pt]}, very thick},
+				ymin=0,     % start the diagram at this y-coordinate
+				ymax=500,   % end   the diagram at this y-coordinate
+				xmin = 0,
+				xmax = 7,
+				ylabel style={rotate=-90},
+				every axis y label/.style=
+				{at={(ticklabel* cs:1.02)},anchor=south,},
+				ylabel=Stress / $\si{\pascal}$,
+				every axis x label/.style=
+				{at={(ticklabel* cs:1.02)},below left = 8pt},
+				every tick/.style={thick},
+				ytick={0,100,...,400},
+				xtick={0,1,...,6},
+				yticklabels={0,100,200,300,400},
+				xlabel=Strain,
+				xticklabels={0,1,...,6},
+				minor y tick num={1},
+				minor x tick num={4},
+				tick align=outside]
+				
+				\addplot[domain=0:1]{300*x};
+				
+				\coordinate (A) at (1,300);
+				\coordinate (B) at (4,450);
+				\coordinate (C) at (6,400);
+				\coordinate (P) at (0.2,0);
+				
+				
+				
+				\node[crossp=5pt, rotate=130, label=-130:{Break}] at (C) {};
+				
+				\draw[name path global=Hardening]
+				(A) .. controls +(71.5651:1.637cm) and +(180:2cm) .. (B);
+				
+				
+				
+				\draw[black] (B) .. controls +(0:2cm) and +(130:5mm) .. (C);
+			\end{axis}
+		\end{tikzpicture}~\\
+		\textbf{Gradient: Young's modulus}	
+	\end{center}
+	
+	\section{Force vs Extension graph: }
+	\begin{center}
+		\begin{tikzpicture}[scale=0.7]
+			\begin{axis}[
+				x={(2cm,0)},
+				y={(0,0.02cm)},
+				axis y line=left,
+				axis x line=left,
+				axis line style=
+				{-{Stealth[inset=1pt, angle=30:15pt]}, very thick},
+				ymin=0,     % start the diagram at this y-coordinate
+				ymax=500,   % end   the diagram at this y-coordinate
+				xmin = 0,
+				xmax = 5,
+				ylabel style={rotate=-90},
+				every axis y label/.style=
+				{at={(ticklabel* cs:1.02)},anchor=south,},
+				ylabel=Force / \si{\newton},
+				every axis x label/.style=
+				{at={(ticklabel* cs:1.02)},below left = 8pt},
+				every tick/.style={thick},
+				ytick={0,100,...,400},
+				xtick={0,1,2,...,4},
+				yticklabels={0,100,200,300,400},
+				xlabel=$\Delta l$ / \si{\meter},
+				xticklabels={0,1,...,6},
+				minor y tick num={1},
+				minor x tick num={4},
+				tick align=outside]
+				
+				\addplot[domain=0:4]{100*x};
+				
+			\end{axis}
+		\end{tikzpicture}~\\
+		\textbf{Gradient: Energy stored (\si{\joule})}	
+	\end{center}
+	
+	\section{Energy stored \textit{per unit volume}: }
+	
+	\begin{equation}
+		\frac{1}{2}\quad \text{stress} \times \text{strain} \tag{\si{\joule\per\metre\cubed}}
+	\end{equation}
+	
+	\section{Nomenclature: }
+	
+	\begin{center}
+		\resizebox{175pt}{!}{%
+		\begin{tabular}{|c|c|}
+			\hline
+		&	\\Term       & Description                                                       \\&\\ \hline
+		&	\\Stiffness  & How difficult to deform                                           \\&\\ \hline
+	&	\\Strength   & How difficult to break                                            \\&\\ \hline
+	&	\\	Elasticity & Where Young's modulus works.                                      \\&\\ \hline
+	&	\\	Ductile    & \begin{tabular}[c]{@{}c@{}}Able to undergo a lot of               \\ plastic behaviour.\end{tabular}                              \\&\\ \hline
+	&	\\	Brittle    & \begin{tabular}[c]{@{}c@{}}Breaks suddenly without                \\ undergoing plastic behaviour\end{tabular}                    \\&\\ \hline
+	&	\\	Necking    & \begin{tabular}[c]{@{}c@{}}Narrowing of material due              \\ to stretching.\end{tabular}                                \\&\\ \hline
+	&	\\	UTS        & \begin{tabular}[c]{@{}c@{}}Ultimate tensile stress a material can \\ withstand w/o fractures/narrowing\end{tabular} \\&\\ \hline
+		\end{tabular}}
+	\end{center}
+	
+\end{document}     
