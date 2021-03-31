@@ -23,7 +23,7 @@ marginparwidth=0pt,
 \fancyhead[r]{Giorgio G.}
 \newcommand\findtan[2][3]{
 	\pgfmathtruncatemacro\glen{#1/3*2}
-	\node[coordinate, label={#2:$A$}] (p) at (#2:#1 cm) {};
+	\node[coordinate, label={#2:}] (p) at (#2:#1 cm) {};
 	\draw[ultra thick, blue, <-] (c) -- (p);
 	\path ($(c)!.5!(p)$) --++ (-90+#2:3mm) node[at end] {$F_c$};
 	\draw[ultra thick, green, ->] (p) -- ++(90+#2:\glen cm) coordinate (e); 
@@ -123,32 +123,42 @@ marginparwidth=0pt,
 	\begin{center}
 		Where $m$ is the given object's \textbf{mass} (\si{\kilogram}), $v$ its \textbf{tangential velocity}\footnote{The velocity perpendicular to the cirular path's radius.} (\si{\meter\per\second}) and $r$ the \textbf{radius} (\si{\meter}) of the cirular path.
 	\end{center}
-\subsection{Specific cases: }
 
+\subsection{Periodic time: }
+
+\begin{equation}
+	T=\frac{2\pi r}{v}\tag{\si{\second}}
+\end{equation}
+
+
+	\subsection{Specific cases: }
 	
-		\begin{multicols}{2}
-	\begin{center}
+	
+	\begin{multicols}{2}
+		\begin{center}
 			\begin{tikzpicture}[scale=0.8]
-		\draw (0,0) circle (3cm);
-		\node[circle,fill, inner sep=1pt, label={left:O}] (c) at (0,0) {};
-		\findtan{90}
-	\end{tikzpicture}
-\begin{equation}
-	F_c = \frac{mv^2}{r} =mg+R\notag
-\end{equation}
-	\end{center}
-\begin{center}
-		\begin{tikzpicture}[scale=0.8]
-		\draw (0,0) circle (3cm);
-		\node[circle,fill, inner sep=1pt, label={left:O}] (c) at (0,0) {};
-		\findtan{270}
-	\end{tikzpicture}\\
-\begin{equation}
-	F_c = \frac{mv^2}{r} =mg-R\notag
-\end{equation}
-\end{center}
-\end{multicols}
-
+				\draw (0,0) circle (3cm);
+				\node[circle,fill, inner sep=1pt, label={left:O}] (c) at (0,0) {};
+				\findtan{90}
+				\node[circle, fill] (t) at (0,3.23) {};
+			\end{tikzpicture}
+			\begin{equation}
+				F_c = \frac{mv^2}{r} =mg+R\notag
+			\end{equation}
+		\end{center}
+		\begin{center}
+			\begin{tikzpicture}[scale=0.8]
+				\draw (0,0) circle (3cm);
+				\node[circle,fill,inner sep=1pt, label={left:O}] (c) at (0,0) {};
+				\findtan{90}
+				\node[circle, fill] (t) at (0,2.77) {};
+			\end{tikzpicture}\\
+			\begin{equation}
+				F_c = \frac{mv^2}{r} =mg-R\notag
+			\end{equation}
+		\end{center}
+	\end{multicols}
+	
 	
 	
 \end{document}
