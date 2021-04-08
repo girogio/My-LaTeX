@@ -4,6 +4,89 @@
 \begin{document}
 	
 	\chapter{Series}
+	
+	\section{Sequences}
+	
+	Consider the following set of numbers: 
+	\begin{center}
+		$2,4,6,8,...$\\
+		$1,2,4,8,16,...$\\
+		$4,9,16,25,...$\\
+	\end{center}
+	In each of the above cases, the numbers are written in a particular order and there is a clear rule for obtaining the next number and as many numbers in the list.\\
+	
+	The above are all examples of sequences where a sequence is a set of terms in a defined order with a rule for obtaining the terms.
+	
+	\section{Summation Series}
+	
+	When the terms of a sequence are added, a summation series is formed:
+	
+	\begin{multicols}{2}
+		\begin{center}
+			$2+4+6+8+10+...$\\
+			$1+2+4+8+16+...$\\
+			$4+9+16+25+36+...$\\
+		\end{center}
+		\begin{center}
+			~\\
+			are all examples of series.
+			~\\
+		\end{center}
+	\end{multicols}
+	A series can be finite or infinite, where a finite series consists of a fixed number of terms, whereas an infinite series has an infinite number of terms.\\
+	
+	Considering the follwing series, \[1+\frac{1}{2}+ \frac{1}{4}+\frac{1}{8}+\frac{1}{16}+...\] we can notice that the general term of this series is $\frac{1}{2^r}$. The general term of a series is not unique, it depends on the initial value of $r$. Thus, the general term $\frac{1}{2^{r-1}}$ also corresponds to the above series but we take the initial value of $r$ to be 1.\\
+	
+	A summation series can be defined in a concise way using the Greek letter $\Sigma$ denoting the \textit{summation of terms}. The above series may be expressed as \[\sum_{r=0}^\infty \frac{1}{2^r}\] which is equivalent to \[\sum_{r=1}^\infty \frac{1}{2^{r-1}} \quad r \in \mathbb{Z}\]
+	
+	\section{Arithmetic Progressions}
+	\subsection{Definition}
+	An arithmetic progression is a sequence of numbers starting with term $a$, in which successive terms are obtained by adding the same constant, denoted by $d$, reffered to as the \textbf{common difference}.\\
+	
+	\subsection{General term}
+	Let us consider the general A.P with first term $a$ and common difference $d\colon$ \[a+(a+d)+(a+2d)+(a+3d)+(a+4d)+(a+5d)+...\] By observing the coefficient of $d$ and the position of the term, we can conclude that the general term can be obtained by the equation: \[T_n = a+(n-1)d\]
+	\subsection{Sum of the first n terms}
+	Considering an A.P. with $n$ terms, let the first term be $a$, the common difference to be $d$	and the last term to be $l$
+	
+	\begin{align*}
+				S_n &= a+(a+d)+(a+2d)+(a+3d)+(a+4d)+(a+5d)+...+(l-d)+l\\
+\implies	S_n &= l+(l-d)+(l-2d)+(l-3d)+(l-4d)+(l-5d)+...+(a+d)+a\\
+	\implies	2S_n &= n(2a+l)\\
+ \implies   S_n  &= \frac n2 (2a+l)\\
+	   		&= \frac n2 (2a +(n-1)d)
+	\end{align*}
+	\newpage
+	\section{Geometric progressions}
+	\subsection{Definition}
+	A geometric progression is a sequence of numbers starting with term $a$, in which successive terms are obtained by multiplying the same constant, denoted by $r$, reffered to as the \textbf{common ratio}.\\
+	
+	\subsection{General term}
+	
+	Let us consider a general G.P. with first tirm $a$ and a common ratio $r$: \[a+ar+ar^2+ar^3+ar^4+ar^5+...+ar^n-1+\ldots\]
+	By observing the exponent of $r$ and the position of the term we can conclude that the general term can be obtained by the equation: \[\mathrm{T_n} = ar^{n-1}\]
+	
+	\subsection{Sum of the first n terms}
+	Considering a G.P. with first term $a$, common ratio $d$ and it's sum denoted by $S_n$:
+	
+	\begin{align*}
+		S_n = a+&ar+ar^2+ar^3+ar^4+ar^5+\ldots+ar^{n-1}+\ldots\\
+		rS_n = \phantom{a+}&ar+ar^2+ar^3+ar^4+ar^5+\ldots+ar^n+\ldots\\
+		S_n - rS_n =\phantom{a+}& a-ar^n\\
+		(1-r)S_n = \phantom{a+}&a(1-r^n)\\
+		S_n = \phantom{a+}&  \frac{a(1-r^n)}{1-r} \qed
+		\end{align*}
+	
+	
+	\section{Convergence of a series}
+	
+	For any\footnote{A.P's by definition \textbf{do not} converge.} given G.P., we can always add infinitely many times more terms to the end of the series, but what hapens to it's sum? Given that $\abs r = 1$, the sum will always get infinitesimally closer to a definite number.\\
+	
+	Considering the G.P. $\frac 12 + \frac 14 + \frac 18 + \frac 1 {16} + \ldots$ we can observe that if you keep on adding terms and summing them, the sum will approach 1. In mathematical language we say \[\text{as } n \rightarrow \infty\,,\,S_n = 1\] or \[\lim_{n\to\infty}S_n = 1\]
+	
+	\section{Binomial theorem}
+	
+	The binomial theorem states that \[(x+y)^n = \sum_{k=0}^n\begin{pmatrix}n\\k\end{pmatrix} x^ky^{n-k}	\]
+	
 	\section{Maclaurin Series}
 	\subsection{Derivation}
 	Let $f(x)$ be nay function of $ x $ and suppose that $ f(x) $ can be expanded as a series of ascending powers of $ x $ and that this series can be differentiated $ w.r.t. x $
@@ -128,7 +211,7 @@
 		& \therefore       & \ln\left(\dfrac{1-2x}{(1+2x)^2}\right) & = \left( -2x + -2x^2-\frac{8x^3}{3}-4x^4\right) -2\left(2x + -2x^2+\frac{8x^3}{3}-4x^4\right)                                                                       \\
 		&                  &                                        & = -6x+2x^2-8x^3	+4x^{4}                                                                                                                                             \\
 	\end{alignat*}
-	\text{Rage of Validity:}
+	\text{Range of Validity:}
 	\begin{multicols}{2}
 		\begin{center}
 			$$	\quad\frac{(-1)^{r-1}(-2x)^r}{r} - \frac{2(-1)^{r-1}(2x)^r}{r}$$\\
@@ -322,4 +405,4 @@
 	
 	\subsection{Method 4: Comparing to standard results}
 	
-\end{document}
+\end{document}e
