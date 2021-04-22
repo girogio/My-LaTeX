@@ -1,0 +1,92 @@
+\documentclass[11pt]{article}
+\usepackage[
+top    = 2.50cm,% presumably you don't want it to be 0pt as well?
+bottom = 2.50cm,
+left   = 2cm,
+right  = 2cm,
+marginparsep = 0pt,
+marginparwidth=0pt,
+]{geometry}
+
+\usepackage{amssymb}
+\usepackage{fancyhdr}
+\usepackage[most]{tcolorbox}
+\usepackage{siunitx}
+\usepackage{amsmath}
+\usepackage{tikz}
+\usetikzlibrary{decorations.markings}
+\usepackage{caption}
+\usepackage{pgfplots}
+\usepackage{multicol}
+\pagestyle{fancy}
+\fancyhead[l]{Heat - Abridged edition}
+\fancyhead[r]{Giorgio Grigolo {\textcopyright}}
+\tikzset{
+	mypath/.style={
+		postaction=decorate,
+		decoration={markings,
+			mark=at position #1 with {\coordinate (x);\arrow{>}}},
+		thick},
+	>=stealth
+}
+\begin{document}                          
+\section{First Law of Thermodynamics}
+	\begin{center}
+		\textit{The net change in the internal energy of a system is the sum of the net heat transfer from or to the system and the work done by or on the system.}
+\end{center}
+\begin{equation}
+	\Delta U = \Delta Q + \Delta W\tag{\si\joule}
+\end{equation}
+\begin{center}
+	Where $\Delta U$ is the net change in internal energy, $\Delta Q$ is the net amuont of heat transferred and $\Delta W$ is the net amount of work done.
+\end{center}
+\section{Specific Heat Capacity: }
+
+\begin{equation}
+	\Delta Q = mc\Delta\theta\tag{\si{\joule}}
+\end{equation}
+
+\section{Work done during volume changes: }
+\begin{equation}
+	\Delta W = p \Delta V\tag{\si{\joule}}
+\end{equation}
+\begin{center}
+	Where $p$ is the \textbf{pressure} (\si{\pascal}) exerted and $\Delta V$ is the change in \textbf{volume} (\si{\meter\cubed}). 
+\end{center}
+\subsection{Graph: }
+\begin{center}
+	\begin{tikzpicture}[scale=1.8]
+	\draw[<->] (4.5,0) node[below] {$V$} -| (0,3.5) node[left] {$p$};
+	\path (1,1) coordinate (2) {} (2.5,.8) coordinate (1) {}
+	(1,2) coordinate (3) {} (2.5,1.5) coordinate (4) {};
+	\path[font=\footnotesize] (1) node[below right] {1}
+	(2) node[left] {2}
+	(3) node[above right] {3}
+	(4) node[above right] {4};
+	\draw[mypath=.4,shorten <=-.15cm] (1) to[bend left=5] (2);
+	\path (x) node[below] {$\mathrm{d}Q=0$};
+	\draw[mypath=.4,shorten <=-.2cm,shorten >=-.2cm] (3) to[bend right=15] (4);
+	\path (x) node[above right] {$\mathrm{d}Q=0$};
+	\draw[mypath=.5] (2) -- (3);
+	\draw[->] (x)++(-.5,0) -- + (.3,0) node[midway,above] {$\Delta Q_h$};
+	\draw[mypath=.5] (4) -- (1);
+	\draw[<-] (x)++(.5,0) -- + (-.3,0) node[midway,above] {$\Delta Q_c$};
+	\draw[dashed] (2) -- (1,0) node[below] {$V_2$}
+	(1) -- (2.5,0) node[below] {$V_1$};
+	\foreach \i in {1,...,4} \filldraw[fill=white] (\i) circle (1pt);
+\end{tikzpicture}
+\end{center}
+
+\section{Latent heat: }
+\begin{center}
+	\textit{The heat required to convert a solid into a liquid or vapour, or a liquid into a vapour, without change of temperature.}
+\end{center}
+
+\begin{equation}
+\Delta Q =ml\tag{\si{\joule\per\kg}}
+\end{equation}
+
+\begin{center}
+	
+\end{center}
+\end{document}

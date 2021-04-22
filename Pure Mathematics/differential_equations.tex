@@ -1,0 +1,79 @@
+\documentclass{standalone}
+
+
+\begin{document}
+	
+	\chapter{Differential Equations}
+	
+	\section{First order differential equations}
+	\subsection{Exact differential equations}
+	When solving \textit{exact differential equations} we recognize that one side of the equation is of the form $u\frac{dv}{dx} + v\frac{du}{dx}$ and hence  $\int u\frac{dv}{dx} + v\frac{du}{dx}\,dx$ can be quoted as $uv+k$.
+	
+	\subsection{Integrating factor}
+	Consider a first order differential equation that can be written in the form $\frac{dy}{dx} + f(x)y + g(x)$. The LHS of the differential equation ia not yet exact, but suppose that it becomes exact when it is multiplied by a function $I(x)$.\\
+	
+	Thus, we have the exact differential equation: \[I(x)\left(\frac{dy}{dx} + f(x)y =  g(x)\right)\]
+	
+	Which is simplified to: \[I(x)\frac{dy}{dx} + I(x)f(x)y = I(x)g(x)\]
+	
+	Comparing the LHS with $v\frac{du}{dx} + u\frac{dv}{dx}$ we have: 
+	\begin{align*}  v&=I &\quad u&=y\\    \frac{du}{dx} &= I(x)f(x) &\quad \frac{dv}{dx} &= \frac{dy}{dx} \end{align*}
+	
+	Which results in: 
+	\begin{align*}
+		\int\frac{1}{I(x)}\,dI(x)      & = \int f(x)\,dx         \\
+		\implies \ln\left| I(x)\right| & = \int f(x)\, dx        \\
+		\therefore \quad	I(x)          & = e^{\int f(x)\,dx} \qed 
+	\end{align*}
+	
+	\newpage
+	\section{Second order differential equations}
+	A second order differential equation is one of the form: \[a\frac{d^2y}{dx^2} + b\frac{dy}{dx} + cy= f(x)\] with a general solution: \[y=\text{C.F.} + \text{P.I.}\]
+	
+	\subsection{The complementary function}
+	To obtain this part of the solution, the general solution of the quadratic equation $ax^2 + bx + c=0$ by comparing it to $a\frac{d^2y}{dx^2} + b\frac{dy}{dx} + cy = 0$ when $f(x)$, or the \textbf{RHS} $= 0$, and thus the two so called roots can be found. 
+	
+	\begin{center}
+		\renewcommand{\arraystretch}{1.6}
+		\begin{tabular}{|c|c|}
+			\hline
+			Roots                                        & General Solution                 \\ \hline
+			Two real distinct roots $\alpha$ and $\beta$ & $y=Ae^{\alpha x} + Be^{\beta x}$ \\ \hline
+			Two real equal roots $\alpha$ and $\alpha$   & $y=(A+Bx)e^{\alpha x}$           \\ \hline
+			Two complex roots $p\pm qi$                  & $y=e^{px}(A\cos qx + B\sin qx)$  \\\hline
+		\end{tabular}
+	\end{center}	
+	
+	\subsection{Type 2: $\mathbf{f(x) \neq 0}$}
+	When $f(x) \neq 0$ the general solution of such a differential equation is of the form $y=\text{C.F. + P.I.}$, where C.F. is the complimentary function and P.I. is the particular integral.
+
+	The C.F. is obtained by finding the general solution of the differential equation $a\frac{d^2y}{dx^2} + b\frac{dy}{dx} + cy = 0$, similarly to the previous case.\\
+
+	The P.I. is any solution of the given differential equation. It depends on the function $f(x)$ and is usually a general form of it.
+	\begin{center}
+		\renewcommand{\arraystretch}{1.6}
+		\begin{tabular}{|c|c|}
+			\hline
+			$\mathbf{f(x)}$		& \textbf{Trial Solution}\\\hline
+			$5$					& $y=k$\\\hline
+			$2x+7$				& $y=px+q$\\\hline
+			$3x^2+x-6$			& $y=px^2+qx+r$\\\hline
+			$3e{7x}$			& $y=ke^{7x}$\\\hline
+			$3xe^{-2x}$     	& $y=(px+q)e^{-2x}$\\\hline
+			$2\sin3x + 4\cos3x$ & $y=p\sin3x + q\cos3x$\\\hline
+			$\cos8x$ 			& $y=p\sin8x + q\cos8x$\\\hline
+			$\sin x - 3\cos2x$  & $y=p\sin x + q\cos x +r\sin2x + t\sin2x$\\\hline
+			$2x + 6e^{4x}$		& $y=px+q+ke^{4x}$\\\hline
+		\end{tabular}
+	\end{center}
+	\newpage
+	
+	The trial solution is to be chosen according to the above table and differentiated twice. These values are then substitued in the given differential equation, so that the unknown constant/s of the trial solution can be found.\\
+	
+	The general solution $y=\text{C.F.} + \text{P.I.}$ is then written.\\
+	
+	The unknown constants of the C.F. can be found if additional information is given  (i.e. $y=1$ and $\frac{dy}{dx}=0$ when $x=0$).\\
+	
+	In some cases (failure cases) the trial solution listed in the above table leads to an \textit{inconsistent equation}. This usually happens when the trial solution is included in the complementary function. The correct trial solution is obtained by multiplying the trial solution in the above table by $x$ or $x^2$. Such trial solutions are usually given by the question. 
+	
+\end{document}

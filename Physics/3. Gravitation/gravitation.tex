@@ -1,0 +1,79 @@
+\documentclass[11pt]{article}
+\usepackage[
+top    = 2.50cm,% presumably you don't want it to be 0pt as well?
+bottom = 2.50cm,
+left   = 2cm,
+right  = 2cm,
+marginparsep = 0pt,
+marginparwidth=0pt,
+]{geometry}
+
+\usepackage{amssymb}
+\usepackage{fancyhdr}
+\usepackage[most]{tcolorbox}
+\usetikzlibrary{calc}
+\usepackage{siunitx}
+\usepackage{amsmath}
+\usepackage{tikz, tikz-3dplot}
+\usepackage{caption}
+\usepackage{pgfplots}
+\usepackage{multicol}
+\pagestyle{fancy}
+\fancyhead[l]{Gravitation - Abridged edition}
+\fancyhead[r]{Giorgio Grigolo {\textcopyright}}
+\newcommand\textcenter[1]{
+	\begin{center}
+		#1
+	\end{center}
+}
+\begin{document}
+	
+\section{Newton's Law of Gravitation}
+
+\textcenter{\textit{Any two masses in the universe attract  one another with a force that is proportional 
+	to the product of the two masses and inversely proportional to the square of the distance between them.}}
+
+\begin{equation}
+	F= \frac{GMm}{r^2}\tag{\si\newton}
+\end{equation}
+
+\textcenter{Where G is the \textbf{Universal Gravitational Constant}\footnote{$6.67\times10^{-11}\,\si{\newton\meter\squared\per\kilogram\squared}$}, $M$ and $m$ are two \textbf{masses} (\si{\kilogram}) of two different bodies and $r$ the \textbf{radius} (\si{\meter}) between the primary and secondary bodies respectively.}
+
+\section{Gravitational field strength: }
+
+\begin{equation}
+	g=\frac{GM}{R^2}\tag{\si{\newton\per\kilogram}} 
+\end{equation}
+
+\textcenter{Where G is the \textbf{Universal Gravitational Constant}\footnotemark[1], $ M $ is the \textbf{mass} (\si{\kilogram}) of a body and $ R $ the \textbf{distance} (\si{\meter}) between the center of the body to the point where the field strength is to be measured\footnote{Most of the time this is the radius of a planet, where the field strength is measured at its surface.}. } 
+
+\section{Velocity of Orbit: }
+\begin{equation}
+	v=\sqrt{\frac{GM}{r}}\tag{\si{\meter\per\second}}
+\end{equation}
+\begin{center}
+		\tdplotsetmaincoords{70}{110}
+	\begin{tikzpicture}[tdplot_main_coords,scale=6]
+		\pgfmathsetmacro{\r}{.8}
+		\pgfmathsetmacro{\O}{45} % right ascension of ascending node [deg]
+		\pgfmathsetmacro{\i}{30} % inclination [deg]
+		\draw[<->] (0,-0.035,0) -- node[below]{r} ++ (0,-0.75,0) ;
+		
+		\tdplotdrawarc[dashed]{(0,0,0)}{\r}{0}{360}{}{}
+		
+		\tdplotsetrotatedcoords{\O}{0}{0}
+		
+		\node[circle,fill, inner sep=2pt, label=$m$] (c) at (0,-0.8,0) {};
+		\node[circle,fill, inner sep=4pt, label=$M$] (c) at (0,0,0) {};
+	\end{tikzpicture}\\
+\textcenter{Where G is the \textbf{Universal Gravitational Constant}\footnotemark[1], $ M $ is the \textbf{mass} (\si{\kilogram}) of the priamry body.}
+\end{center}
+
+\section{Kepler's Third Law}
+
+\begin{equation}
+	T^2 = \frac{4\pi^2r^3}{GM}
+\end{equation}
+
+\textcenter{Where $T$ is the \textbf{time of orbit} (\si{\second}), $r$ is the \textbf{distance} (\si\meter) between the center primary body and the center of the secondary body.}
+\end{document}
