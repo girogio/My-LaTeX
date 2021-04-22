@@ -1,0 +1,309 @@
+\documentclass{article}
+\setlength{\parindent}{0pt} 
+\usepackage[
+top    = 2.50cm,% presumably you don't want it to be 0pt as well?
+bottom = 2.50cm,
+left   = 2cm,
+right  = 2cm,
+marginparsep = 0pt,
+marginparwidth=0pt,
+]{geometry}
+\usepackage[T1]{fontenc}       % Postscript encoding
+
+\usepackage{titlesec}
+
+\usepackage{multicol}
+
+\usepackage[official]{eurosym}
+
+\usepackage{fancyvrb,newverbs,xcolor}
+
+\definecolor{cverbbg}{gray}{0.93}
+
+\newenvironment{cverbatim}
+{\SaveVerbatim{cverb}}
+{\endSaveVerbatim
+	\flushleft\fboxrule=0pt\fboxsep=.5em
+	\colorbox{cverbbg}{\BUseVerbatim{cverb}}%
+	\endflushleft
+}
+\newenvironment{lcverbatim}
+{\SaveVerbatim{cverb}}
+{\endSaveVerbatim
+	\flushleft\fboxrule=0pt\fboxsep=.5em
+	\colorbox{cverbbg}{%
+		\makebox[\dimexpr\linewidth-2\fboxsep][l]{\BUseVerbatim{cverb}}%
+	}
+	\endflushleft
+}
+
+\newcommand{\ctexttt}[1]{\colorbox{cverbbg}{\texttt{#1}}}
+\newverbcommand{\cverb}
+{\setbox\verbbox\hbox\bgroup}
+  {\egroup\colorbox{cverbbg}{\box\verbbox}}
+
+\usepackage{csvsimple}
+
+\usepackage{xcolor}
+
+\usepackage{graphicx} %
+
+\usepackage{lmodern}           % Latin modern for main font
+
+\usepackage{tgadventor}            % Helvetica for headings
+
+	% Title Formats
+\definecolor{gray75}{gray}{0.75}
+\newcommand{\hsp}{\hspace{20pt}}
+\titleformat{\section}[hang]{\normalfont\sffamily\LARGE\bfseries\flushright}{\thesection\hsp\textcolor{gray75}{|}\hsp}{0em}{}
+\titleformat{\subsection}[hang]{\normalfont\sffamily\Large\bfseries}{}{0em}{}
+\titleformat{\subsubsection}[hang]{\normalfont\sffamily\large\bfseries\flushright}{}{0em}{}
+
+% Title spacings
+\titlespacing*{\section} {0pt}{3.5ex plus 1ex minus .2ex}{25pt}
+\titlespacing*{\subsection} {0pt}{3.25ex plus 1ex minus .2ex}{10pt}
+\titlespacing*{\subsubsection} {10pt}{2ex plus 1ex minus .2ex}{10pt}
+
+
+\usepackage{fancyhdr}
+
+\cfoot{\thepage}
+\rfoot{\footnotesize\scshape Work in Progress}	
+
+\usepackage{titlesec}
+
+
+%Crow's foot notation table
+\usepackage{booktabs}
+\usepackage{array}
+\renewcommand{\arraystretch}{1.4}
+\usepackage{tikz}
+\tikzset{
+	zig zag to/.style={
+		to path={(\tikztostart) -| ($(\tikztostart)!#1!(\tikztotarget)$) |- (\tikztotarget) \tikztonodes}
+	},
+	zig zag to/.default=0.5,
+	one to one/.style={
+		one-one, zig zag to
+	},    
+	one to none/.style={
+		one-, zig zag to
+	},    
+	oone to none/.style={
+		oone-, zig zag to
+	},    
+	omany to none/.style={
+		omany-, zig zag to
+	},    
+	one to many/.style={
+		one-crow's foot, zig zag to,
+	},
+	one to omany/.style={
+		one-omany, zig zag to
+	},      
+	many to one/.style={
+		crow's foot-one, zig zag to
+	},
+	many to many/.style={
+		crow's foot-crow's foot, zig zag to
+	}, 
+	many to none/.style={ 
+		crow's foot-, zig zag to 
+	},
+}    
+\makeatletter
+\pgfarrowsdeclare{crow's foot}{crow's foot}
+{
+	\pgfarrowsleftextend{+-.5\pgflinewidth}%
+	\pgfarrowsrightextend{+.5\pgflinewidth}%
+}
+{
+	\pgfutil@tempdima=0.6pt%
+	%\advance\pgfutil@tempdima by.25\pgflinewidth%
+	\pgfsetdash{}{+0pt}%
+	\pgfsetmiterjoin%
+	\pgfpathmoveto{\pgfqpoint{0pt}{-9\pgfutil@tempdima}}%
+	\pgfpathlineto{\pgfqpoint{-13\pgfutil@tempdima}{0pt}}%
+	\pgfpathlineto{\pgfqpoint{0pt}{9\pgfutil@tempdima}}%
+	\pgfpathmoveto{\pgfqpoint{0\pgfutil@tempdima}{0\pgfutil@tempdima}}%
+	\pgfpathmoveto{\pgfqpoint{-8pt}{-6pt}}% 
+	\pgfpathlineto{\pgfqpoint{-8pt}{-6pt}}%  
+	\pgfpathlineto{\pgfqpoint{-8pt}{6pt}}% 
+	\pgfusepathqstroke%
+}
+
+\pgfarrowsdeclare{omany}{omany}
+{
+	\pgfarrowsleftextend{+-.5\pgflinewidth}%
+	\pgfarrowsrightextend{+.5\pgflinewidth}%
+}
+{
+	\pgfutil@tempdima=0.6pt%
+	%\advance\pgfutil@tempdima by.25\pgflinewidth%
+	\pgfsetdash{}{+0pt}%
+	\pgfsetmiterjoin%
+	\pgfpathmoveto{\pgfqpoint{0pt}{-9\pgfutil@tempdima}}%
+	\pgfpathlineto{\pgfqpoint{-13\pgfutil@tempdima}{0pt}}%
+	\pgfpathlineto{\pgfqpoint{0pt}{9\pgfutil@tempdima}}%
+	\pgfpathmoveto{\pgfqpoint{0\pgfutil@tempdima}{0\pgfutil@tempdima}}%  
+	\pgfpathmoveto{\pgfqpoint{0\pgfutil@tempdima}{0\pgfutil@tempdima}}%
+	\pgfpathmoveto{\pgfqpoint{-6pt}{-6pt}}% 
+	\pgfpathcircle{\pgfpoint{-11.5pt}{0}} {3.5pt}
+	\pgfusepathqstroke%
+}
+
+\pgfarrowsdeclare{oone}{oone}
+{
+	\pgfarrowsleftextend{+-.5\pgflinewidth}%
+	\pgfarrowsrightextend{+.5\pgflinewidth}%
+}
+{
+	\pgfutil@tempdima=0.6pt%
+	%\advance\pgfutil@tempdima by.25\pgflinewidth%
+	\pgfsetdash{}{+0pt}%
+	\pgfsetmiterjoin%
+	\pgfpathmoveto{\pgfqpoint{0\pgfutil@tempdima}{0\pgfutil@tempdima}}%
+	\pgfpathmoveto{\pgfqpoint{-6pt}{-6pt}}% 
+	\pgfpathlineto{\pgfqpoint{-6pt}{-6pt}}%  
+	\pgfpathlineto{\pgfqpoint{-6pt}{6pt}}% 
+	\pgfpathcircle{\pgfpoint{-11.5pt}{0}} {3.5pt}
+	\pgfusepathqstroke%
+}
+
+\pgfarrowsdeclare{one}{one}
+{
+	\pgfarrowsleftextend{+-.5\pgflinewidth}%
+	\pgfarrowsrightextend{+.5\pgflinewidth}%
+}
+{
+	\pgfutil@tempdima=0.6pt%
+	%\advance\pgfutil@tempdima by.25\pgflinewidth%
+	\pgfsetdash{}{+0pt}%
+	\pgfsetmiterjoin%
+	\pgfpathmoveto{\pgfqpoint{0\pgfutil@tempdima}{0\pgfutil@tempdima}}%
+	\pgfpathmoveto{\pgfqpoint{-6pt}{-6pt}}% 
+	\pgfpathlineto{\pgfqpoint{-6pt}{-6pt}}%  
+	\pgfpathlineto{\pgfqpoint{-6pt}{6pt}}% 
+	\pgfpathmoveto{\pgfqpoint{0\pgfutil@tempdima}{0\pgfutil@tempdima}}%
+	\pgfpathmoveto{\pgfqpoint{-8pt}{-6pt}}% 
+	\pgfpathlineto{\pgfqpoint{-8pt}{-6pt}}%  
+	\pgfpathlineto{\pgfqpoint{-8pt}{6pt}}%    
+	\pgfusepathqstroke%
+}
+
+\begin{document}
+	\section{Introduction to Databases}
+	\subsection{Database Nomenclature}
+	\begin{center}
+			\begin{tabular}{|c|c|}
+				\hline&\\
+			\textbf{Files}     & \textbf{Databases}\\&\\ \hline&\\
+				File       & Table            \\&\\
+				Records    & Tuples / Records \\&\\
+				Fields     & Attributes       \\&\\
+				Data Items & Values           \\&\\
+				Key Field  & Primary Key      \\&\\ \hline
+			\end{tabular}
+	\end{center}
+
+	
+	\subsection{Filing systems}
+		Consider the existence of two files:
+		\begin{itemize}
+			\item{\textbf{Employee File}}
+				\subitem{This would contain items such as ID number, name, surname, address, email and date of birth.}
+			\item\textbf{{Salary File}}
+				\subitem{This would contain items such as hours worked, rates of pay, overtime done, sick leave periods and vacation hours.}
+		\end{itemize}
+	
+		To obtain a link between these two files (\textit{i.e binding a salary file to an employee file}) one must repeat all the data manually creating redundancies, duplications, inconsistencies, losses of data integrity, decentralization and, loss of security.
+		
+	\section{Database systems}
+		To completely omit filing systems, database systems are used instead. These avoid data duplication, redundancy, inconsistency, loss of integrity, insecurity and decentralization.\\
+		
+		The \textit{IDE} of databases are called \textbf{DBMS}\footnote{Data base management system}.The various types of databases are: 
+		\begin{itemize}
+			\item{Flat File}
+			\item{Relational}
+			\item{Hierarchical}
+			\item{Network}
+			\item{Object Oriented}
+		\end{itemize}
+	\subsection{Flat File Database}
+	Below you can find the \cverb|CSV| version of a flat file database and its visual representation.
+\begin{lcverbatim}
+Order, AccountNumber, Name, Address, OrderDate, ItemName, ItemQty, ItemPrice, OrderTotal
+12, 3, Peppi, B'kara, 10/2/2021, Pizza, 7, 4.20, 29.40
+12, 3, Peppi, B'kara, 10/2/2021, Pasta, 1, 6.90, 6.90 
+13, 4, Cikku, B'bugia, 11/3/2021, Pomodoro, 3, 1.00, 3.00
+\end{lcverbatim}
+\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|c|c|c|}%
+		\hline
+		\bfseries Order & \bfseries A/C no. & \bfseries Name &\bfseries City &\bfseries Date & \bfseries Item &\bfseries Quantity &\bfseries Price E.A &\bfseries Total 
+		\csvreader[head to column names]{flat_file.csv}{}% use head of csv as column names
+		{\\\hline\Order & \AccountNumber &  \Name & \Address & \OrderDate & \ItemName & \ItemQty & \euro\ItemPrice & \euro\OrderTotal}
+		\\\hline
+	\end{tabular}
+\end{center}
+
+
+	\subsection{Relational Database}
+	The three types of relations can be denoted with the notation that is referred to as \textit{Crow's Foot} notation. Edgar F.	Codd invented a set of related tables using normalization rules which include 3 forms: $1\textsuperscript{st}$, $2\textsuperscript{nd}$ and $3\textsuperscript{rd}$ normal forms.
+	\begin{center}
+		
+\begin{minipage}{\textwidth}% Minipage has width exactly the same as the text block
+	\centering% Centers the contents of the minipage
+	\begin{tabular}{lc}
+		\toprule
+		Jargon & Notation\\
+		\midrule
+		one to none &
+		\tikz{\draw[one to none] (0,0) -- ++(1.5,0);}\\
+		one to many & \tikz{\draw[one to many] (0,0) -- ++(1.5,0);}\\
+		many to none & \tikz{\draw[many to none] (0,0) -- ++(1.5,0);}\\
+		many to one & \tikz{\draw[many to one] (0,0) -- ++(1.5,0);}\\ 
+		many to many &\tikz{\draw[many to many] (0,0) -- ++(1.5,0);}\\
+		\bottomrule
+
+	\end{tabular}
+	\medskip	
+	\textcolor{gray}{Crow's foot notation.}% Your caption goes here.
+\end{minipage}
+	\end{center}
+%FULL CBN
+%	\begin{tabular}{lcc}
+%		\toprule
+%		Notation & IEM & CHEN \\
+%		\midrule
+%		one to none &
+%		\tikz{\draw[one to none] (0,0) -- ++(1.5,0);} & 1:0\\
+%		one to one & \tikz{\draw[one to one] (0,0) -- ++(1.5,0);} & 1:1\\
+%		one to many & \tikz{\draw[one to many] (0,0) -- ++(1.5,0);} & 1:n\\
+%		many to none & \tikz{\draw[many to none] (0,0) -- ++(1.5,0);} & n:0\\
+%		one to (none or one or many) &\tikz{\draw[one to omany] (0,0) -- ++(1.5,0);} & \\ 
+%		many to one & \tikz{\draw[many to one] (0,0) -- ++(1.5,0);} & n:1\\ 
+%		many to many &\tikz{\draw[many to many] (0,0) -- ++(1.5,0);} & n:m\\
+%		(none or one or many) to none &\tikz{\draw[omany to none] (0,0) -- ++(1.5,0);} & \\
+%		(none or one) to none &\tikz{\draw[oone to none] (0,0) -- ++(1.5,0);} & \\
+%		\bottomrule
+%	\end{tabular}
+
+\subsubsection{First normal form}
+In this form, the multi-variable categories should be exported in another, separate table.
+
+\begin{center}
+	\begin{tabular}{|c|c|c|c|c|c|c|c|c|}%
+		\hline
+		\bfseries order\_id & \bfseries ac\_no & \bfseries name &\bfseries city &\bfseries date & \bfseries item &\bfseries quantity &\bfseries item\_price &\bfseries total\_price
+		\csvreader[head to column names]{flat_file.csv}{}% use head of csv as column names
+		{\\\hline\Order & \AccountNumber &  \Name & \Address & \OrderDate & \ItemName & \ItemQty & \euro\ItemPrice & \euro\OrderTotal}
+		\\\hline
+	\end{tabular}
+\end{center}
+
+\subsubsection{Second normal form}
+All the attributes in the table should be \textbf{functionally dependent} on the \emph{primary key}.
+
+$\phi(a)\phi(b) = \phi (ab)$
+\end{document}

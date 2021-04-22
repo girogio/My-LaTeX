@@ -1,0 +1,174 @@
+\begin{document}
+	\chapter{Integration}
+	\section{Reduction Formul\ae}
+	Integrating using a reduction formula is in essence repeating integration by parts over and over again.\\
+	
+	
+	 We can think of the process of finding a reduction formula for a given integral as a \emph{recursive approach} to integration by parts. By listing all the iterations of $\textstyle\int u\od vx\,dx= uv-\int v\od ux\,dx$, more specifically the $\textstyle\int v\od ux\,dx$ part in terms of $I_n$ where $n$ is the \emph{iterative index}, or the \textit{step number}, if you will.\\
+	
+	As expected, finding this recursively valid form is not as direct, and thus, the exponent has to be \textit{split} in such a way that trigonometric identities can be used.
+	\begin{example}
+		If $I_n = \int \cos^n x \, dx$ show that $I_n = \frac{1}{n} \sin\cos^{n-1}x + \frac{n-1}{n}\cdot I_{n-2}$. Hence find $\int \cos^5x\, dx$.
+	\end{example}
+	
+	\begin{align*}
+		I_n                  & = \int \cos^n x \, dx                                                       \\
+		& = \int \cos x \cdot \cos^{n-1}x\, dx                                        \\
+		%&\quad \text{Integrating by parts: }\\								
+		\therefore \quad I_n & = \cos^{n-1}x\sin x + (n-1)\int\cos^{n-2}x\sin^2x\,dx                       \\
+		& = \cos^{n-1}x\sin x + (n-1)\int\cos^{n-2}x(1-\cos^2x)\,dx                   \\
+		& = \cos^{n-1}x\sin x + (n-1)\int\cos^{n-2}x \, dx \,-\, (n-1)\int\cos^nx\,dx \\
+		& = \cos^{n-1}x\sin x + (n-1)I_{n-2} - (n-1)I_n                               \\
+		I_n + (n-1)I_n       & = \cos^{n-1}x\sin x + (n-1)I_{n-2}                                          \\
+		\implies  nI_n       & = \cos^{n-1}x\sin x + (n-1)I_{n-2}                                          \\
+		\implies I_n         & = \frac1n\cos^{n-1}x\sin x + \left(\frac{n-1}n\right)I_{n-2}                \\
+	\end{align*}
+	
+	\begin{align*}
+		\int \cos^5 x \, dx   =\,      & I_5                                                                                                                 \\
+		& I_5 = \frac{1}{5} \cos^4x\sin x + \frac45I_3                                                                        \\
+		& I_3 = \frac{1}{5} \cos^4x\sin x + \frac{4}{5}I_1                                                                    \\
+		& I_1 = \int \cos x \, dx = \sin x + k                                                                                \\
+		\therefore \quad \int \cos^5 x & = \frac{1}{5}\cos^4x \sin x + \frac{4}{5}\left(\frac{1}{3}\cos^2x\sin x + \frac{2}{3}\left(\sin x + k\right)\right) \\
+		& =\frac{1}{5}\cos^2x\cdot\sin x + \frac4{15} \cos^2 x \cdot \sin x + \frac{8}{15}\sin x + c   \qed                   
+	\end{align*}	  						
+		\hrulefill
+	\begin{example}
+		If $I_n = \int \tan^n\theta \, d\theta$, find a reduction formula for $I_n$ and use it to evaluate $\int_0^{\frac\pi4} \tan^6\theta\,d\theta$.
+	\end{example}
+	
+	\begin{equation*}
+		\begin{split}
+			I_n &= \int \tan^n\theta \, d\theta\\
+			&= \int \tan^2\theta \tan^{n-2}\theta\, d\theta\\
+			&= \int (\sec^2\theta - 1) \tan^{n-2}\theta\, d\theta\\
+			&= \int \sec^2\theta\tan^{n-2}\theta\,d\theta - \int \underbrace{\tan^{n-2}\theta\,d\theta}\\
+			&= \frac{\tan^{n-1}\theta}{n-1} - \underbrace{I_{n-2}}
+		\end{split}
+		\qquad\qquad\qquad
+		\begin{split}
+			\int_0^{\frac\pi4}\tan^6\theta\,d\theta &= I_6\bigg|_0^{\frac\pi4}\\
+			I_6 &= \frac{tan^5\theta}{5} - I_4\\
+			I_4 &= \frac{\tan^3\theta}{3} - I_2\\		
+			I_2 &= \tan\theta - I_0\\
+			I_0 &= \int 1 \, d\theta = \theta + k
+		\end{split}
+	\end{equation*}
+	\begin{align*}
+		\therefore \int_0^\frac\pi4  \tan^6\theta \, d\theta & =  \frac{\tan^6\theta}5 - \frac{\tan^3\theta}{3} + \tan\theta - \theta\bigg|_0^\frac\pi4 \\
+		& = \frac15 - \frac13 + 1 - \frac{\pi}{4}                                                  \\
+		& = \frac{13}{15} - \frac{\pi}{4}   \qed                                                   
+	\end{align*}
+		\hrulefill\newpage
+	
+	\begin{example}
+		Establish a reduction formula that could be used to find $\int x^ne^x \, dx$ and use it to find $\int x^4e^4$.
+	\end{example}
+	
+	\begin{equation*}
+		\begin{split}
+			\text{Let } I_n &= \int x^ne^x \, dx \\
+			\text{Let } u 	&= x^n    \qquad   \od{v}{x} = e^x \\
+			\od{u}{x}     	&= nx^{n-1} \qquad  v = e^x         \\
+			\therefore \quad I_n	&= x^ne^x - n \int x^{n-1}e^x \, dx\qquad\\
+			&= x^ne^x - n\, I_{n-1}
+		\end{split}
+		\begin{split}
+			&\int x^4e^x = I_4\\
+			&I_4 = x^4e^x - 4I_3\\
+			&I_3 = x^3e^x - 3I_2\\
+			&I_2 = x^2e^x - 2I_1\\		
+			&I_1 = xe^x - I_0\\				 		 	
+			&I_0 = e^x + k
+		\end{split}
+	\end{equation*}
+	\begin{align*}
+		\therefore \quad I_4 & = x^4e^x -4(x^3e^x - 3(x^2e^x - 2(xe^x - e^x + k))) \\
+		& = x^4e^x -4x^3e^x + 12x^2e^x - 24xe^x + 24e^x + c   \qed
+	\end{align*}
+		\hrulefill
+	\begin{example}
+		Establish a reduction formula which can be used to evaluate $\int x^n \sin x \, dx$.
+	\end{example}
+	
+	\begin{align*}
+		\text{Let } I_n &= \int x^n \cdot \sin x\\
+						&= -x^n\cos x + \int nx^{n-1}\cos x\,dx\\
+						&= -x^n\cos x + n\left(x^{n-1}\sin x - \int (n-1)x^{n-2}\sin x\,dx\right)\\
+						&= -x^n\cos x + n\left(x^{n-1}\sin x - (n-1) \int x^{-2} \cdot x^n\sin x\,dx\right)\\
+						&= -x^n\cos x + n\left(x^{n-1}\sin x - (n-1) \underbrace{x^{n-2}\sin x\,dx}\right)\\
+						\therefore \quad I_n &= -x^n\cos x + n\left(x^{n-1}\sin x - (n-1)I_{n-2}\right)\\
+						&= -x^n\cos x + nx^{n-1}\sin x - n(n-1)I_{n-2} \qed
+	\end{align*}
+	\hrulefill\newpage
+	
+	\begin{example}
+		Establish a reduction formula to find $\int \csc^nx \, dx$. Hence find $\int csc^5x \, dx$
+	\end{example}
+
+
+	\begin{align*}
+		\text{Let } I_n &= \int \csc^nx \, dx\\
+		&= \int \csc^2x \cdot \csc^{n-2}x \, dx\\
+		\text{Let } u & = \csc^{x-2} x              \qquad \od{v}{x} = \csc^2x \, dx \\
+		\od{u}{x}     & = -(n-2)\csc^{n-2}\cot x  v \qquad = -\cot x                 \\
+		\therefore \int \csc^nx \, dx &= -\cot x \cdot \csc^{n-2}x  - (n-2)\int \csc^{n-2}x\cot^2x \, dx\\
+		I_n &= 	-\cot x \cdot \csc^{n-2}x - (n-2)\int \csc^{n-2}x\left(\csc^2x - 1\right) \, dx\\
+		&= 		-\cot x \cdot \csc^{n-2}x - (n-2)\int \csc^{n}x\,dx + (n-2)\int\csc^{n-2}xdx\\
+		&=-\cot x \cdot \csc^{n-2}x  - (n-2)\, I_n + (n-2)I_{n-2}\\
+		I_n + nI_n -2I_n &= -\cot x\cdot \csc^{n-2}x  + (n-2)I_{n-2}\\
+		(n-1)I_n &= -\cot x\cdot \csc^{n-2}x  + (n-2)I_{n-2}\\
+		I_n &= \frac{-1}{n-1}-\cot x\cdot \csc^{n-2}x + \frac{n-2}{n-1}I_{n-2}\\
+		&= \left(1-\frac{1}{n-1}\right)I_{n-2}-\frac{\cot x\csc^{n-2}x}{n-1}\qed
+	\end{align*}
+	\begin{example}
+		Show that if $I_n - \int_0^\pi x^n\sin x\,dx$, then $I_n = \pi^n - n(n-1)\,I_n-1$. Hence evaluate $\int_0^\pi\sin x\,dx$
+	\end{example}
+	\begin{align*}
+		I_n &=\left[-x^n\cos x\right]_0^\pi + n\int_0^\pi x^{n-1} \cos x \, dx\\
+		&=\pi^n + n\int_0^\pi x^{n-1} \cos x \, dx\\
+		&= \pi^n \int_0^\pi \\
+		\text {Let } u &=
+	\end{align*}
+	\begin{example}
+		Show that, if $I_n = \int_0^1 x^n e^{x^3} \, dx$, then $I_n =\frac{e}{3} - \frac{n-2}{3} \cdot I_{n-3}$
+	\end{example}
+	
+	\begin{align*}
+		I_n &= \int_0^1 x^n e^{x^3} \, dx\\
+		&= \int_0^1 x^{n-2}x^2e^{x^3} \, dx\\
+		\therefore \quad I_n &= \left[\frac{x^{n-2}e^{x^3}}3\right]_0^1 - \frac{n-2}3 \int_0^1 x^{n-3}{e^{x^3}} \, dx\\
+		&= \frac{e}3 - \frac{n-2}3 \cdot I_{n-3}
+	\end{align*}
+	
+	\begin{example}
+		Show that, if $I_n= \int_0^1 x^n(1+x^5)^4 \, dx$, then $I_n = \frac1{n+21} \left[32-(n-4)\cdot I_{n-5}\right]$
+	\end{example}
+	
+	\begin{align*}
+		I_n                 & = \int_0^1 x^n(1+x^5)^4 \, dx                                                                           \\
+		& = x^{n-4}x^4(1+x^5)^4\,dx                                                                               \\
+		& =\left[x^{n-4} \frac{(1+x^5)^5}{25}\right]_0^1 - \frac{n-4}{25} \int x^{n-5}(1+x^5)^5\,dx               \\
+		& = \frac{32}{25}  -\frac{n-4}{25} \int_0^1x^n-5(1+x^5)(1+x^5)^4\,dx                                      \\
+		& = \frac{32}{25} - \frac{n-5}{25}\int_0^1x^{n-5}(1+x^5)^4\, dx - \frac{n-4}{25}\int_0^1x^n(1+x^5)^4\, dx \\
+		& = \frac{32}{25} - \left(\frac{n-4}{25}\right)I_{n-5} - \left(\frac{n-4}{25}\right)I_n                   \\
+		25I_n               & = 32 - (n-4)I_{n-5} - \left(\frac{n-4}{25}\right)\,I_n                                                  \\
+		25I_n + nI_n - 4I_n & = 32-(n-4)\,I_{n-5}\\
+		(n+21)I_n &= 32-(n-4)I_{n-5}\\
+		I_n &= \frac{1}{n+21}\left(32-(n-4)I_{n-5}\right)
+	\end{align*}
+	\hrulefill
+	\newpage
+	\begin{example}
+		Given $I_n = \int_0^1 (1+x^2)^{-n}\,dx$, show that $2n\,I_{n+1} = 2^{-n} + (2n-1)\,I_n$
+	\end{example}
+	\begin{align*}
+		I_n                   & = \int_0^1 (1+x^2)^{-n}\,dx                                             \\
+		& = \int_0^1  (1+x^2)^{-n}\cdot 1 \,dx                                    \\
+		\therefore \quad  I_n & = -2nx^2(1+x^2)^{-(n+1)}\bigg|_0^1 + 2n \int_0^1x^2(1+x^2)^{-n-1}\,dx   \\
+						   	  & =2^{-n} + 2n\int_0^1(x^2+1-1)(1+x^2)^{-(n+1)}\,dx                       \\
+						      & =2^{-n} + 2n \int_0^1(1+x^2)^{-2}\,dx - 2n\int_0^1 (1+x^2)^{-(n+1)}\,dx \\
+							  & = 2^{-n} + 2n\,I_n - 2n\,I_{n+1}                                        \\
+           	      2n\,I_{n+1} & = 2^{-n} + (2n-1)\,I_n                                                 
+	\end{align*}
+\end{document}

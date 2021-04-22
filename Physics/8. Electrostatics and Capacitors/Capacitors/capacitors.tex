@@ -8,6 +8,7 @@ marginparsep = 0pt,
 marginparwidth=0pt,
 ]{geometry}
 
+\usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{fancyhdr}
 \usepackage[siunitx]{circuitikz}[european resistors	]
@@ -16,18 +17,19 @@ marginparwidth=0pt,
 \ctikzset{resistor = european}
 \usepackage{tikz}
 \usepackage{pgfplots}                %Tikz and GeoGebra integration
-\usepackage{multicol}
-\usepackage{amsmath}
+\usepackage{multicol} 
 \pagestyle{fancy}
 \fancyhead[l]{Capacitors - Abridged edition}
-\fancyhead[r]{Giorgio G.}
+\fancyhead[r]{Giorgio Grigolo \textcopyright}
 \fancyfoot[c]{ }
 \fancyfoot[r]{\thepage}
 
 \begin{document}
 	\section{Capacitance definition: }
 	
-	\textbf{Capacitance} is defined as the amount of charge a capacitor can store per unit potential difference across it.
+\begin{center}
+		\textbf{Capacitance} is the ratio of the change in an electric charge in a system to the corresponding change in its electric potential.
+\end{center}
 	
 	\section{Capacitor symbol: }
 	
@@ -39,31 +41,35 @@ marginparwidth=0pt,
 	
 	\section{Capacitance equation: }
 	\[Q = CV\]
-	Where $C$ is capacitance (\si{\farad}), $Q$ is the charge (\si{\coulomb}) stored in the and V is the potential difference (\si{\volt}) between the plates.
+	\begin{center}
+		Where $C$ is capacitance (\si{\farad}), $Q$ is the charge (\si{\coulomb}) stored in the and V is the potential difference (\si{\volt}) between the plates.
+	\end{center}
 	
 	\section{Capacitance equation (given area and distance of plates): }
 	\[C = \varepsilon\frac{A}{d}\]
-	Where $C$ is capacitance (\si{\farad}), $\varepsilon$ is absolute permittivity ($\varepsilon_0 \, \varepsilon_r$), $A$ is the common area (\si{\meter\squared}) of overlap and $d$ the seperation (\si{meter}) of the plates.
+	\begin{center}
+		Where $C$ is \textbf{capacitance} (\si{\farad}), $\varepsilon$ is \textbf{absolute permittivity} ($\varepsilon_0 \, \varepsilon_r$), $A$ is the \textbf{common area} (\si{\meter\squared}) of overlap and $d$ the \textbf{seperation} (\si{meter}) of the plates.
+	\end{center}
 	
 	\section{Charging capacitor: }
 	
 	\begin{multicols}{3}
 		
-		{\begin{circuitikz} 
+		{\begin{circuitikz}[scale=0.7]
 				\draw(0,0) to[battery, l=6<\volt>] (4,0)
 				to[resistor, l=6<\volt>] (4,4) 
 				to[capacitor, l=0<\volt>] (0,4) -- (0,0);
 			\end{circuitikz}
 			\captionof{figure}{Uncharged capacitor}}
 		
-		{\begin{circuitikz} \draw
+		{\begin{circuitikz}[scale=0.7] \draw
 				(0,0) to[battery, l=6<\volt>] (4,0)
 				to[resistor, l=2<\volt>] (4,4) 
 				to[capacitor, l=4<\volt>] (0,4) -- (0,0);
 			\end{circuitikz}
 			\captionof{figure}{Some time after charging}}
 		
-		{\begin{circuitikz} \draw
+		{\begin{circuitikz}[scale=0.7] \draw
 				(0,0) to[battery, l=6<\volt>] (4,0)
 				to[resistor, l=0<\volt>] (4,4) 
 				to[capacitor, l=6<\volt>] (0,4) -- (0,0);
@@ -73,7 +79,7 @@ marginparwidth=0pt,
 	\end{multicols}
 	\section{Charge of capacitor at any given second: }
 	\begin{equation}
-		Q=It\tag{\si{\coulomb}}
+ 		Q=It\tag{\si{\coulomb}}
 	\end{equation}
 	
 	\section{Dis/charging time formula: }
@@ -223,15 +229,20 @@ marginparwidth=0pt,
 	\end{multicols}
 	
 	\section{Dis/charging capacitor circuit: }
-	\begin{center}
+	
+\begin{multicols}{2}
+		\begin{center}
 		{\begin{circuitikz} 
-				\draw (0,0) to  (0,-2) -- (8,-2)  -- (8,-1)  to [short, *-, l^=B] (8,-1); 
+				\draw (0,0) to  (0,-3) -- (8,-3)  -- (8,-1)  to [short, *-, l^=B] (8,-1); 
 				\draw (0,0) -- (0,2) to [battery] (8,2) -- (8,1) to [short, *-, l^=A] (8,1);
 				\draw (0,0) to  [capacitor] (4,0) to [vR] (7 ,0) to [short, *-] (8,0);
 				\draw (0,0) to (1,0) to  (1,-1.5) [voltmeter] (1,-1.5) to (3,-1.5) -- (3,0);
-			\end{circuitikz}
-			\captionof*{figure}{{\small A: Charging at 63\% every $\tau$.
-								\\B: Discharging at 37\% every $\tau$}.}}
-	\end{center}
+			\end{circuitikz}}
+	\end{center}\begin{center}
+	~\\~\\~\\~\\
+		A: Charging at 63\% every $\tau$.\\
+  		B: Discharging at 37\% every $\tau$.
+\end{center}
+\end{multicols}
 
 \end{document}     

@@ -1,0 +1,66 @@
+\documentclass[11pt]{article}
+
+\usepackage[
+top    = 2.50cm,% presumably you don't want it to be 0pt as well?
+bottom = 2.50cm,
+left   = 2cm,
+right  = 2cm,
+marginparsep = 0pt,
+marginparwidth=0pt,
+]{geometry}
+\usepackage{amssymb}
+\usepackage{fancyhdr}
+\usepackage[most]{tcolorbox}
+\usepackage{siunitx}
+\usepackage{amsmath}
+\usepackage{tikz}
+\usetikzlibrary{decorations.markings}
+\usepackage{caption}
+\usepackage{pgfplots}
+\usepackage{multicol}
+\pagestyle{fancy}
+\fancyhead[l]{Electrostatics - Abridged edition}
+\fancyhead[r]{Giorgio Grigolo {\textcopyright}}
+\tikzset{
+	mypath/.style={
+		postaction=decorate,
+		decoration={markings,
+			mark=at position #1 with {\coordinate (x);\arrow{>}}},
+		thick},
+	>=stealth
+}
+\begin{document}                          
+\section{Coulomb's Law}
+\begin{center}
+	\textit{The force between two point charges $Q_1$ and $Q_2$ is directly proportional to the product of the two charges and inversely proportional to the square of their distance apart.}
+\end{center}
+\begin{equation}
+	F=\frac{1}{4\pi\varepsilon}\frac{Q_1Q_2}{d^21}
+\end{equation}
+\begin{center}
+	Where $F$ is the \textbf{electrostatic force}, $\varepsilon$ is the \textbf{absolute permittivity} (\si{\farad\per\meter}) of the medium, $Q_1$ and $Q_2$ are two different point \textbf{charges} (\si{\coulomb}) and $d$ the \textbf{distance} (\si\meter) between them.
+\end{center}
+\section{Gain in K.E. = Loss in P.E.}
+\begin{equation}
+	\Delta{\rm P.E.} = qV = \Delta\rm{K.E.}\tag{\si{\joule}}
+\end{equation}
+\begin{center}
+	Where $q$ is the particle's charge and $V$ the \textbf{potential difference} (\si{\volt}) between two charged plates.
+\end{center}
+\section{Electric field strength between plates}
+
+	\subsection{Equation: }
+	\begin{equation}
+	E=\frac{V}{d}\quad,\quad V=V_2-V_1\tag{\si{\newton\per\coulomb}}
+	\end{equation}
+	\subsection{Diagram: }
+	\begin{center}
+		\begin{tikzpicture}[scale=1.4]
+		\draw(0,0) --(0,4) node[left]{$V_1$};
+		\draw(4,0)--(4,4)node[right]{$V_2$};
+		\draw[thick, <->] (0.1,3.5) -- node[above]{$d$} (3.9,3.5);
+		\node[circle,fill,inner sep=4pt,label=right:{\tiny$q\,\mu\si{\coulomb}$}] at (0.14,2) {};
+	\end{tikzpicture} 
+	\end{center}
+
+\end{document}
