@@ -1,5 +1,5 @@
 # School Notes
-My personal 6th form notes which where made in LaTeX. In the future, possibly these will be released on a fee, together with their source code.
+My personal 6th form notes which where made in LaTeX. 
 
 ---
 
